@@ -39,6 +39,7 @@ class House(models.Model):
 
     model = models.CharField(max_length=50,
                              verbose_name="model number")
+
     area = models.FloatField(default=0.00)
 
     floors = models.IntegerField(choices=makeChoice(10),
@@ -112,13 +113,13 @@ class Image(models.Model):
     house = models.ForeignKey('House',
                               on_delete=models.CASCADE,
                               help_text="Please attach images",
-                              verbose_name="Images",
+                              verbose_name="House",
                               null=True,
                               blank=False)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
 
     def __str__(self):
-        return self.image
+        return '%s' % self.image
 
 class Material(models.Model):
     name = models.CharField(max_length=30,

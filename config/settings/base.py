@@ -28,11 +28,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'debug_toolbar',
     'arch',
     'django_extensions',
+    'rest_framework',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -41,6 +47,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+#   'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -118,3 +126,23 @@ STATIC_ROOT = BASE_DIR /'staticfiles'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#DJDT
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '127.0.0.1:8000',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#        'localhost:3000',
+# )
+
+
+# this is the main reason for not showing up the toolbar
+import mimetypes
+mimetypes.add_type("application/javascript", ".js", True)
+
+DEBUG_TOOLBAR_CONFIG = {
+    "INTERCEPT_REDIRECTS": False,
+}
