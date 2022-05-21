@@ -2,15 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/arch/migrations/0003_house_garage_alter_house_kitchen_living_room_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/BASIL/101021_3_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/BASIL/101021_3_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/BASIL/101021_3_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/BASIL/101021_3_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/BASIL/101021_3_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/CUBE/010921_1_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/CUBE/010921_1_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/CUBE/010921_1_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/CUBE/010921_1_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/CUBE/010921_1_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houses/HAN/210522_8.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0002_house_floors.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/migrations/0002_image_time_update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0003_alter_house_floors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0004_house_size_alter_house_floors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0005_alter_house_size.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0006_material_style_house_roof_alter_house_size_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0007_alter_material_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0008_house_entrance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0009_house_bedroom_alter_house_entrance_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0010_house_bathroom_house_kitchen_living_room_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0011_house_fireplace_house_laundry_house_tech_room_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +79,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PYTHON/DRF/drf1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PYTHON/DJANGO/World_books_befdep" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="ReaderModeSettings">

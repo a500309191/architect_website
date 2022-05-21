@@ -168,3 +168,9 @@ cython_debug/
 
 #node
 node_modules/
+
+#my personal instruction
+GITHUB_instruction.txt
+
+#Houses media files to populate database
+houses/

@@ -1,28 +1,5 @@
 from django.db import models
 
-"""
-HOUSE ATTRIBUTES:
-Model 
-Area
-Floors - [1,2,3,4,5]
-Size - [tiny, medium, large]
-Material - [stone, wood]
-Roof - [pitched, flat]
-Style - [traditional, contemporary]
-Entrances
-Images
-
-Rooms
-    bedroom
-    bathroom
-    *connected lounge-kitchen 
-    *utility room
-    *laundry
-    *terrace
-    *fireplace
-
-"""
-
 class House(models.Model):
     def makeChoice(maxNumber):
         # Func for making tuple of tuples like:
@@ -37,86 +14,85 @@ class House(models.Model):
                 choiceTuple += (i,)
         return choiceTuple
 
-    model = models.CharField(max_length=50,
-                             verbose_name="model number")
-
+    model_name = models.CharField(max_length=50,
+                             verbose_name="Model name")
     area = models.FloatField(default=0.00)
-
     floors = models.IntegerField(choices=makeChoice(10),
+                                 verbose_name="Floors",
                                  default=1)
-
     sizes_choice = ((1, 'tiny'),
                     (2, 'medium'),
                     (3, 'large'))
     size = models.IntegerField(choices=sizes_choice,
-                               help_text="Select house size",
                                verbose_name="House size")
-
     material = models.ForeignKey('Material',
                                  on_delete=models.CASCADE,
-                                 help_text="Select material type",
                                  verbose_name="Material type",
                                  null=True)
-
     style = models.ForeignKey('Style',
                               on_delete=models.CASCADE,
-                              help_text="Select architectural style",
                               verbose_name="Architectural style",
                               null=True)
-
     roofs_choice = ((1,'pitched'),
-                    (2,'flat'))
+                    (2,'flat'),
+                    (3, 'combined'))
     roof = models.IntegerField(choices=roofs_choice,
-                               help_text="Select roof type",
                                verbose_name="Roof type",
                                null=True)
-
     entrance = models.IntegerField(choices=makeChoice(5),
-                                   help_text="Select the number of entrances",
                                    verbose_name="Number of entrances",
                                    default=1)
-
     bedroom = models.IntegerField(choices=makeChoice(10),
-                                  help_text="Select the number of bedrooms",
                                   verbose_name="Number of bedrooms",
                                   default=1)
-
     bathroom = models.IntegerField(choices=makeChoice(10),
-                                  help_text="Select the number of bathrooms",
                                   verbose_name="Number of bathrooms",
                                   default=1)
 
     #checkbox fields
-    cb_help = "Check the box if yes"
+    quest = "Is there a"
+    kitchen_living_room = models.BooleanField(default=True, verbose_name="Kitchen connected to living room",)
+    tech_room = models.BooleanField(default=True, verbose_name=f"{quest} technical room",)
+    laundry = models.BooleanField(default=False, verbose_name=f"{quest} laundry",)
+    terrace = models.BooleanField(default=False, verbose_name=f"{quest} terrace",)
+    fireplace = models.BooleanField(default=False, verbose_name=f"{quest} fireplace",)
+    garage = models.BooleanField(default=False, verbose_name=f"{quest} garage",)
 
-    kitchen_living_room = models.BooleanField(default=False, help_text=cb_help,
-                                         verbose_name="Kitchen connected to living room",)
-
-    tech_room = models.BooleanField(default=False, help_text=cb_help,
-                                         verbose_name="Is there a technical room",)
-
-    laundry = models.BooleanField(default=False, help_text=cb_help,
-                                         verbose_name="Is there a laundry",)
-
-    terrace = models.BooleanField(default=False, help_text=cb_help,
-                                         verbose_name="Is there a terrace",)
-
-    fireplace = models.BooleanField(default=False, help_text=cb_help,
-                                         verbose_name="Is there a fireplace",)
-
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.model
-
+        return self.model_name
 
 class Image(models.Model):
+    def path_rename(self, filename):
+        import os
+        upload_to = f'images/{self.house}'
+        ext = filename.split('.')[-1]
+        image_number = 1
+        filename = '{}_{}.{}'.format(self.house, image_number, ext)
+        images = Image.objects.all()
+        try:
+            image = Image.objects.get(image=f'{upload_to}/{filename}')
+            while image in images:
+                image_number += 1
+                filename = '{}_{}.{}'.format(self.house, image_number, ext)
+                image = Image.objects.get(image=f'{upload_to}/{filename}')
+        except:
+            return os.path.join(upload_to, filename)
+
     house = models.ForeignKey('House',
                               on_delete=models.CASCADE,
                               help_text="Please attach images",
                               verbose_name="House",
                               null=True,
                               blank=False)
-    image = models.ImageField(null=True, blank=True, upload_to='images/')
+    image = models.ImageField(null=True, blank=True, upload_to=path_rename)
+    time_update = models.DateTimeField(auto_now=True)
+
+    # def add(request):
+    #     image = request.POST['image']
+    #     image._name = request.house
 
     def __str__(self):
         return '%s' % self.image
@@ -125,7 +101,6 @@ class Material(models.Model):
     name = models.CharField(max_length=30,
                             help_text="Input material type",
                             verbose_name="Material type")
-
     def __str__(self):
         return self.name
 
@@ -133,6 +108,5 @@ class Style(models.Model):
     name = models.CharField(max_length=30,
                             help_text="Input architectural style",
                             verbose_name="Architectural style")
-
     def __str__(self):
         return self.name
