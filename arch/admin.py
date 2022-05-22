@@ -35,6 +35,7 @@ class ImageAdmin(admin.ModelAdmin):
         ("HOUSE PARAMETERS", {
             "fields": ("model_name",
                        "area",
+                       "floors",
                        "size",
                        "material",
                        "style",

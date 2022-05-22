@@ -1,20 +1,10 @@
-import React, {useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { makeImageTitles } from "../functions/makeImageTitles"
+import { GetJsonData } from "../functions/GetJsonData"
 
-export const Images = () => {
+export const Images = ({url}) => {
 
-    let [images, setImages] = useState([])
-
-    useEffect(() => {
-        getImages()
-    }, [])
-
-    let getImages = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/imagelist/')
-        let data = await response.json()
-        console.log('IMAGES DATA:', data)
-        setImages(data)
-    }
+    let images = GetJsonData(url)
 
     // func takes only the first image in the list of images of one house
     let imageTitles = makeImageTitles(images)
