@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/House.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/House.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/makeImageTitles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/getFirstHouseImages.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="25TlnigBUnihGYd7nvoxcmSdICS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

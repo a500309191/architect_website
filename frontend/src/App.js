@@ -1,7 +1,6 @@
 import './App.css';
 import { HousesList } from './components/HousesList'
 import { House } from './components/House'
-import { Images } from './components/Images'
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,8 +9,8 @@ function App() {
         <Routes>
             <Route path='/' element={
                 <HousesList
-                    params_url = 'http://127.0.0.1:8000/api/houselist/'
-                    images_url = 'http://127.0.0.1:8000/api/imagelist/'
+                    params_url = 'http://127.0.0.1:8000/api/house/'
+                    images_url = 'http://127.0.0.1:8000/api/image/'
                 />
             }/>
             <Route path='/House' element={<House />}/>

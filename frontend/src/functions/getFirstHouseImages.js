@@ -1,6 +1,6 @@
-export const makeImageTitles = images => {
+export const getFirstHouseImages = images => {
 
-    let imageTitles = [];
+    let firstHouseImages = [];
 
     //filter loop
     //adds an image of only the house whose image is not in the list
@@ -8,9 +8,9 @@ export const makeImageTitles = images => {
         let item = images[i];
         let prev_item = images[i-1];
         if (prev_item == undefined || item.house != prev_item.house) {
-            imageTitles.push(item)
+            firstHouseImages.push(item)
         }
     }
 
-    return imageTitles;
+    return firstHouseImages;
 }

@@ -1,5 +1,27 @@
-export const House = () => {
+import { useLocation } from 'react-router-dom';
+
+export const House = (props) => {
+
+    const location = useLocation();
+    const state = location.state;
+    console.log(state);
+
     return (
-        <h1>TEST HOUSE PAGE</h1>
+        <>
+            <div>
+                <h1>HOUSE {state.x} PAGE</h1>
+                <h1>AREA {state.area}</h1>
+                {state.images.map((image, index) => (
+                    <div key={index}>
+                        <img
+                            src={image.image}
+                            style = {{
+                                width: 300
+                            }}
+                        />
+                    </div>
+                ))}
+            </div>
+        </>
     )
 }
