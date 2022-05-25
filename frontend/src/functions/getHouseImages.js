@@ -5,9 +5,9 @@ export const getHouseImages = (images, houseId) => {
     let houseImages = []
 
     for (let i = 0; i < images.length; i++) {
-        let item = images[i];
-            if (item.house == houseId) {
-           houseImages.push(item)
+        let image = images[i];
+            if (image.house == houseId) {
+           houseImages.push(image)
         }
     }
 

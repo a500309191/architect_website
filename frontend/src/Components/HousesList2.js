@@ -11,8 +11,9 @@ export const HousesList = ({images_url, houses_url}) => {
     let [houses, setHouses] = useState([]);
 
     useEffect(() => {
+        console.log("useEffect_1")
         GetJsonData(images_url, houses_url)
-        console.log("useEffect_houselist")
+        console.log("useEffect_2")
     }, [])
 
     let GetJsonData = async (images_url, houses_url) => {
@@ -39,6 +40,11 @@ export const HousesList = ({images_url, houses_url}) => {
                             pathname: `house/${index+1}`
                         }}
                         key={index}
+                        state={{
+                            model_name: house.model_name,
+                            area: house.area,
+                            images: getHouseImages(images, index+1)
+                        }}
                     >
                         <div
                             style = {{
