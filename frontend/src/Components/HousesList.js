@@ -1,50 +1,42 @@
-import React, {useState, useEffect } from "react";
-import { getFirstHouseImages } from "../functions/getFirstHouseImages";
-import { getHouseImages } from "../functions/getHouseImages";
-
+import React, {useState, useEffect, useCallback } from "react";
+import { useFetch } from "../hooks/useFetch";
+import { getHousesAreas } from "../functions/getHousesAreas";
 import { Link } from "react-router-dom";
 import { House } from "./House";
+import { Fetch } from "./Fetch";
+import MultiRangeSlider from "./MultiRangeSlider/MultiRangeSlider";
+import { AreaFilter } from "./AreaFilter";
 
-export const HousesList = ({images_url, houses_url}) => {
 
-    let [images, setImages] = useState([]);
-    let [houses, setHouses] = useState([]);
+const address = 'http://127.0.0.1:8000/media/'
 
-    useEffect(() => {
-        GetJsonData(images_url, houses_url)
-        console.log("useEffect_houselist")
-    }, [])
+export const HousesList = () => {
+    return (
+        <Fetch
+            uri = 'http://127.0.0.1:8000/api/house/'
+            renderSuccess = {HouseListView}
+        />
+    )
+}
 
-    let GetJsonData = async (images_url, houses_url) => {
-
-        let response1 = await fetch(images_url)
-        let imagesData = await response1.json()
-        console.log(`IMAGES DATA FROM: ${images_url}`, imagesData)
-        setImages(imagesData )
-
-        let response2 = await fetch(houses_url)
-        let housesData  = await response2.json()
-        console.log(`HOUSES DATA FROM: ${houses_url}`, housesData )
-        setHouses(housesData )
-    }
-
-    let firstHouseImages = getFirstHouseImages(images);
+const HouseListView = ({data}) => {
+    console.log("data: ", data)
 
     return (
         <>
+            <AreaFilter data={data}/>
+
             <div className="houses-list">
-                {houses.map((house, index) => (
+                {data.map((house, index) => (
                     <Link
-                        to={{
-                            pathname: `house/${index+1}`
-                        }}
+                        to={{pathname: `house/${index+1}`}}
                         key={index}
                     >
                         <div
                             style = {{
                                 width: 320,
                                 height: 200,
-                                backgroundImage: `url(${firstHouseImages[index].image})`,
+                                backgroundImage: `url(${address}${house.images[0]})`,
                                 backgroundSize: 'cover'
                             }}
                         >
@@ -56,3 +48,5 @@ export const HousesList = ({images_url, houses_url}) => {
         </>
     )
 }
+
+

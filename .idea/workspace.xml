@@ -3,10 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Comment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/House.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/House.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/House1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/House2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/functions/GetJsonData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/GetJsonData1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/functions/getHouseImages.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/getHouseImages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/TestComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/GetJsonData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/GetJsonData1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/GetJsonData_reserve.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/Test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/getFirstHouseImages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/getHouseImages.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +71,14 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hard" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\functions" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MultiRangeSlider" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hooks" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hard" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\functions" />
     </key>
   </component>
