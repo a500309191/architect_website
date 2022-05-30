@@ -10,6 +10,13 @@ import { FiltersCollector } from "./FiltersCollector";
 
 export const Filters = ({data}) => {
 
+//    const [minAreaValue, setMinAreaValue] = useState()
+//    const [maxAreaValue, setMaxAreaValue] = useState()
+//    const handleAreaValuesChange = (minAreaValue, maxAreaValue) => {
+//        setMinAreaValue(minAreaValue)
+//        setMaxAreaValue(maxAreaValue)
+//    }
+
     const [areaValueLimits, setAreaValueLimits] = useState()
     const handleAreaValuesChange = (areaValueLimits) => {
         setAreaValueLimits(areaValueLimits)

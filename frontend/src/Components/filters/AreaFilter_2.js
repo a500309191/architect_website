@@ -12,14 +12,12 @@ export const AreaFilter = ({data, onChange}) => {
     const minArea = Math.floor(Math.min(...housesAreas))
     const maxArea = Math.ceil(Math.max(...housesAreas))
 
-//    const [minAreaValue, setMinAreaValue] = useState(minArea)
-//    const [maxAreaValue, setMaxAreaValue] = useState(maxArea)
-
-    const [areaValueLimits, setAreaValueLimits] = useState(JSON.stringify({minArea, maxArea}))
+    const [minAreaValue, setMinAreaValue] = useState(minArea)
+    const [maxAreaValue, setMaxAreaValue] = useState(maxArea)
 
     useEffect(() => {
-        onChange(areaValueLimits)
-    }, [areaValueLimits])
+        onChange(minAreaValue, maxAreaValue)
+    }, [minAreaValue, maxAreaValue])
 
     return (
         <>
@@ -27,8 +25,8 @@ export const AreaFilter = ({data, onChange}) => {
                 min={minArea}
                 max={maxArea}
                 onChange={({min, max}) => {
-                    setAreaValueLimits(JSON.stringify({min, max}))
-                    setAreaValueLimits(JSON.stringify({min, max}))
+                    setMinAreaValue(min)
+                    setMaxAreaValue(max)
                 }}
             />
         </>

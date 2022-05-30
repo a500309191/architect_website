@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/Components/Filters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/AreaFilter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Filters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/functions/getHousesAreas.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/getHousesAreas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/filters" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/MultiRangeSlider" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="ReaderModeSettings">
@@ -57,11 +58,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MultiRangeSlider" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hard" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\functions" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MultiRangeSlider" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />

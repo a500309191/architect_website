@@ -6,6 +6,8 @@ import { House } from "./House";
 import { Fetch } from "./Fetch";
 import MultiRangeSlider from "./MultiRangeSlider/MultiRangeSlider";
 import { Filters } from "./Filters";
+import { FiltersCollector } from "./FiltersCollector";
+import { List } from "./List";
 
 
 const address = 'http://127.0.0.1:8000/media/'
@@ -25,6 +27,11 @@ const HouseListView = ({data}) => {
     return (
         <>
             <Filters data={data}/>
+            <List
+                data={data}
+                minAreaValue={0}
+                maxAreaValue={1000}
+            />
         </>
     )
 }

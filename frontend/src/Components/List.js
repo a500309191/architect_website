@@ -5,14 +5,14 @@ const address = 'http://127.0.0.1:8000/media/'
 
 export const List = ({
         data,
-        minSliderValue,
-        maxSliderValue,
+        minAreaValue,
+        maxAreaValue,
     }) => {
     return (
         <>
             <div className="houses-list">
                 {data.map((house, index) => {
-                    if (house.area > minSliderValue && house.area < maxSliderValue) {
+                    if (house.area > minAreaValue && house.area < maxAreaValue) {
                         return (
                         <Link
                             to={{pathname: `house/${index+1}`}}
