@@ -20,11 +20,13 @@ class House(models.Model):
     floors = models.IntegerField(choices=makeChoice(10),
                                  verbose_name="Floors",
                                  default=1)
-    sizes_choice = ((1, 'tiny'),
-                    (2, 'medium'),
-                    (3, 'large'))
+    sizes_choice = ((1, "tiny"),
+                    (2, "medium"),
+                    (3, "large"),
+                    (4, "extra large"))
     size = models.IntegerField(choices=sizes_choice,
-                               verbose_name="House size")
+                               verbose_name="House size",
+                               default=2)
     material = models.ForeignKey('Material',
                                  on_delete=models.CASCADE,
                                  verbose_name="Material type",
@@ -64,6 +66,7 @@ class House(models.Model):
     def __str__(self):
         return self.model_name
 
+
 class Image(models.Model):
     def path_rename(self, filename):
         import os
@@ -90,12 +93,9 @@ class Image(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to=path_rename)
     time_update = models.DateTimeField(auto_now=True)
 
-    # def add(request):
-    #     image = request.POST['image']
-    #     image._name = request.house
-
     def __str__(self):
         return '%s' % self.image
+
 
 class Material(models.Model):
     name = models.CharField(max_length=30,
@@ -103,6 +103,7 @@ class Material(models.Model):
                             verbose_name="Material type")
     def __str__(self):
         return self.name
+
 
 class Style(models.Model):
     name = models.CharField(max_length=30,

@@ -1,11 +1,6 @@
 import React, {useState, useEffect, useCallback } from "react";
 import { useFetch } from "../hooks/useFetch";
-import { getHousesAreas } from "../functions/getHousesAreas";
-import { Link } from "react-router-dom";
-import { House } from "./House";
 import { Fetch } from "./Fetch";
-import MultiRangeSlider from "./MultiRangeSlider/MultiRangeSlider";
-import { Filters } from "./Filters";
 import { FiltersCollector } from "./FiltersCollector";
 import { List } from "./List";
 
@@ -21,16 +16,16 @@ export const HousesList = () => {
     )
 }
 
+
 const HouseListView = ({data}) => {
+    console.log("HouseListView")
     console.log("data: ", data)
 
     return (
         <>
-            <Filters data={data}/>
+            <FiltersCollector data={data}/>
             <List
                 data={data}
-                minAreaValue={0}
-                maxAreaValue={1000}
             />
         </>
     )

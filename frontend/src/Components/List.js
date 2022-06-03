@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 const address = 'http://127.0.0.1:8000/media/'
 
 export const List = ({
-        data,
-        minAreaValue,
-        maxAreaValue,
+        data
     }) => {
+
+    let minAreaValue = 0
+    let maxAreaValue = 1000
+
     return (
         <>
             <div className="houses-list">

@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/filters/FloorsFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/filters/templates/MultiRangeSlider/MultiRangeSlider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/filters/templates/MultiRangeSlider/multiRangeSlider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Filters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Filters.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Filters_1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Filters_2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MultiRangeSlider/MultiRangeSlider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MultiRangeSlider/multiRangeSlider.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter_1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/filters/AreaFilter_2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/filters/FloorFilter.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +62,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/MultiRangeSlider" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/filters/templates/MultiRangeSlider" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="ReaderModeSettings">
@@ -58,17 +70,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MultiRangeSlider" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates\MultiRangeSlider" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hard" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\functions" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MultiRangeSlider" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hooks" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\hard" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\functions" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
