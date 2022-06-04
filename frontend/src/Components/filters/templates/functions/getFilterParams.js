@@ -1,6 +1,6 @@
 export const getFilterParams = ({filterType, data}) => {
 
-    let paramsDict = {}
+    let paramsCountDict = {}
     let paramsList = []
     let excessParamsList = []
 
@@ -11,13 +11,13 @@ export const getFilterParams = ({filterType, data}) => {
     }
 
     excessParamsList.forEach(key => {
-        paramsDict[key] = (paramsDict[key] || 0) + 1
+        paramsCountDict[key] = (paramsCountDict[key] || 0) + 1
     })
 
-    for (let param in paramsDict) {
+    for (let param in paramsCountDict) {
         paramsList.push(param)
     }
 
-    return [paramsDict, paramsList]
+    return [paramsCountDict, paramsList]
 }
 

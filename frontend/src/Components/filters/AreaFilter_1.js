@@ -18,9 +18,7 @@ export const AreaFilter = ({data, onChange}) => {
             <MultiRangeSlider
                 min={minArea}
                 max={maxArea}
-                onChange={event => onChange(JSON.stringify(
-                    [{minArea: event.min}, {maxArea: event.max}]
-                ))}
+                onChange={event => onChange(JSON.stringify(event))}
             />
         </>
     )

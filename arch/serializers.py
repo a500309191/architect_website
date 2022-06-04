@@ -23,10 +23,10 @@ class HouseSerializer(serializers.ModelSerializer):
         data["roof"] = instance.roofs_choice[instance.roof-1][1]
 
         material = Material.objects.get(id=data["material"])
-        data["material"] = material.name
+        data["material"] = material.name.lower()
 
         style = Style.objects.get(id=data["style"])
-        data["style"] = style.name
+        data["style"] = style.name.lower()
 
         return data
 
