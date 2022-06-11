@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { MultipleCheckboxFilter } from "./filters/templates/MultipleCheckboxFilter";
-import { SingleCheckboxFilters } from "./filters/templates/SingleCheckboxFilters";
+import { BooleanCheckboxFilter } from "./filters/templates/BooleanCheckboxFilter";
 import { AreaFilter } from "./filters/AreaFilter";
 
 
-export const FiltersCollector = ({data}) => {
+export const FiltersCollector = ({
+        data,
+        multipleCheckboxFiltersCollector,
+        booleanCheckboxFiltersCollector,
+        areaFilterCollector
+    }) => {
 
-    const [areaFilter, setAreaFilter] = useState()
-    const [multipleCheckboxFilters, setMultipleCheckboxFilters] = useState()
-    const [singleCheckboxFilters, setSingleCheckboxFilters] = useState()
-
-    const [filters, setFilters] = useState()
-
-    useEffect(() => {
-        setFilters([areaFilter, multipleCheckboxFilters, singleCheckboxFilters])
-    }, [areaFilter, multipleCheckboxFilters, singleCheckboxFilters])
+    //console.log("FiltersCollector")
 
     //This array sets filters sequence on the page
     const multipleCheckboxFilterList = [
@@ -32,13 +29,14 @@ export const FiltersCollector = ({data}) => {
     const textStyle = { marginLeft: "5" }
     const countStyle = { opacity: "0.5", marginLeft: "5" }
     const filterStyle = { margin: "5", backgroundColor: "#CFD1E1" }
+    const booleanStyle = { marginTop: "25" }
 
     return (
         <>
             <div>
                 <AreaFilter
                     data={data}
-                    onChange={ e => setAreaFilter(e)}
+                    onChange={e => areaFilterCollector(e)}
                 />
             </div>
 
@@ -46,7 +44,7 @@ export const FiltersCollector = ({data}) => {
                 <MultipleCheckboxFilter
                     data={data}
                     multipleCheckboxFilterList={multipleCheckboxFilterList}
-                    onChange={e => setMultipleCheckboxFilters(e)}
+                    onChange={e => multipleCheckboxFiltersCollector(e)}
                     checkboxStyle={checkboxStyle}
                     textStyle={textStyle}
                     countStyle={countStyle}
@@ -55,20 +53,19 @@ export const FiltersCollector = ({data}) => {
             </div>
 
             <div>
-                <SingleCheckboxFilters
+                <BooleanCheckboxFilter
                     data={data}
                     checkboxStyle={checkboxStyle}
-                    onChange={e => setSingleCheckboxFilters(e)}
+                    onChange={e => booleanCheckboxFiltersCollector(e)}
                     header="BOOLEAN FILTERS"
                     textStyle={textStyle}
                     countStyle={countStyle}
                     filterStyle={filterStyle}
+                    booleanStyle={booleanStyle}
                 />
-            </div>
-
-            <div style = {{ margin: "10", marginLeft: "0"}}>
-                <h3>{JSON.stringify(filters)}</h3>
             </div>
         </>
     )
 }
+
+

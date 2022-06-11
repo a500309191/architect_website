@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getBooleanFilters } from "./functions/getBooleanFilters";
 import { makeFilterList } from "./functions/makeFilterList";
 
-export const SingleCheckboxFilters = ({
+export const CheckboxBooleanValueFilter = ({
         data,
         checkboxStyle,
         onChange,

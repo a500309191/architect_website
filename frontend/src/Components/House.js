@@ -1,6 +1,6 @@
 import { useLocation, useParams,  Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { HousesList } from "./HousesList";
+import { HousesListPage } from "./HousesListPage";
 import { Fetch } from "./Fetch";
 import { useFetch } from "../hooks/useFetch";
 

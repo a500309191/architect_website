@@ -15,7 +15,8 @@ export const getFilterParams = ({filterType, data}) => {
     })
 
     for (let param in paramsCountDict) {
-        paramsList.push(param)
+        if (Number(param)) { paramsList.push(Number(param)) }
+        else paramsList.push(param)
     }
 
     return [paramsCountDict, paramsList]

@@ -1,53 +1,68 @@
 import React, { useState, useEffect } from "react";
-import { getNotBooleanFilters } from "./functions/getNotBooleanFilters";
 import { getFilterParams } from "./functions/getFilterParams";
 import { makeFilterList } from "./functions/makeFilterList";
 
 export const MultipleCheckboxFilter = ({
         data,
-        filterType,
+        multipleCheckboxFilterList,
         onChange,
         checkboxStyle,
         textStyle,
         countStyle,
+        filterStyle,
     }) => {
 
-    const notBooleanFilterList = getNotBooleanFilters(data)
-    console.log(notBooleanFilterList)
-    const [filterParamsCountDict, filterParamsList] = getFilterParams({filterType, data})
-    const filterList = makeFilterList(filterParamsList)
-
-    const [filter, setFilter] = useState(filterList)
+    const filters = []
+    const [filterList, setFilterList] = useState(filters)
 
     useEffect(() => {
-        onChange(JSON.stringify(filter))
-    }, [filter])
+        onChange(JSON.stringify(filterList))
+    }, [filterList])
 
     return (
-        <>
-            <div>{filterType.toUpperCase()} FILTER</div>
-            <div>
-                {filterList.map((_, index) => {
-                    let param = filterParamsList[index]
-                    let count = filterParamsCountDict[param]
-                    return (
-                        <div key={index} style={checkboxStyle}>
-                            <input
-                                type="checkbox"
-                                defaultChecked
-                                onChange = {() => {
-                                    setFilter(filterList => {
-                                        filterList[index][param] = !filterList[index][param]
-                                        return [...filterList]
-                                    })}}
-                            />
-                            <label style={textStyle}>{param}</label>
-                            <label style={countStyle}>[{count}]</label>
-                        </div>
-                    )
-                })}
-            </div>
-        </>
+        <div>
+            {multipleCheckboxFilterList.map((filterType, index1) => {
+
+                let [filterParamsCountDict, filterParamsList] = getFilterParams({filterType, data})
+                let filterList = makeFilterList(filterParamsList)
+                console.log(filterList)
+
+                let filter = { [`${filterType}`]:filterList }
+                console.log(filter)
+                filters.push(filter)
+
+                return (
+                    <div key={index1} style={filterStyle}>
+                        <div>{filterType.toUpperCase()} FILTER</div>
+                        {filterList.map((_, index2) => {
+
+                            let param = filterParamsList[index2]
+                            let count = filterParamsCountDict[param]
+
+                            return (
+                                <div key={index2} style={checkboxStyle}>
+                                    <input
+                                        type="checkbox"
+                                        defaultChecked
+                                        onChange = {() => {
+                                            setFilterList(
+                                                filterList => {
+                                                    filterList[index1][filterType][index2][param]
+                                                    = !filterList[index1][filterType][index2][param]
+                                                    return [...filterList]
+                                                }
+                                            )}
+                                        }
+
+                                    />
+                                    <label style={textStyle}>{param}</label>
+                                    <label style={countStyle}>[{count}]</label>
+                                </div>
+                            )
+                        })}
+                    </div>
+                )
+            })}
+        </div>
     )
 }
-

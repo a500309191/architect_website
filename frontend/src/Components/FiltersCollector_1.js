@@ -1,107 +1,86 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import { MultipleCheckboxFilter } from "./filters/templates/MultipleCheckboxFilter";
+import { CheckboxBooleanValueFilter } from "./filters/templates/CheckboxBooleanValueFilter";
 import { AreaFilter } from "./filters/AreaFilter";
-import { FloorsFilter } from "./filters/FloorsFilter";
-import { MaterialFilter } from "./filters/MaterialFilter";
-import { RoofFilter } from "./filters/RoofFilter";
-import { SizeFilter } from "./filters/SizeFilter";
-import { StyleFilter } from "./filters/StyleFilter";
-
-export const FiltersCollector = ({data}) => {
-
-    const [area, setArea] = useState()
-    const [floors, setFloors] = useState()
-    const [material, setMaterial] = useState()
-    const [roof, setRoof] = useState()
-    const [size, setSize] = useState()
-    const [style, setStyle] = useState()
-
-    const [filters, setFilters] = useState()
-
-    useEffect(() => {
-        setFilters({
-            "floors":floors,
-            "material":material,
-            "roof":roof,
-            "size":size,
-            "style":style,
-        })
-        console.log(filters)
-    }, [floors, material, roof, size, style])
 
 
-    useEffect(() => {
-        console.log(
-            area, "\n",
-            floors, "\n",
-            material, "\n",
-            roof, "\n",
-            size, "\n",
-        )
-    }, [area, floors, material, roof, size, style])
+export const FiltersCollector = ({
+        data,
+        checkboxFiltersCollector,
+        areaFilterCollector
+    }) => {
 
+    console.log("FILTERS COLLECTOR")
 
+    const [areaFilter, setAreaFilter] = useState()
+    const [multipleCheckboxFilters, setMultipleCheckboxFilters] = useState()
+    const [singleCheckboxFilters, setSingleCheckboxFilters] = useState()
 
-    let style_ = { margin: "2" }
-    let filter_style = {
-        margin: "5",
-        backgroundColor: "#CFD1E1",
+    const HandleCheckboxFiltersChange = checkboxFilters => {
+        checkboxFiltersCollector(checkboxFilters)
+    }
+    const HandleAreaFilterChange = checkboxFilters => {
+        areaFilterCollector(areaFilter)
     }
 
+    useEffect(() => {
+        HandleCheckboxFiltersChange([multipleCheckboxFilters, singleCheckboxFilters])
+        HandleAreaFilterChange(areaFilter)
+    }, [multipleCheckboxFilters, singleCheckboxFilters, areaFilter])
+
+    //This array sets filters sequence on the page
+    const multipleCheckboxFilterList = [
+        "floors",
+        "material",
+        "roof",
+        "size",
+        "style",
+        "bedroom",
+        "bathroom",
+        "entrance",
+    ]
+
+    const checkboxStyle = { display: "block" }
+    const textStyle = { marginLeft: "5" }
+    const countStyle = { opacity: "0.5", marginLeft: "5" }
+    const filterStyle = { margin: "5", backgroundColor: "#CFD1E1" }
+    const booleanStyle = { marginTop: "25" }
+
     return (
-        <div>
+        <>
             <div>
                 <AreaFilter
                     data={data}
-                    onChange={ e => setArea(e)}
-                />
-            </div>
-            <div style={filter_style}>
-                <FloorsFilter
-                    data={data}
-                    onChange={e => setFloors(e)}
-                    filterType="floors"
-                />
-            </div>
-            <div style={filter_style}>
-                <MaterialFilter
-                    data={data}
-                    onChange={e => setMaterial(e)}
-                    filterType="material"
-                />
-            </div>
-            <div style={filter_style}>
-                <RoofFilter
-                    data={data}
-                    onChange={e => setRoof(e)}
-                    filterType="roof"
-                />
-            </div>
-            <div style={filter_style}>
-                <SizeFilter
-                    data={data}
-                    onChange={e => setSize(e)}
-                    filterType="size"
-                />
-            </div>
-            <div style={filter_style}>
-                <StyleFilter
-                    data={data}
-                    onChange={e => setStyle(e)}
-                    filterType="style"
+                    onChange={e => setAreaFilter(e)}
                 />
             </div>
 
-            <div style = {{ margin: "10", marginLeft: "0"}}>
-                <h3 style={style_}>{JSON.stringify(filters)}</h3>
-
+            <div>
+                <MultipleCheckboxFilter
+                    data={data}
+                    multipleCheckboxFilterList={multipleCheckboxFilterList}
+                    onChange={e => setMultipleCheckboxFilters(e)}
+                    checkboxStyle={checkboxStyle}
+                    textStyle={textStyle}
+                    countStyle={countStyle}
+                    filterStyle={filterStyle}
+                />
             </div>
-        </div>
+
+            <div>
+                <CheckboxBooleanValueFilter
+                    data={data}
+                    checkboxStyle={checkboxStyle}
+                    onChange={e => setSingleCheckboxFilters(e)}
+                    header="BOOLEAN FILTERS"
+                    textStyle={textStyle}
+                    countStyle={countStyle}
+                    filterStyle={filterStyle}
+                    booleanStyle={booleanStyle}
+                />
+            </div>
+        </>
     )
 }
 
-//                <h3 style={style_}>{area}</h3>
-//                <h3 style={style_}>{floors}</h3>
-//                <h3 style={style_}>{material}</h3>
-//                <h3 style={style_}>{roof}</h3>
-//                <h3 style={style_}>{size}</h3>
-//                <h3 style={style_}>{style}</h3>
+

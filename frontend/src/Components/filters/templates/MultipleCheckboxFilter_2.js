@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getFilterParams } from "./functions/getFilterParams";
+import { makeFilterList } from "./functions/makeFilterList";
 
 export const MultipleCheckboxFilter = ({
         data,
@@ -23,35 +24,27 @@ export const MultipleCheckboxFilter = ({
             {multipleCheckboxFilterList.map((filterType, index1) => {
 
                 let [filterParamsCountDict, filterParamsList] = getFilterParams({filterType, data})
-                filters[filterType] = filterParamsList
+                let filterList = makeFilterList(filterParamsList)
+
+                filters[filterType] = filterList
 
                 return (
                     <div key={index1} style={filterStyle}>
                         <div>{filterType.toUpperCase()} FILTER</div>
-                        {filterParamsList.map((param, _) => {
+                        {filterList.map((_, index2) => {
 
+                            let param = filterParamsList[index2]
                             let count = filterParamsCountDict[param]
 
                             return (
-                                <div key={param} style={checkboxStyle}>
+                                <div key={index2} style={checkboxStyle}>
                                     <input
-                                        id={`${filterType}_${param}`}
                                         type="checkbox"
                                         defaultChecked
-                                        onChange={() => {
-                                            setFilterDict(filterDict => {
-                                                let input = document.getElementById(`${filterType}_${param}`)
-
-                                                if (input.checked) {
-                                                    filterDict[filterType].push(param)
-                                                }
-                                                if (!input.checked) {
-                                                    filterDict[filterType]
-                                                    = filterDict[filterType].filter(item => item != param)
-                                                }
-
-                                                return { ...filterDict }
-                                        })}}
+                                        onChange={() => setFilterDict(filters => {
+                                            filters[filterType][index2][param] = !filters[filterType][index2][param]
+                                            return { ...filters }
+                                        })}
                                     />
                                     <label style={textStyle}>{param}</label>
                                     <label style={countStyle}>[{count}]</label>
@@ -64,3 +57,12 @@ export const MultipleCheckboxFilter = ({
         </div>
     )
 }
+
+
+//                                        onChange={filters => setFilterList(filters => {
+//                                            return {
+//                                                ...filters,
+//                                                [`${filterType}`] :
+//                                                [ ...filters[filterType]]
+//                                            }}
+//                                        )}

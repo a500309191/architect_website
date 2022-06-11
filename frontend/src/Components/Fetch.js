@@ -11,5 +11,5 @@ export function Fetch({
 	if (loading) return loadingFallback;
 	if (error) return renderError(error);
 	if (data) return renderSuccess({ data });
-  }
+}
 
