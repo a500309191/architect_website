@@ -1,3 +1,4 @@
+import "./FiltersCollector.css";
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { MultipleCheckboxFilter } from "./filters/templates/MultipleCheckboxFilter";
 import { BooleanCheckboxFilter } from "./filters/templates/BooleanCheckboxFilter";
@@ -8,22 +9,10 @@ export const FiltersCollector = ({
         data,
         multipleCheckboxFiltersCollector,
         booleanCheckboxFiltersCollector,
-        areaFilterCollector
+        areaFilterCollector,
+        multipleCheckboxFilterList,
+        booleanCheckboxFilterList,
     }) => {
-
-    //console.log("FiltersCollector")
-
-    //This array sets filters sequence on the page
-    const multipleCheckboxFilterList = [
-        "floors",
-        "material",
-        "roof",
-        "size",
-        "style",
-        "bedroom",
-        "bathroom",
-        "entrance",
-    ]
 
     const checkboxStyle = { display: "block" }
     const textStyle = { marginLeft: "5" }
@@ -32,11 +21,12 @@ export const FiltersCollector = ({
     const booleanStyle = { marginTop: "25" }
 
     return (
-        <>
+        <div className="filters-collector">
             <div>
                 <AreaFilter
                     data={data}
                     onChange={e => areaFilterCollector(e)}
+                    filterStyle={filterStyle}
                 />
             </div>
 
@@ -55,6 +45,7 @@ export const FiltersCollector = ({
             <div>
                 <BooleanCheckboxFilter
                     data={data}
+                    booleanCheckboxFilterList={booleanCheckboxFilterList}
                     checkboxStyle={checkboxStyle}
                     onChange={e => booleanCheckboxFiltersCollector(e)}
                     header="BOOLEAN FILTERS"
@@ -64,7 +55,7 @@ export const FiltersCollector = ({
                     booleanStyle={booleanStyle}
                 />
             </div>
-        </>
+        </div>
     )
 }
 

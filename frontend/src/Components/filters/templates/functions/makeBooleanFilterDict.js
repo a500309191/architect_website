@@ -3,7 +3,7 @@ export const makeBooleanFilterDict = filterParamsList => {
     let BooleanFilterDict = {}
 
     filterParamsList.forEach(param => {
-        BooleanFilterDict[param] = [true, true]
+        BooleanFilterDict[param] = [true, false]
     })
 
     return BooleanFilterDict

@@ -2,7 +2,10 @@ import React, { useState, useEffect, useMemo } from "react";
 import { getHousesAreas } from "../../functions/getHousesAreas";
 import MultiRangeSlider from "./templates/MultiRangeSlider/MultiRangeSlider";
 
-export const AreaFilter = ({data, onChange}) => {
+export const AreaFilter = ({
+        data,
+        onChange,
+    }) => {
 
     const housesAreas = useMemo(() => {
         return getHousesAreas(data)
@@ -12,7 +15,7 @@ export const AreaFilter = ({data, onChange}) => {
     const maxArea = Math.ceil(Math.max(...housesAreas))
 
     return (
-        <>
+        <div className="area-filter" style={{ margin: "5" }}>
             <MultiRangeSlider
                 min={minArea}
                 max={maxArea}
@@ -20,6 +23,6 @@ export const AreaFilter = ({data, onChange}) => {
                     {minArea: event.min, maxArea: event.max}
                 ))}
             />
-        </>
+        </div>
     )
 }

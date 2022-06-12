@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getBooleanFilters } from "./functions/getBooleanFilters";
 import { makeBooleanFilterDict } from "./functions/makeBooleanFilterDict";
 
 export const BooleanCheckboxFilter = ({
         data,
+        booleanCheckboxFilterList,
         checkboxStyle,
         onChange,
         header,
@@ -13,9 +13,7 @@ export const BooleanCheckboxFilter = ({
         booleanStyle,
     }) => {
 
-    const booleanFilterList = getBooleanFilters(data)
-    const filterDict = makeBooleanFilterDict(booleanFilterList)
-
+    const filterDict = makeBooleanFilterDict(booleanCheckboxFilterList)
     const [filters, setFilters] = useState(filterDict)
 
     useEffect(() => {
@@ -26,7 +24,7 @@ export const BooleanCheckboxFilter = ({
         <div style={filterStyle}>
             <div>{header}</div>
             <div>
-                {booleanFilterList.map((param, index) => {
+                {booleanCheckboxFilterList.map((param, index) => {
                     return (
                         <div key={index} style={checkboxStyle}>
                             <input
@@ -35,16 +33,13 @@ export const BooleanCheckboxFilter = ({
                                 defaultChecked
                                 onChange = {() => setFilters(
                                     filters => {
-                                        if (
-                                            filters[param][0] == true &&
-                                            filters[param][1] == false
-                                            ) {
-                                              filters[param][0] = false
-                                              filters[param][1] = true
-                                            let input2 = document.getElementById(`input2_${index}`)
-                                            input2.checked = !input2.checked
-                                        } else {
-                                            filters[param][0] = !filters[param][0]
+                                        let input1 = document.getElementById(`input1_${index}`)
+                                        if (input1.checked) {
+                                            filters[param].push(true)
+                                        }
+                                        if (!input1.checked) {
+                                            filters[param]
+                                            = filters[param].filter(item => item != true)
                                         }
                                         return { ...filters }
                                     }
@@ -57,16 +52,13 @@ export const BooleanCheckboxFilter = ({
                                 defaultChecked
                                 onChange = {() => setFilters(
                                     filters => {
-                                        if (
-                                            filters[param][1] == true &&
-                                            filters[param][0] == false
-                                            ) {
-                                              filters[param][1] = false
-                                              filters[param][0] = true
-                                            let input1 = document.getElementById(`input1_${index}`)
-                                            input1.checked = !input1.checked
-                                        } else {
-                                            filters[param][1] = !filters[param][1]
+                                        let input2 = document.getElementById(`input2_${index}`)
+                                        if (input2.checked) {
+                                            filters[param].push(false)
+                                        }
+                                        if (!input2.checked) {
+                                            filters[param]
+                                            = filters[param].filter(item => item != false)
                                         }
                                         return { ...filters }
                                     }
@@ -82,43 +74,3 @@ export const BooleanCheckboxFilter = ({
     )
 }
 
-
-//    return (
-//        <div style={filterStyle}>
-//            <div>{header}</div>
-//            <div>
-//                {booleanFilterList.map((param, index) => {
-//                    return (
-//                        <div key={index} style={checkboxStyle}>
-//                            <input
-//                                type="checkbox"
-//                                id={`input1_${index}`}
-//                                defaultChecked
-//                                onChange = {() => setFilters(
-//                                    filters => {
-//                                        filters[param][0] = !filters[param][0]
-//                                        return { ...filters }
-//                                    }
-//                                )}
-//                            />
-//                            <label style={booleanStyle}>+</label>
-//                            <input
-//                                type="checkbox"
-//                                id={`input2_${index}`}
-//                                defaultChecked
-//                                onChange = {() => setFilters(
-//                                    filters => {
-//                                        filters[param][1] = !filters[param][1]
-//                                        return { ...filters }
-//                                    }
-//                                )}
-//                            />
-//                            <label style={booleanStyle}>-</label>
-//                            <label style={textStyle}>{param}</label>
-//                        </div>
-//                    )
-//                })}
-//            </div>
-//        </div>
-//    )
-//}

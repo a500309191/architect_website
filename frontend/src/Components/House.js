@@ -42,14 +42,3 @@ const HouseView = ({data}) => {
         </>
     )
 }
-
-//                {images.map((image, index) => (
-//                    <div key={index}>
-//                        <img
-//                            src={image.image}
-//                            style={{
-//                                width: 300
-//                            }}
-//                        />
-//                    </div>
-//                ))}
