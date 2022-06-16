@@ -4,13 +4,8 @@ import { makeBooleanFilterDict } from "./functions/makeBooleanFilterDict";
 export const BooleanCheckboxFilter = ({
         data,
         booleanCheckboxFilterList,
-        checkboxStyle,
         onChange,
         header,
-        textStyle,
-        countStyle,
-        filterStyle,
-        booleanStyle,
     }) => {
 
     const filterDict = makeBooleanFilterDict(booleanCheckboxFilterList)
@@ -21,12 +16,12 @@ export const BooleanCheckboxFilter = ({
     }, [filters])
 
     return (
-        <div style={filterStyle}>
-            <div>{header}</div>
+        <div className="boolean-checkbox-filter">
+            <div className="filter-header">{header}</div>
             <div>
                 {booleanCheckboxFilterList.map((param, index) => {
                     return (
-                        <div key={index} style={checkboxStyle}>
+                        <div key={index}>
                             <input
                                 type="checkbox"
                                 id={`input1_${index}`}
@@ -45,7 +40,7 @@ export const BooleanCheckboxFilter = ({
                                     }
                                 )}
                             />
-                            <label style={booleanStyle}>+</label>
+                            <label className="boolean-checkbox-filter-value">+</label>
                             <input
                                 type="checkbox"
                                 id={`input2_${index}`}
@@ -64,8 +59,8 @@ export const BooleanCheckboxFilter = ({
                                     }
                                 )}
                             />
-                            <label style={booleanStyle}>-</label>
-                            <label style={textStyle}>{param}</label>
+                            <label className="boolean-checkbox-filter-value">-</label>
+                            <label className="boolean-checkbox-filter-text">{param}</label>
                         </div>
                     )
                 })}

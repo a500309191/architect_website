@@ -9,7 +9,10 @@ export const MultipleCheckboxFilter = ({
 
     const filters = {}
     const [filterDict, setFilterDict] = useState(filters)
+    const [tumbler, setTumbler] = useState(true)
+    console.log(tumbler)
     const [memoFilterList, setMemoFilterList]  = useState([])
+    console.log(memoFilterList)
 
     useEffect(() => {
         onChange(JSON.stringify(filterDict))
@@ -28,43 +31,37 @@ export const MultipleCheckboxFilter = ({
                         className="multiple-checkbox-filter"
                         key={index1}
                     >
-                        <div className="filter-header"> {filterType.toUpperCase()} FILTER:</div>
                         <div
-                            className="multiple-checkbox-filter-clicker"
+                            className="filter-header"
                             onClick={() => {
-                                let check
 
-                                if (filterDict[filterType].length == 0) {
-                                    setMemoFilterList([...memoFilterList, filterType])
-                                    check = true
-                                }
-                                if (filterDict[filterType] == filterParamsList) {
-                                    setMemoFilterList(memoFilterList.filter(item => item != filterType))
-                                    check = false
-                                }
+                                setMemoFilterList(memoFilterList => {
+                                    if (memoFilterList.includes(filterType)) {
+                                        setTumbler(false)
+                                        memoFilterList = memoFilterList.filter(item => item != filterType)
+                                    } else {
+                                        setTumbler(!tumbler)
+                                        memoFilterList = [...memoFilterList, filterType]
+                                    }
+                                    return [...memoFilterList]
+                                })
 
-                                if (check) {
-                                    setMemoFilterList(memoFilterList.filter(item => item != filterType))
-                                    setFilterDict(filterDict => {
-                                        filterDict[filterType] = filterParamsList
-                                        return { ...filterDict }
-                                    })
-                                } else {
-                                    setMemoFilterList([...memoFilterList, filterType])
-                                    setFilterDict(filterDict => {
-                                        filterDict[filterType] = []
-                                        return { ...filterDict }
-                                    })
-                                }
+                                setFilterDict(filterDict => {
+                                    if (tumbler) { filterDict[filterType] = [] }
+                                    if (!tumbler) { filterDict[filterType] = filterParamsList }
+                                    return { ...filterDict }
+                                })
 
                                 let checkboxes = document.getElementsByClassName(`${filterType}-checkbox`)
                                 for (let i=0; i<checkboxes.length; i++) {
                                     let checkbox = checkboxes[i]
-                                    if (check) {checkbox.checked = true} else {checkbox.checked = false}
+                                    if (tumbler) {checkbox.checked = false} else {checkbox.checked = true}
                                 }
+                                //setTumbler(!tumbler)
                             }}
-                        ></div>
-
+                        >
+                            {filterType.toUpperCase()} FILTER
+                        </div>
                         {filterParamsList.map((param, _) => {
 
                             let count = filterParamsCountDict[param]

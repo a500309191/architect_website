@@ -1,4 +1,3 @@
-import "./HouseList.css";
 import { Link } from "react-router-dom";
 import { checkboxFilter } from "./filters/functions/checkboxFilter";
 
@@ -17,13 +16,18 @@ export const HouseList = ({
     const area = areaFilter ? JSON.parse(areaFilter) : {}
     const multipleCheckbox = multipleCheckboxFilters ? JSON.parse(multipleCheckboxFilters) : {}
     const booleanCheckbox = booleanCheckboxFilters ? JSON.parse(booleanCheckboxFilters) : {}
-    console.log(area)
+//    console.log(area)
     console.log(multipleCheckbox)
-    console.log(booleanCheckbox)
+//    console.log(booleanCheckbox)
 
+
+    const garageText = garage => {
+        if (garage) return "has a garage"
+        else return "no garage"
+    }
+    const pluralText = item => { if (item>1) return "s" }
 
     return (
-        <>
             <div className="houses-list">
                 {data.map((house, index) => {
 
@@ -40,23 +44,22 @@ export const HouseList = ({
                             <Link
                                 to={{pathname: `house/${index+1}`}}
                                 key={index}
+                                className="house-block"
+                                style = {{ backgroundImage: `url(${address}${house.images[0]})` }}
                             >
-                                <div
-                                    className="house-block"
-                                    style = {{
-                                        width: 320,
-                                        height: 200,
-                                        backgroundImage: `url(${address}${house.images[0]})`,
-                                        backgroundSize: 'cover'
-                                    }}
-                                >
-                                    <h3 className="house-block-text">{house.model_name} : {house.area}</h3>
+                                <div className="house-block-name">{house.model_name}</div>
+                                <div className="house-block-details">
+                                    <div>{house.area} m²</div>
+                                    <div>{house.material}</div>
+                                    <div>{house.floors} floor{pluralText(house.floors)}</div>
+                                    <div>{house.bedroom} bedroom{pluralText(house.bedroom)}</div>
+                                    <div>{house.bathroom} bathroom{pluralText(house.bathroom)}</div>
+                                    <div>{garageText(house.garage)}</div>
                                 </div>
                             </Link>
                         )
                     }
                 })}
             </div>
-        </>
     )
 }

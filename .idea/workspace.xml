@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/FiltersCollector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HouseList.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/filters/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/filters/templates/MultiRangeSlider" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="ReaderModeSettings">
@@ -53,9 +59,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates\MultiRangeSlider" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates\functions" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters\templates\MultiRangeSlider" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\filters" />
     </key>

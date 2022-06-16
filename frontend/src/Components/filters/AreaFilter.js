@@ -15,7 +15,8 @@ export const AreaFilter = ({
     const maxArea = Math.ceil(Math.max(...housesAreas))
 
     return (
-        <div className="area-filter" style={{ margin: "5" }}>
+        <div className="area-filter">
+            <div className="filter-header">AREA FILTER:</div>
             <MultiRangeSlider
                 min={minArea}
                 max={maxArea}
