@@ -16,9 +16,9 @@ export const HouseList = ({
     const area = areaFilter ? JSON.parse(areaFilter) : {}
     const multipleCheckbox = multipleCheckboxFilters ? JSON.parse(multipleCheckboxFilters) : {}
     const booleanCheckbox = booleanCheckboxFilters ? JSON.parse(booleanCheckboxFilters) : {}
-//    console.log(area)
+    console.log(area)
     console.log(multipleCheckbox)
-//    console.log(booleanCheckbox)
+    console.log(booleanCheckbox)
 
 
     const garageText = garage => {
@@ -42,14 +42,14 @@ export const HouseList = ({
                     ) {
                         return (
                             <Link
-                                to={{pathname: `house/${index+1}`}}
+                                to={{pathname: `/houses/${index+1}`}}
                                 key={index}
                                 className="house-block"
                                 style = {{ backgroundImage: `url(${address}${house.images[0]})` }}
                             >
                                 <div className="house-block-name">{house.model_name}</div>
                                 <div className="house-block-details">
-                                    <div>{house.area} m²</div>
+                                    <div >{house.area} m²</div>
                                     <div>{house.material}</div>
                                     <div>{house.floors} floor{pluralText(house.floors)}</div>
                                     <div>{house.bedroom} bedroom{pluralText(house.bedroom)}</div>

@@ -24,7 +24,7 @@ const HouseView = ({data}) => {
     const images = data.images
 
     return (
-        <>
+        <div className="house">
             <h1>{data.model_name}</h1>
             <h1>{data.area}</h1>
             <div className='houseImagesList'>
@@ -39,6 +39,6 @@ const HouseView = ({data}) => {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     )
 }

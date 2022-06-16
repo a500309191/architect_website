@@ -21,7 +21,7 @@ export const BooleanCheckboxFilter = ({
             <div>
                 {booleanCheckboxFilterList.map((param, index) => {
                     return (
-                        <div key={index}>
+                        <div className="boolean-checkbox-filter-param" key={index}>
                             <input
                                 type="checkbox"
                                 id={`input1_${index}`}
