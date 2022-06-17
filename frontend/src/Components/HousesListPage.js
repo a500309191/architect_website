@@ -43,7 +43,7 @@ const HouseListPageView = ({data}) => {
     )
 
     return (
-        <div className="house-list-page">
+        <div className="houses-list-page">
             <FiltersCollector
                 data={data}
                 multipleCheckboxFilterList={multipleCheckboxFilterList}

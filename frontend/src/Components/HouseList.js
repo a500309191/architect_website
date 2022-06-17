@@ -44,11 +44,11 @@ export const HouseList = ({
                             <Link
                                 to={{pathname: `/houses/${index+1}`}}
                                 key={index}
-                                className="house-block"
+                                className="houses-block"
                                 style = {{ backgroundImage: `url(${address}${house.images[0]})` }}
                             >
-                                <div className="house-block-name">{house.model_name}</div>
-                                <div className="house-block-details">
+                                <div className="houses-block-name">{house.model_name}</div>
+                                <div className="houses-block-details">
                                     <div >{house.area} m²</div>
                                     <div>{house.material}</div>
                                     <div>{house.floors} floor{pluralText(house.floors)}</div>
