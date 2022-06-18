@@ -1,10 +1,12 @@
 div * {
 font-family: Arial;
+user-select: none;
 }
 
 .app {
 display: grid;
 grid-template-columns: 15% 1fr 15%;
+/*grid-template-columns: minmax(256px, 1fr) 1fr minmax(1%, 15%);*/
 grid-template-rows: 20px 70px 20px 1fr 1fr;
 }
 
@@ -21,11 +23,11 @@ background-color: #ebedf4;
 
 .header {
 display: grid;
+grid-template-columns: 1fr 1fr 1fr;
 align-content: center;
 gap: 3px;
 grid-row-start: 2;
 grid-column: 2 / 3;
-grid-template-columns: 1fr 1fr 1fr;
 }
 .header-main {
 grid-column-start: 1;
@@ -54,11 +56,15 @@ transition-duration: 0.2s;
 .header-about:hover {
 opacity: 0.8;
 }
+.active {
+background-color: #caccd4;
+opacity: 0.6;
+}
 
 .content {
 display: grid;
 /*align-content: center;*/
-grid-template-rows: 80vh 1fr;
+/*grid-template-rows: 80vh 1fr;*/
 grid-row-start: 4;
 grid-column: 2 / 3;
 }
@@ -157,6 +163,65 @@ opacity: 0.7;
 
 
 
+.house {
+display: grid;
+grid-template-columns: 256px 1fr;
+}
+
+.house-details {
+grid-column: 1 / 2;
+}
+
+.house-images {
+grid-column: 2 / 3;
+display: flex;
+align-items: flex-start;
+position: relative;
+background-color: #ebedf4;
+}
+.house-image,
+.house-image-current {
+grid-column: 2 / 3;
+object-fit: cover;
+width: 100%;
+object-fit: contain;
+transition-duration: 1s;
+animation: my-animation 1s;
+}
+
+@keyframes my-animation {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.house-image {
+opacity: 1;
+transition-duration: 1s ease;
+}
+.house-image-current {
+opacity: 1;
+transition-duration: 1s;
+}
+
+.prev-image {
+position: absolute;
+left: 0;
+height: 100%;
+width: 5%;
+opacity: 0.5;
+background-color: red;
+}
+.next-image {
+position: absolute;
+right: 0;
+height: 100%;
+width: 5%;
+opacity: 0.5;
+background-color: red;
+}
+
+
+
 .area-filter,
 .multiple-checkbox-filter,
 .boolean-checkbox-filter {
@@ -174,7 +239,6 @@ opacity: 0.7;
 opacity: 1;
 transition-duration: 0.2s;
 }
-
 
 .filter-header {
 margin-top: 2;
@@ -212,4 +276,42 @@ flex: 1;
 align-self: flex-end;
 background-color: red;
 opacity: 0;
+}
+
+
+
+@media screen and (max-width: 765px) {
+    .app {
+        grid-template-rows: 20px auto 20px 1fr 1fr;
+        grid-template-columns: minmax(10px, 15%) 1fr minmax(10px, 15%);
+    }
+    .header {
+        display: grid;
+        grid-template-columns: minmax(256px, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .header-main {
+        grid-row-start: 1;
+    }
+    .header-houses {
+        grid-row-start: 2;
+    }
+    .header-about {
+        grid-row-start: 3;
+    }
+    .header-main,
+    .header-houses,
+    .header-about {
+        grid-column: 1 / 4;
+    }
+    .filters-collector {
+        display: none;
+    }
+    .houses-list-page {
+        grid-template-columns: 1fr;
+    }
+    .houses-list {
+        grid-column: 1 / 4;
+
+    }
 }

@@ -10,10 +10,3 @@ export const Header = () => {
         </>
     )
 }
-
-
-//        <>
-//            <div className="header-main"><NavLink to="/">MAIN</NavLink></div>
-//            <div className="header-houses" ><NavLink to="/houses">HOUSES</NavLink></div>
-//            <div className="header-about"><NavLink to="/about">ABOUT</NavLink></div>
-//        </>
