@@ -7,7 +7,7 @@ user-select: none;
 display: grid;
 grid-template-columns: 15% 1fr 15%;
 /*grid-template-columns: minmax(256px, 1fr) 1fr minmax(1%, 15%);*/
-grid-template-rows: 20px 70px 20px 1fr 1fr;
+grid-template-rows: 20px  auto 20px;
 }
 
 .loading {
@@ -64,7 +64,7 @@ opacity: 0.6;
 .content {
 display: grid;
 /*align-content: center;*/
-/*grid-template-rows: 80vh 1fr;*/
+/*grid-template-rows: auto;*/
 grid-row-start: 4;
 grid-column: 2 / 3;
 }
@@ -72,11 +72,9 @@ grid-column: 2 / 3;
 .main {
 background-color: #ebedf4;
 }
-
 .about {
 background-color: #ebedf4;
 }
-
 .houses-list-page {
 display: grid;
 grid-template-columns: 256px 1fr;
@@ -167,57 +165,59 @@ opacity: 0.7;
 display: grid;
 grid-template-columns: 256px 1fr;
 }
-
 .house-details {
 grid-column: 1 / 2;
-}
-
-.house-images {
-grid-column: 2 / 3;
-display: flex;
-align-items: flex-start;
-position: relative;
+margin-right: 8;
 background-color: #ebedf4;
+}
+.house-images {
+display: flex;
+align-items: stretch;
+grid-template-rows: auto;
+grid-column: 2 / 3;
+position: relative;
+}
+.house-image {
+position: absolute;
+opacity: 0;
 }
 .house-image,
 .house-image-current {
-grid-column: 2 / 3;
-object-fit: cover;
 width: 100%;
-object-fit: contain;
-transition-duration: 1s;
-animation: my-animation 1s;
+height: auto;
+/*overflow: hidden;*/
+transition-duration: 0.5s;
+background-color: black;
 }
-
-@keyframes my-animation {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.house-image {
-opacity: 1;
-transition-duration: 1s ease;
-}
-.house-image-current {
-opacity: 1;
-transition-duration: 1s;
-}
-
 .prev-image {
 position: absolute;
 left: 0;
 height: 100%;
-width: 5%;
-opacity: 0.5;
-background-color: red;
+width: 50%;
+/*opacity: 0.3;*/
+opacity: 0;
+background-color: #ebedf4;
+z-index: 2;
+transition-duration: 0.2s;
 }
 .next-image {
 position: absolute;
 right: 0;
 height: 100%;
-width: 5%;
-opacity: 0.5;
-background-color: red;
+width: 50%;
+/*opacity: 0.3;*/
+opacity: 0;
+background-color: #ebedf4;
+z-index: 2;
+transition-duration: 0.2s;
+}
+/*.prev-image:hover,
+.next-image:hover {
+opacity: 0.45;
+}*/
+.house-image-counter {
+position: absolute;
+opacity: 1;
 }
 
 
