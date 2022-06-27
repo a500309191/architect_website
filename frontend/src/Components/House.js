@@ -28,14 +28,36 @@ const HouseView = ({data}) => {
     )
 }
 
+//entrance: 4
+//fireplace: false
+//garage: false
+//kitchen_living_room: true
+//laundry: true
+//tech_room: true
+//terrace т
+
 const HouseDetails = ({data}) => {
     return (
+        <>
         <div className="house-details">
-            <div>{data.model_name}</div>
+            <div className="house-model-name">{data.model_name}</div>
+
+            <div>{data.size}</div>
             <div>{data.area}</div>
-            <div>{data.area}</div>
-            <div>{data.area}</div>
+            <div>{data.floors}</div>
+            <div>{data.material}</div>
+            <div>{data.bedroom}</div>
+            <div>{data.bathroom}</div>
+
+            <div>{data.entrance}</div>
+            <div>{data.fireplace}</div>
+            <div>{data.garage}</div>
+            <div>{data.kitchen_living_room}</div>
+            <div>{data.laundry}</div>
+            <div>{data.tech_room}</div>
+            <div>{data.terrace}</div>
         </div>
+        </>
     )
 }
 
@@ -59,7 +81,7 @@ const HouseImages = ({data}) => {
         <div className='house-images'>
             <div className="prev-image" onClick={() => prevImage(images)}></div>
             <div className="next-image" onClick={() => nextImage(images)}></div>
-            <div className="house-image-counter">IMAGE: {imageIndex+1}/{images.length}</div>
+            <div className="house-image-counter">IMAGE {imageIndex+1}/{images.length}</div>
             {images.map((image, index) => {
                 return (
                     <img
@@ -75,45 +97,23 @@ const HouseImages = ({data}) => {
 }
 
 
-
-//    return (
-//        <div className='house-images'>
-//            <div className="prev-image" onClick={() => prevImage(images)}></div>
-//            <div className="next-image" onClick={() => nextImage(images)}></div>
-//            {images.map((image, index) => {
-//                return (
-//                    <img
-//                        src={address + image}
-//                        alt={`${data.model_name}_image`}
-//                        key={index}
-//                        className={`${images.indexOf(image) === imageIndex ? "house-image-current" : "house-image"}`}
-//                    />
-//                )
-//            })}
-//        </div>
-//    )
-//}
-
-//    return (
-//        <div className='house-images'>
-//            <div className="prev-image" onClick={() => prevImage(images)}></div>
-//            <div className="next-image" onClick={() => nextImage(images)}></div>
-//            {images.map((image, index) => {
-//                return (
-//                    <div className="house-image-container"
-//                        key={index}
-//                    >
-//                        <img
-//                            src={address + image}
-//                            alt={`${data.model_name}_image`}
-//                            className={`${images.indexOf(image) === imageIndex ? "house-image-current" : "house-image"}`}
-//                        />
-//                        <div className="house-image-counter" key={`counter_${index}`}>
+//        <div className="house-details">
+//            <div className="house-model-name">{data.model_name}</div>
 //
-//                        </div>
-//                    </div>
-//                )
-//            })}
+//            <div>{data.size}</div>
+//            <div>{data.area}</div>
+//            <div>{data.floors}</div>
+//            <div>{data.material}</div>
+//            <div>{data.style}</div>
+//            <div>{data.roof}</div>
+//            <div>{data.bedroom}</div>
+//            <div>{data.bathroom}</div>
+//
+//            <div>{data.entrance}</div>
+//            <div>{data.fireplace}</div>
+//            <div>{data.garage}</div>
+//            <div>{data.kitchen_living_room}</div>
+//            <div>{data.laundry}</div>
+//            <div>{data.tech_room}</div>
+//            <div>{data.terrace}</div>
 //        </div>
-//    )
-//}

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from . models import House, Image, Material, Style
+from . models import House, Image, Drawing, Material, Style
 
 # admin.site.register(House)
 # admin.site.register(Image)
+admin.site.register(Drawing)
 admin.site.register(Material)
 admin.site.register(Style)
 
@@ -17,6 +18,7 @@ class ImageInline(admin.StackedInline):
     verbose_name = "House image"
     extra = 5
     max_num = 5
+    exclude = ["thumbnail", ]
 
 @admin.register(House)
 class ImageAdmin(admin.ModelAdmin):
@@ -29,7 +31,7 @@ class ImageAdmin(admin.ModelAdmin):
                     "garage",
                     "time_create",
                     "time_update")
-    inlines = [ImageInline,]
+    inlines = [ImageInline, ]
 
     fieldsets = (
         ("HOUSE PARAMETERS", {
@@ -59,4 +61,4 @@ class ImageAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     list_display = ("image", "house", "time_update")
-    list_filter = ("house",)
+    list_filter = ("house", )

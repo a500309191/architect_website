@@ -2,6 +2,7 @@ import React, {useState, useEffect, useMemo } from "react";
 import { Fetch } from "./Fetch";
 import { FiltersCollector } from "./FiltersCollector";
 import { HouseList } from "./HouseList";
+import { NoHouses } from "./NoHouses";
 import { getBooleanFilters } from "./filters/templates/functions/getBooleanFilters";
 
 
@@ -11,16 +12,17 @@ export const HousesListPage = () => {
     return (
         <Fetch
             uri = 'http://127.0.0.1:8000/api/house/'
-            renderSuccess = {({ data }) => (
-                <HouseListPageView
-                    data={data}
-                />
-            )}
+            renderSuccess = {({ data }) => {
+                if (data.length > 0) return <HouseListPageView data={data}/>
+                else return <NoHouses />
+            }}
         />
     )
 }
 
 const HouseListPageView = ({data}) => {
+
+    console.log(data)
 
     const [multipleCheckboxFilters, setMultipleCheckboxFilters] = useState()
     const [booleanCheckboxFilters, setBooleanCheckboxFilters] = useState()
@@ -64,3 +66,26 @@ const HouseListPageView = ({data}) => {
     )
 }
 
+
+
+//    return (
+//        <div className="houses-list-page">
+//            <FiltersCollector
+//                data={data}
+//                multipleCheckboxFilterList={multipleCheckboxFilterList}
+//                booleanCheckboxFilterList={booleanCheckboxFilterList}
+//                multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
+//                booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
+//                areaFilterCollector={e => setAreaFilter(e)}
+//            />
+//            <HouseList
+//                data={data}
+//                multipleCheckboxFilters={multipleCheckboxFilters}
+//                booleanCheckboxFilters={booleanCheckboxFilters}
+//                areaFilter={areaFilter}
+//                multipleCheckboxFilterList={multipleCheckboxFilterList}
+//                booleanCheckboxFilterList={booleanCheckboxFilterList}
+//            />
+//        </div>
+//    )
+//}

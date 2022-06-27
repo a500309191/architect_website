@@ -37,8 +37,8 @@ export const HouseList = ({
                     if (
                         multipleCheckboxFilter &&
                         booleanCheckboxFilter &&
-                        house.area > area.minArea &&
-                        house.area < area.maxArea
+                        house.area >= area.minArea &&
+                        house.area <= area.maxArea
                     ) {
                         return (
                             <Link
