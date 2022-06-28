@@ -5,6 +5,9 @@ import { Fetch } from "./Fetch";
 import { useFetch } from "../hooks/useFetch";
 import { useKey } from "../hooks/useKey";
 import { useMouse } from "../hooks/useMouse";
+import { booleanToText } from "../functions/booleanToText";
+import { pluralText } from "../functions/pluralText";
+
 
 const address = 'http://127.0.0.1:8000/media/'
 
@@ -40,80 +43,146 @@ const HouseDetails = ({data}) => {
     return (
         <>
         <div className="house-details">
-            <div className="house-model-name">{data.model_name}</div>
-
-            <div>{data.size}</div>
-            <div>{data.area}</div>
-            <div>{data.floors}</div>
-            <div>{data.material}</div>
-            <div>{data.bedroom}</div>
-            <div>{data.bathroom}</div>
-
-            <div>{data.entrance}</div>
-            <div>{data.fireplace}</div>
-            <div>{data.garage}</div>
-            <div>{data.kitchen_living_room}</div>
-            <div>{data.laundry}</div>
-            <div>{data.tech_room}</div>
-            <div>{data.terrace}</div>
+            <div className="house-model-name">{data.model_name.toUpperCase()}</div>
+            <div className="house-common-info">
+                <div>AREA: {data.area} m²</div>
+                <div>FLOORS: {data.floors}</div>
+                <div>MATERIAL: {data.material.toUpperCase()}</div>
+            </div>
+            <div className="house-composition-title">COMPOSITION:</div>
+            <ul className="house-composition-1">
+                <li>{data.entrance} ENTRANCE{pluralText(data.entrance).toUpperCase()}</li>
+                <li>{data.bedroom} BEDROOM{pluralText(data.bedroom).toUpperCase()}</li>
+                <li>{data.bathroom} BATHROOM{pluralText(data.bathroom).toUpperCase()}</li>
+                <li>{booleanToText(data.laundry, "laundry")}</li>
+                <li>{booleanToText(data.tech_room, "technical room")}</li>
+            </ul>
+            <ul className="house-composition-2">
+                <li>{booleanToText(data.garage, "garage")}</li>
+                <li>{booleanToText(data.fireplace, "fireplace")}</li>
+                <li>{booleanToText(data.terrace, "terrace")}</li>
+                <li>KITCHEN AND LIVING ROOM ARE {data.kitchen_living_room ? "CONNECTED" : "SEPARATED"}</li>
+            </ul>
         </div>
         </>
     )
 }
 
+/*const HouseDetails = ({data}) => {
+    return (
+        <>
+        <div className="house-details">
+            <div className="house-model-name">{data.model_name.toUpperCase()}</div>
+            <div className="house-common-info">
+                <div>AREA: {data.area} m²</div>
+                <div>FLOORS: {data.floors}</div>
+                <div>MATERIAL: {data.material.toUpperCase()}</div>
+            </div>
+            <div className="house-composition-title">COMPOSITION:</div>
+            <ul className="house-composition">
+                <li>{data.entrance} ENTRANCE{pluralText(data.entrance).toUpperCase()}</li>
+                <li>{data.bedroom} BEDROOM{pluralText(data.bedroom).toUpperCase()}</li>
+                <li>{data.bathroom} BATHROOM{pluralText(data.bathroom).toUpperCase()}</li>
+                <li>{booleanToText(data.laundry, "laundry")}</li>
+                <li>{booleanToText(data.tech_room, "technical room")}</li>
+                <li>{booleanToText(data.garage, "garage")}</li>
+                <li>{booleanToText(data.fireplace, "fireplace")}</li>
+                <li>{booleanToText(data.terrace, "terrace")}</li>
+                <li>KITCHEN AND LIVING ROOM ARE {data.kitchen_living_room ? "CONNECTED" : "SEPARATED"}</li>
+            </ul>
+        </div>
+        </>
+    )
+}*/
+
+
+
 const HouseImages = ({data}) => {
 
     console.log("HouseImages")
 
-    const [imageIndex, setImageIndex] = useState(0)
+    const [viewIndex, setViewIndex] = useState(0)
+
     const images = data.images
+    const drawings = data.drawings
+    const views = [...images, ...drawings]
 
-    const prevImage = images => {setImageIndex(prev => prev == 0 ? images.length-1 : prev-1)}
-    const nextImage = images => {setImageIndex(prev => prev == images.length-1 ? 0 : prev+1)}
+    const prevImage = views => {setViewIndex(prev => prev == 0 ? views.length-1 : prev-1)}
+    const nextImage = views => {setViewIndex(prev => prev == views.length-1 ? 0 : prev+1)}
 
-    useKey("ArrowLeft", () => prevImage(images))
-    useKey("ArrowRight", () => nextImage(images))
-    useMouse(() => nextImage(images), () => prevImage(images))
+    useKey("ArrowLeft", () => prevImage(views))
+    useKey("ArrowRight", () => nextImage(views))
+    useMouse(() => nextImage(views), () => prevImage(views))
 
-    const x = useRef(null)
+    const viewCounter = images => {
+        return viewIndex >= images.length
+            ? `PLAN FLOOR ${viewIndex - images.length + 1}`
+            : `IMAGES ${viewIndex+1}/${images.length}`
+    }
 
     return (
-        <div className='house-images'>
-            <div className="prev-image" onClick={() => prevImage(images)}></div>
-            <div className="next-image" onClick={() => nextImage(images)}></div>
-            <div className="house-image-counter">IMAGE {imageIndex+1}/{images.length}</div>
-            {images.map((image, index) => {
+        <>
+        <div className='house-views'>
+            <div className="prev-view" onClick={() => prevImage(views)}></div>
+            <div className="next-view" onClick={() => nextImage(views)}></div>
+            <div className="house-view-counter">{viewCounter(images)}</div>
+            {views.map((view, index) => {
                 return (
                     <img
-                        src={address + image}
-                        alt={`${data.model_name}_image`}
+                        src={address + view}
+                        alt={`${data.model_name}_view`}
                         key={index}
-                        className={`${images.indexOf(image) === imageIndex ? "house-image-current" : "house-image"}`}
+                        className={`${index === viewIndex
+                            ? "house-view-current"
+                            : "house-view"}`}
                     />
                 )
             })}
         </div>
+        <div className="house-views-slider">
+            {views.map((view, index) => {
+                return (
+                    <img
+                        className={`${index === viewIndex
+                            ? "house-views-slider-view-current"
+                            : "house-views-slider-view"}`}
+                        src={address + view}
+                        key={index}
+                        onClick={()=> {
+                            setViewIndex(index)
+                        }}
+                    />
+                )
+            })}
+        </div>
+        </>
     )
 }
 
+//                    return (
+//                        <div
+//                            className={`${views.indexOf(view) === viewIndex
+//                                ? "house-views-slider-view-current"
+//                                : "house-views-slider-view"}`}
+//                            style={{
+//                                backgroundImage: `url(${address}${view})`
+//                            }}
+//                            onClick={()=> {
+//                                setViewIndex(index)
+//                            }}
+//
+//                        >
+//
+//                        </div>
+//                    )
 
-//        <div className="house-details">
-//            <div className="house-model-name">{data.model_name}</div>
-//
-//            <div>{data.size}</div>
-//            <div>{data.area}</div>
-//            <div>{data.floors}</div>
-//            <div>{data.material}</div>
-//            <div>{data.style}</div>
-//            <div>{data.roof}</div>
-//            <div>{data.bedroom}</div>
-//            <div>{data.bathroom}</div>
-//
-//            <div>{data.entrance}</div>
-//            <div>{data.fireplace}</div>
-//            <div>{data.garage}</div>
-//            <div>{data.kitchen_living_room}</div>
-//            <div>{data.laundry}</div>
-//            <div>{data.tech_room}</div>
-//            <div>{data.terrace}</div>
-//        </div>
+
+//                    return (
+//                        <img
+//                            className={`${views.indexOf(view) === viewIndex
+//                                ? "house-views-slider-view-current"
+//                                : "house-views-slider-view"}`}
+//                            src={address + view}
+//                            key={index}
+//                        />
+//                    )

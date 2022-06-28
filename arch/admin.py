@@ -3,7 +3,7 @@ from . models import House, Image, Drawing, Material, Style
 
 # admin.site.register(House)
 # admin.site.register(Image)
-admin.site.register(Drawing)
+#admin.site.register(Drawing)
 admin.site.register(Material)
 admin.site.register(Style)
 
@@ -20,8 +20,15 @@ class ImageInline(admin.StackedInline):
     max_num = 5
     exclude = ["thumbnail", ]
 
+class DrawingInline(admin.StackedInline):
+    model = Drawing
+    verbose_name = "House drawing"
+    extra = 3
+    max_num = 5
+
 @admin.register(House)
 class ImageAdmin(admin.ModelAdmin):
+    inlines = [ImageInline, DrawingInline]
     list_display = ("model_name",
                     "area",
                     "floors",
@@ -31,8 +38,6 @@ class ImageAdmin(admin.ModelAdmin):
                     "garage",
                     "time_create",
                     "time_update")
-    inlines = [ImageInline, ]
-
     fieldsets = (
         ("HOUSE PARAMETERS", {
             "fields": ("model_name",
@@ -58,7 +63,7 @@ class ImageAdmin(admin.ModelAdmin):
 
     list_filter = ("material", "floors", "size", "roof", )
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    list_display = ("image", "house", "time_update")
-    list_filter = ("house", )
+# @admin.register(Image)
+# class ImageAdmin(admin.ModelAdmin):
+#     list_display = ("image", "house", "time_update")
+#     list_filter = ("house", )

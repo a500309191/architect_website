@@ -10,9 +10,9 @@ class HouseViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = House.objects.all()
     serializer_class = HouseSerializer
 
-class ImageViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
+# class ImageViewSet(viewsets.ReadOnlyModelViewSet):
+#     queryset = Image.objects.all()
+#     serializer_class = ImageSerializer
 
 # class HouseViewSet(viewsets.ModelViewSet):
 #     queryset = House.objects.all()

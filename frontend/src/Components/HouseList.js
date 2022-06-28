@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { checkboxFilter } from "./filters/functions/checkboxFilter";
-
+import { pluralText } from "../functions/pluralText";
+import { booleanToText } from "../functions/booleanToText";
 
 const address = 'http://127.0.0.1:8000/media/'
 
@@ -20,13 +21,6 @@ export const HouseList = ({
     console.log(multipleCheckbox)
     console.log(booleanCheckbox)
 
-
-    const garageText = garage => {
-        if (garage) return "has a garage"
-        else return "no garage"
-    }
-    const pluralText = item => { if (item>1) return "s" }
-
     return (
             <div className="houses-list">
                 {data.map((house, index) => {
@@ -45,7 +39,7 @@ export const HouseList = ({
                                 to={{pathname: `/houses/${index+1}`}}
                                 key={index}
                                 className="houses-block"
-                                style = {{ backgroundImage: `url(${address}${house.images[0]})` }}
+                                style = {{ backgroundImage: `url(${address}${house.thumbnails[0]})` }}
                             >
                                 <div className="houses-block-name">{house.model_name}</div>
                                 <div className="houses-block-details">
@@ -54,7 +48,7 @@ export const HouseList = ({
                                     <div>{house.floors} floor{pluralText(house.floors)}</div>
                                     <div>{house.bedroom} bedroom{pluralText(house.bedroom)}</div>
                                     <div>{house.bathroom} bathroom{pluralText(house.bathroom)}</div>
-                                    <div>{garageText(house.garage)}</div>
+                                    <div>{booleanToText(house.garage, "garage").toLowerCase()}</div>
                                 </div>
                             </Link>
                         )

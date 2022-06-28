@@ -5,13 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/migrations/0002_image_time_update.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/migrations/0003_house_garage_alter_house_kitchen_living_room_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0002_remove_drawing_house.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0003_drawing_house.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/House.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/House.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
