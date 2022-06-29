@@ -2,9 +2,10 @@ import React, {useState, useEffect, useMemo } from "react";
 import { Fetch } from "./Fetch";
 import { FiltersCollector } from "./FiltersCollector";
 import { HouseList } from "./HouseList";
+import { SortingBlock } from "./SortingBlock";
 import { NoHouses } from "./NoHouses";
 import { getBooleanFilters } from "./filters/templates/functions/getBooleanFilters";
-
+import { shuffleArray } from "../functions/shuffleArray";
 
 const address = 'http://127.0.0.1:8000/media/'
 
@@ -23,6 +24,11 @@ export const HousesListPage = () => {
 const HouseListPageView = ({data}) => {
 
     console.log(data)
+
+    const shuffleData = useMemo(() => {
+        return shuffleArray(data)
+    }, [data])
+    const [sortingData, setSortingData] = useState(shuffleData)
 
     const [multipleCheckboxFilters, setMultipleCheckboxFilters] = useState()
     const [booleanCheckboxFilters, setBooleanCheckboxFilters] = useState()
@@ -44,8 +50,16 @@ const HouseListPageView = ({data}) => {
         getBooleanFilters(data), [data]
     )
 
+    useEffect (() => {
+        console.log(sortingData)
+    }, [sortingData])
+
     return (
         <div className="houses-list-page">
+            <SortingBlock
+                data={data}
+                sortingData={sortingData => setSortingData(sortingData)}
+            />
             <FiltersCollector
                 data={data}
                 multipleCheckboxFilterList={multipleCheckboxFilterList}
@@ -55,7 +69,7 @@ const HouseListPageView = ({data}) => {
                 areaFilterCollector={e => setAreaFilter(e)}
             />
             <HouseList
-                data={data}
+                data={sortingData}
                 multipleCheckboxFilters={multipleCheckboxFilters}
                 booleanCheckboxFilters={booleanCheckboxFilters}
                 areaFilter={areaFilter}

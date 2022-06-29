@@ -1,3 +1,4 @@
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { checkboxFilter } from "./filters/functions/checkboxFilter";
 import { pluralText } from "../functions/pluralText";
@@ -20,6 +21,7 @@ export const HouseList = ({
     console.log(area)
     console.log(multipleCheckbox)
     console.log(booleanCheckbox)
+
 
     return (
             <div className="houses-list">
