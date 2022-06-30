@@ -13,15 +13,24 @@ export const HouseList = ({
         booleanCheckboxFilters,
         multipleCheckboxFilterList,
         booleanCheckboxFilterList,
+        sortingType,
     }) => {
 
     const area = areaFilter ? JSON.parse(areaFilter) : {}
     const multipleCheckbox = multipleCheckboxFilters ? JSON.parse(multipleCheckboxFilters) : {}
     const booleanCheckbox = booleanCheckboxFilters ? JSON.parse(booleanCheckboxFilters) : {}
-    console.log(area)
-    console.log(multipleCheckbox)
-    console.log(booleanCheckbox)
 
+//    console.log(area)
+//    console.log(multipleCheckbox)
+//    console.log(booleanCheckbox)
+
+    const sortingTypeText = (house, sortingType) => {
+        if (sortingType == "random") {
+            return ""
+        } else {
+            return `${sortingType.toUpperCase()} ${house[sortingType]}`
+        }
+    }
 
     return (
             <div className="houses-list">
@@ -37,22 +46,24 @@ export const HouseList = ({
                         house.area <= area.maxArea
                     ) {
                         return (
-                            <Link
-                                to={{pathname: `/houses/${index+1}`}}
-                                key={index}
-                                className="houses-block"
-                                style = {{ backgroundImage: `url(${address}${house.thumbnails[0]})` }}
-                            >
-                                <div className="houses-block-name">{house.model_name}</div>
-                                <div className="houses-block-details">
-                                    <div >{house.area} m²</div>
-                                    <div>{house.material}</div>
-                                    <div>{house.floors} floor{pluralText(house.floors)}</div>
-                                    <div>{house.bedroom} bedroom{pluralText(house.bedroom)}</div>
-                                    <div>{house.bathroom} bathroom{pluralText(house.bathroom)}</div>
-                                    <div>{booleanToText(house.garage, "garage").toLowerCase()}</div>
-                                </div>
-                            </Link>
+                            <div className="house-block-container" key={index}>
+                                <Link
+                                    to={{pathname: `/houses/${index+1}`}}
+                                    className="house-block"
+                                    style = {{ backgroundImage: `url(${address}${house.thumbnails[0]})` }}
+                                >
+                                    <div className="house-block-name">{house.model_name}</div>
+                                    <div className="house-block-details">
+                                        <div >{house.area} m²</div>
+                                        <div>{house.material}</div>
+                                        <div>{house.floors} floor{pluralText(house.floors)}</div>
+                                        <div>{house.bedroom} bedroom{pluralText(house.bedroom)}</div>
+                                        <div>{house.bathroom} bathroom{pluralText(house.bathroom)}</div>
+                                        <div>{booleanToText(house.garage, "garage").toLowerCase()}</div>
+                                    </div>
+                                </Link>
+                                <div className="house-block-sorting-info">{sortingTypeText(house, sortingType)}</div>
+                            </div>
                         )
                     }
                 })}

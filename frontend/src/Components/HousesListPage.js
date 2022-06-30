@@ -23,12 +23,13 @@ export const HousesListPage = () => {
 
 const HouseListPageView = ({data}) => {
 
-    console.log(data)
+    //console.log(data)
 
     const shuffleData = useMemo(() => {
         return shuffleArray(data)
     }, [data])
     const [sortingData, setSortingData] = useState(shuffleData)
+    const [sortingType, setSortingType] = useState("random")
 
     const [multipleCheckboxFilters, setMultipleCheckboxFilters] = useState()
     const [booleanCheckboxFilters, setBooleanCheckboxFilters] = useState()
@@ -50,15 +51,12 @@ const HouseListPageView = ({data}) => {
         getBooleanFilters(data), [data]
     )
 
-    useEffect (() => {
-        console.log(sortingData)
-    }, [sortingData])
-
     return (
         <div className="houses-list-page">
             <SortingBlock
                 data={data}
                 sortingData={sortingData => setSortingData(sortingData)}
+                sortingTypeHandler={sortingType => setSortingType(sortingType)}
             />
             <FiltersCollector
                 data={data}
@@ -75,31 +73,9 @@ const HouseListPageView = ({data}) => {
                 areaFilter={areaFilter}
                 multipleCheckboxFilterList={multipleCheckboxFilterList}
                 booleanCheckboxFilterList={booleanCheckboxFilterList}
+                sortingType={sortingType}
             />
         </div>
     )
 }
 
-
-
-//    return (
-//        <div className="houses-list-page">
-//            <FiltersCollector
-//                data={data}
-//                multipleCheckboxFilterList={multipleCheckboxFilterList}
-//                booleanCheckboxFilterList={booleanCheckboxFilterList}
-//                multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
-//                booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
-//                areaFilterCollector={e => setAreaFilter(e)}
-//            />
-//            <HouseList
-//                data={data}
-//                multipleCheckboxFilters={multipleCheckboxFilters}
-//                booleanCheckboxFilters={booleanCheckboxFilters}
-//                areaFilter={areaFilter}
-//                multipleCheckboxFilterList={multipleCheckboxFilterList}
-//                booleanCheckboxFilterList={booleanCheckboxFilterList}
-//            />
-//        </div>
-//    )
-//}

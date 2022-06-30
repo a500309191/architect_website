@@ -6,6 +6,16 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HouseList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/SortingBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/SortingBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_area.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_arrow_down.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_arrow_up.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_bath.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_bed.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/sorting_random.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/getHousesAreas.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/getHousesAreas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/functions/sortArray.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/functions/sortArray.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

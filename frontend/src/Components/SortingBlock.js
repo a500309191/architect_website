@@ -1,75 +1,105 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { shuffleArray } from "../functions/shuffleArray";
 import { sortArray } from "../functions/sortArray";
 
 export const SortingBlock = ({
         data,
         sortingData,
+        sortingTypeHandler,
     }) => {
 
-    const [sortingDirection, setSortingDirection] = useState(true)
+    const [sortingList, setSortingList] = useState([])
+    const [sortingType, setSortingType] = useState("random")
     const areaSortingRef = useRef(null)
     const bedSortingRef = useRef(null)
     const bathSortingRef = useRef(null)
 
-    const activeStyle = sortingDirection => {
-        if (sortingDirection) { return "sorting-max-min" }
-        else { return "sorting-min-max" }
+    const toggleArrow = sortingType => {
+        if (sortingList.includes(sortingType)) {
+            sortingData(sortArray(data, sortingType, "min-max"))
+            setSortingList([])
+        } else {
+            sortingData(sortArray(data, sortingType, "max-min"))
+            setSortingList([sortingType])
+        }
     }
+
+    console.log(sortingType)
+
+    const sortingTypeText = sortingType => {
+        if (sortingType == "random") {
+            return "RANDOM SORTING"
+        } else if (sortingType == "area") {
+            return "AREA SORTING:"
+        } else if (sortingType == "bedroom") {
+            return "BEDROOM SORTING:"
+        } else if (sortingType == "bathroom") {
+            return "BATHROOM SORTING:"
+        }
+    }
+
+    useEffect(() => {
+        sortingTypeHandler(sortingType)
+    }, [sortingType])
 
     return (
         <div className="sorting-block">
-            <div
-                className="random-sorting"
-                onClick={() => {
-                    sortingData(shuffleArray(data))
-                    areaSortingRef.current.className = "area-sorting"
-                    bedSortingRef.current.className = "bedroom-sorting"
-                    bathSortingRef.current.className = "bathroom-sorting"
-                }}
-            >
+            <div className="sorting-icons">
+                <div
+                    className={`${sortingType === "random" ? "random-sorting" : "regular-sorting"}`}
+                    onClick={() => {
+                        setSortingType("random")
+                        setSortingList([])
+                        sortingData(shuffleArray(data))
+                        areaSortingRef.current.className = "area-sorting"
+                        bedSortingRef.current.className = "bedroom-sorting"
+                        bathSortingRef.current.className = "bathroom-sorting"
+                    }}
+                >
+                </div>
+                <div
+                    ref={areaSortingRef}
+                    className="area-sorting"
+                    onClick={() => {
+                        setSortingType("area")
+                        toggleArrow("area")
+                        areaSortingRef.current.className = `${sortingList.includes("area") ? "sorting-min-max" : "sorting-max-min"}`
+                        bedSortingRef.current.className = "bedroom-sorting"
+                        bathSortingRef.current.className = "bathroom-sorting"
+                    }}
+                >
+                </div>
+                <div
+                    ref={bedSortingRef}
+                    className="bedroom-sorting"
+                    onClick={() => {
+                        setSortingType("bedroom")
+                        toggleArrow("bedroom")
+                        bedSortingRef.current.className = `${sortingList.includes("bedroom") ? "sorting-min-max" : "sorting-max-min"}`
+                        areaSortingRef.current.className = "area-sorting"
+                        bathSortingRef.current.className = "bathroom-sorting"
+                    }}
+                >
+                </div>
+                <div
+                    ref={bathSortingRef}
+                    className="bathroom-sorting"
+                    onClick={() => {
+                        setSortingType("bathroom")
+                        toggleArrow("bathroom")
+                        bathSortingRef.current.className = `${sortingList.includes("bathroom") ? "sorting-min-max" : "sorting-max-min"}`
+                        areaSortingRef.current.className = "area-sorting"
+                        bedSortingRef.current.className = "bedroom-sorting"
+                    }}
+                >
+                </div>
             </div>
-            <div
-                ref={areaSortingRef}
-                className="area-sorting"
-                onClick={() => {
-                    let sortedData = sortArray(data, "area", sortingDirection)
-                    sortingData(sortedData)
-                    setSortingDirection(!sortingDirection)
-                    areaSortingRef.current.className = `${sortingDirection ? "sorting-max-min" : "sorting-min-max"}`
-
-                    bedSortingRef.current.className = "bedroom-sorting"
-                    bathSortingRef.current.className = "bathroom-sorting"
-                }}
-            >
-            </div>
-            <div
-                ref={bedSortingRef}
-                className="bedroom-sorting"
-                onClick={() => {
-                    let sortedData = sortArray(data, "bedroom", sortingDirection)
-                    sortingData(sortedData)
-                    setSortingDirection(!sortingDirection)
-                    bedSortingRef.current.className = `${sortingDirection ? "sorting-max-min" : "sorting-min-max"}`
-
-                    areaSortingRef.current.className = "area-sorting"
-                    bathSortingRef.current.className = "bathroom-sorting"
-                }}
-            >
-            </div>
-            <div
-                ref={bathSortingRef}
-                className="bathroom-sorting"
-                onClick={() => {
-                    let sortedData = sortArray(data, "bathroom", sortingDirection)
-                    sortingData(sortedData)
-                    setSortingDirection(!sortingDirection)
-                    bathSortingRef.current.className = `${sortingDirection ? "sorting-max-min" : "sorting-min-max"}`
-
-                    areaSortingRef.current.className = "area-sorting"
-                    bedSortingRef.current.className = "bedroom-sorting"
-                }}
-            >
+            <div className="sorting-info">
+                {sortingTypeText(sortingType)}
+                {sortingType != "random"
+                    ? `${sortingList.length != 0 ? " MAX TO MIN" : " MIN TO MAX"}`
+                    : ""
+                }
             </div>
         </div>
     )

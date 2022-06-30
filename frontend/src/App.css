@@ -92,15 +92,57 @@ grid-gap: 3px;
 }
 
 .sorting-block {
+grid-column: 1 / 2;
+grid-row: 1 / 2;
+}
+.sorting-icons {
 display: flex;
-grid-row-start: 1;
 height: 50px;
 margin: 2;
 margin-right: 10;
-margin-bottom: 8;
+margin-bottom: 5;
 gap: 8px;
 }
+.sorting-info {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 25px;
+font-size: 12px;
+color: rgba(0, 0, 0, 0.7);
+margin-bottom: 8;
+margin-right: 10;
+opacity: 0.8;
+background-color: #ebedf4;
+transition-duration: 0.8s;
+}
+
+.random-sorting {
+background: url("icons/sorting_random.svg") no-repeat center center;
+}
+.regular-sorting {
+background: url("icons/sorting_regular.svg") no-repeat center center;
+}
+.area-sorting {
+background: url("icons/sorting_area.svg") no-repeat center center;
+}
+.bedroom-sorting {
+background: url("icons/sorting_bed.svg") no-repeat center center;
+}
+.bathroom-sorting {
+background: url("icons/sorting_bath.svg") no-repeat center center;
+}
+.sorting-max-min {
+background: url("icons/sorting_arrow_down.svg") no-repeat center center;
+background-color: #dfe0e5;
+}
+.sorting-min-max {
+background: url("icons/sorting_arrow_up.svg") no-repeat center center;
+background-color: #dfe0e5;
+}
+
 .random-sorting,
+.regular-sorting,
 .area-sorting,
 .bedroom-sorting,
 .bathroom-sorting,
@@ -109,48 +151,19 @@ gap: 8px;
 flex: 1;
 width: 100%;
 height: auto;
-background-color: rgba(235, 237, 244, 0.7);
-opacity: 1;
-transition-property: background-color;
-transition-duration: 0.8s;
-}
-.area-sorting {
-background: url("components/sorting_area.svg") no-repeat center center;
+transition-duration: 0.2s;
 opacity: 0.8;
-background-color: rgba(235, 237, 244, 0.7);
+background-color: #ebedf4;
 }
-.bedroom-sorting {
-background: url("components/sorting_bed.svg") no-repeat center center;
-opacity: 0.8;
-background-color: rgba(235, 237, 244, 0.7);
-}
-.bathroom-sorting {
-background: url("components/sorting_bath.svg") no-repeat center center;
-opacity: 0.8;
-background-color: rgba(235, 237, 244, 0.7);
-}
+
+.sorting-info:hover,
+.random-sorting:hover,
+.regular-sorting:hover,
 .area-sorting:hover,
 .bedroom-sorting:hover,
 .bathroom-sorting:hover {
-background-color: rgba(235, 237, 244, 1);
+opacity: 1;
 }
-.random-sorting,
-.random-sorting:hover {
-background: url("components/sorting_random.svg") no-repeat center center;
-background-color: rgba(235, 237, 244, 0.7);
-}
-.random-sorting:hover {
-background-color: #dfe0e5;
-}
-.sorting-max-min {
-background: url("components/sorting_arrow_down.svg") no-repeat center center;
-background-color: #dfe0e5;
-}
-.sorting-min-max {
-background: url("components/sorting_arrow_up.svg") no-repeat center center;
-background-color: #dfe0e5;
-}
-
 
 .filters-collector {
 grid-row-start: 2;
@@ -159,9 +172,30 @@ margin-right: 8;
 font-size: 12px
 }
 
-.houses-block {
+.house-block-container {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.house-block-sorting-info {
+position: absolute;
+font-size: 30px;
+color: white;
+pointer-events: none;
+opacity: 1;
+transition-duration: 0.5s;
+background-color: rgba(0, 0, 0, 0.4);
+}
+
+.house-block-container:hover .house-block-sorting-info {
+opacity: 0;
+}
+
+.house-block {
 position: relative;
 display: flex;
+flex: 1;
 background: no-repeat;
 text-decoration: none;
 width: auto;
@@ -173,14 +207,15 @@ filter: grayscale(0.8);
 transition-duration: 0.5s;
 }
 
-.houses-block:hover {
+.house-block:hover {
 transform: scale(1);
 filter: grayscale(0);
 background-position: 32;
 opacity: 1;
 }
 
-.houses-block-name {
+
+.house-block-name {
 position: absolute;
 font-size: 12px;
 color: black;
@@ -188,7 +223,7 @@ transition-duration: 0.3s;
 z-index:2;
 }
 
-.houses-block-details {
+.house-block-details {
 display: flex;
 position: relative;
 flex-direction: column;
@@ -201,27 +236,26 @@ z-index:1;
 opacity: 0;
 }
 
-.houses-block-details > div {
+.house-block-details > div {
 padding: 0;
 margin-bottom: 2;
 }
 
-.houses-block:hover .houses-block-details {
+.house-block:hover .house-block-details {
 background-color: rgba(235, 237, 244, 0.9);
 padding-right: 3;
 opacity: 1;
 }
 
-.houses-block:hover .houses-block-details > div {
+.house-block:hover .house-block-details > div {
 opacity: 0.7;
 }
 
-.houses-block:hover .houses-block-name {
+.house-block:hover .house-block-name {
 font-size: auto;
 font-weight: bold;
 opacity: 0.7;
 }
-
 
 
 .house {
