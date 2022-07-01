@@ -5,7 +5,6 @@ export const BooleanCheckboxFilter = ({
         data,
         booleanCheckboxFilterList,
         onChange,
-        header,
     }) => {
 
     const filterDict = makeBooleanFilterDict(booleanCheckboxFilterList)
@@ -15,56 +14,77 @@ export const BooleanCheckboxFilter = ({
         onChange(JSON.stringify(filters))
     }, [filters])
 
+    const paramHumanText = param => {
+        switch (param) {
+            case "kitchen_living_room":
+                return "is kitchen connected with living room?"
+            case "tech_room":
+                return "has a technical room?"
+            case "laundry":
+                return "has a landry?"
+            case "terrace":
+                return "has a terrace?"
+            case "fireplace":
+                return "has a fireplace?"
+            case "garage":
+                return "has a garage?"
+            default:
+                return param
+        }
+    }
+
     return (
         <div className="boolean-checkbox-filter">
-            <div className="filter-header">{header}</div>
-            <div>
-                {booleanCheckboxFilterList.map((param, index) => {
-                    return (
-                        <div className="boolean-checkbox-filter-param" key={index}>
-                            <input
-                                type="checkbox"
-                                id={`input1_${index}`}
-                                defaultChecked
-                                onChange = {() => setFilters(
-                                    filters => {
-                                        let input1 = document.getElementById(`input1_${index}`)
-                                        if (input1.checked) {
-                                            filters[param].push(true)
-                                        }
-                                        if (!input1.checked) {
-                                            filters[param]
-                                            = filters[param].filter(item => item != true)
-                                        }
-                                        return { ...filters }
-                                    }
-                                )}
-                            />
-                            <label className="boolean-checkbox-filter-value">+</label>
-                            <input
-                                type="checkbox"
-                                id={`input2_${index}`}
-                                defaultChecked
-                                onChange = {() => setFilters(
-                                    filters => {
-                                        let input2 = document.getElementById(`input2_${index}`)
-                                        if (input2.checked) {
-                                            filters[param].push(false)
-                                        }
-                                        if (!input2.checked) {
-                                            filters[param]
-                                            = filters[param].filter(item => item != false)
-                                        }
-                                        return { ...filters }
-                                    }
-                                )}
-                            />
-                            <label className="boolean-checkbox-filter-value">-</label>
-                            <label className="boolean-checkbox-filter-text">{param}</label>
-                        </div>
-                    )
-                })}
+            <div className="filter-header">BOOLEAN FILTER:</div>
+            <div className="yes-no-header">
+                <div className="yes-header">YES</div>
+                <div className="no-header">NO</div>
             </div>
+            {booleanCheckboxFilterList.map((param, index) => {
+                return (
+                    <div className="boolean-checkbox-filter-param" key={index}>
+                        <input
+                            className="boolean-checkbox-yes"
+                            type="checkbox"
+                            id={`input1_${index}`}
+                            defaultChecked
+                            onChange = {() => setFilters(
+                                filters => {
+                                    let input1 = document.getElementById(`input1_${index}`)
+                                    if (input1.checked) {
+                                        filters[param].push(true)
+                                    }
+                                    if (!input1.checked) {
+                                        filters[param]
+                                        = filters[param].filter(item => item != true)
+                                    }
+                                    return { ...filters }
+                                }
+                            )}
+                        />
+                        <input
+                            className="boolean-checkbox-no"
+                            type="checkbox"
+                            id={`input2_${index}`}
+                            defaultChecked
+                            onChange = {() => setFilters(
+                                filters => {
+                                    let input2 = document.getElementById(`input2_${index}`)
+                                    if (input2.checked) {
+                                        filters[param].push(false)
+                                    }
+                                    if (!input2.checked) {
+                                        filters[param]
+                                        = filters[param].filter(item => item != false)
+                                    }
+                                    return { ...filters }
+                                }
+                            )}
+                        />
+                        <label className="boolean-checkbox-filter-text">{paramHumanText(param)}</label>
+                    </div>
+                )
+            })}
         </div>
     )
 }

@@ -27,7 +27,6 @@ export const FiltersCollector = ({
                 data={data}
                 booleanCheckboxFilterList={booleanCheckboxFilterList}
                 onChange={e => booleanCheckboxFiltersCollector(e)}
-                header="BOOLEAN FILTERS:"
             />
         </div>
     )

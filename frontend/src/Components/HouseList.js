@@ -48,7 +48,7 @@ export const HouseList = ({
                         return (
                             <div className="house-block-container" key={index}>
                                 <Link
-                                    to={{pathname: `/houses/${index+1}`}}
+                                    to={{pathname: `/houses/${house.id}`}}
                                     className="house-block"
                                     style = {{ backgroundImage: `url(${address}${house.thumbnails[0]})` }}
                                 >

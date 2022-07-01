@@ -9,49 +9,46 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
   const maxValRef = useRef(max);
   const range = useRef(null);
 
-
   // Convert to percentage
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
 
-
   // Set width of the range to decrease from the left side
   useEffect(() => {
-    const minPercent = getPercent(minVal);
+    const minPercent = getPercent(minVal)
     //If maxVal was used, ESLint would throw a warning asking us
     //to include it in the dependency array since it is a state variable
     //and not a reference variable.
-    const maxPercent = getPercent(maxValRef.current);
+    const maxPercent = getPercent(maxValRef.current)
     
     if (range.current) {
       //By default, the width of any div tag would decrease or increase from the right side.
       //To reverse this functionality, we use the left property in CSS
-      range.current.style.left = `${minPercent}%`;
-      range.current.style.width = `${maxPercent - minPercent}%`;
+      range.current.style.left = `${minPercent}%`
+      range.current.style.width = `${maxPercent - minPercent}%`
     }
-  }, [minVal, getPercent]);
+  }, [minVal, getPercent])
 
 
   // Set width of the range to decrease from the right side
   useEffect(() => {
-    const minPercent = getPercent(minValRef.current);
-    const maxPercent = getPercent(maxVal);
+    const minPercent = getPercent(minValRef.current)
+    const maxPercent = getPercent(maxVal)
 
     if (range.current) {
-      range.current.style.width = `${maxPercent - minPercent}%`;
+      range.current.style.width = `${maxPercent - minPercent}%`
     }
-  }, [maxVal, getPercent]);
+  }, [maxVal, getPercent])
 
   // Get min and max values when their state changes
   useEffect(() => {
-    onChange({ min: minVal, max: maxVal });
-  }, [minVal, maxVal, onChange]);
+    onChange({ min: minVal, max: maxVal })
+  }, [minVal, maxVal, onChange])
 
   return (
-    <div className="container">
-
+    <div className="multi-range-slider">
       <input
         className="thumb thumb--left"
         type="range"
@@ -59,16 +56,14 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         max={max}
         value={minVal}
         onChange={(event) => {
-          const value = Math.min(Number(event.target.value), maxVal - 1);
-          setMinVal(value);
-          minValRef.current = value;
+          const value = Math.min(Number(event.target.value), maxVal - 1)
+          setMinVal(value)
+          minValRef.current = value
         }}
         //zindex-5 is conditionally applied to the left thumb
         //to be able to move the thumb from the extreme right end
         style={{ zIndex: minVal > max - 100 && "5" }}
       />
-
-
       <input
         className="thumb thumb--right"
         type="range"
@@ -76,12 +71,11 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         max={max}
         value={maxVal}
         onChange={(event) => {
-          const value = Math.max(Number(event.target.value), minVal + 1);
-          setMaxVal(value);
-          maxValRef.current = value;
+          const value = Math.max(Number(event.target.value), minVal + 1)
+          setMaxVal(value)
+          maxValRef.current = value
         }}
       />
-
       <div className="slider">
         <div className="slider__track" />
         <div ref={range} className="slider__range" />
@@ -89,8 +83,8 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         <div className="slider__right-value">{maxVal}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 MultiRangeSlider.propTypes = {
   min: PropTypes.number.isRequired,

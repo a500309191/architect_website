@@ -1,3 +1,29 @@
+[type=checkbox] {
+-webkit-appearance: none;
+width: 11px;
+height: 11px;
+vertical-align: middle;
+/*border: 0;
+outline: 0;
+flex-grow: 0;*/
+border-radius: 50%;
+background-color: white;
+transition: background 0.3s;
+cursor: pointer;
+}
+[type=checkbox]:checked {
+background-color: currentcolor;
+}
+[type=checkbox]:checked::before {
+box-shadow: none;
+}
+[type=checkbox]:disabled {
+background-color: #CCD3D8;
+opacity: 0.84;
+cursor: not-allowed;
+}
+
+
 div * {
 font-family: Arial;
 user-select: none;
@@ -78,7 +104,8 @@ background-color: #ebedf4;
 }
 .houses-list-page {
 display: grid;
-grid-template-columns: 256px 1fr;
+gap: 6px;
+grid-template-columns: 250px 1fr;
 grid-template-rows: auto 1fr;
 }
 
@@ -92,15 +119,16 @@ grid-gap: 3px;
 }
 
 .sorting-block {
+display: flex;
+flex-direction: column;
+gap: 3px;
 grid-column: 1 / 2;
 grid-row: 1 / 2;
 }
 .sorting-icons {
 display: flex;
 height: 50px;
-margin: 2;
-margin-right: 10;
-margin-bottom: 5;
+
 gap: 8px;
 }
 .sorting-info {
@@ -110,8 +138,6 @@ align-items: center;
 height: 25px;
 font-size: 12px;
 color: rgba(0, 0, 0, 0.7);
-margin-bottom: 8;
-margin-right: 10;
 opacity: 0.8;
 background-color: #ebedf4;
 transition-duration: 0.8s;
@@ -166,9 +192,11 @@ opacity: 1;
 }
 
 .filters-collector {
+display: flex;
+flex-direction: column;
+gap: 3px;
 grid-row-start: 2;
 grid-column: 1 / 2;
-margin-right: 8;
 font-size: 12px
 }
 
@@ -374,42 +402,6 @@ background-color: rgba(235, 237, 244, 0.9);
 }
 
 
-
-/*.house-views-slider {
-position: absolute;
-*//*top: 100%;*//*
-display: flex;
-*//*flex-wrap: wrap;*//*
-justify-content: space-between;
-align-items: flex-start;
-gap: 8px;
-*//*width: 100%;*//*
-}
-.house-views-slider-view-current,
-.house-views-slider-view {
-*//*object-fit: contain;*//*
-margin-top: 8;
-min-width: 0;
-max-width: 100%;
-max-height: 80px;
-}
-.house-views-slider-view {
-opacity: 0.65;
-transition-duration: 0.2s;
-}
-.house-views-slider-view-current {
-opacity: 1;
-border-bottom-style: solid;
-border-width: 5px;
-border-color: #c93232;
-margin-bottom: -5px;
-}
-.house-views-slider-view:hover{
-opacity: 1;
-}*/
-
-
-
 .house-views-slider {
 position: relative;
 display: flex;
@@ -445,8 +437,11 @@ opacity: 1;
 }
 
 
-
-
+.multiple-checkbox-filters {
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
 
 .area-filter,
 .multiple-checkbox-filter,
@@ -454,7 +449,6 @@ opacity: 1;
 display: flex;
 flex-direction: column;
 position: relative;
-margin: 2;
 background-color: #ebedf4;
 opacity: 0.7;
 }
@@ -482,7 +476,6 @@ opacity: 0.5;
 margin-left: 7;
 }
 
-
 .multiple-checkbox-filter-param,
 .boolean-checkbox-filter-param {
 display: flex;
@@ -491,7 +484,6 @@ align-items: center;
 
 .multiple-checkbox-filter-text,
 .boolean-checkbox-filter-text {
-
 }
 
 .multiple-checkbox-filter-clicker {
@@ -504,6 +496,40 @@ background-color: red;
 opacity: 0;
 }
 
+.yes-no-header,
+.boolean-checkbox-filter-param {
+display: grid;
+grid-template-columns: 20px 20px auto;
+position: relative;
+}
+.yes-no-header {
+margin-top: 1px;
+}
+.yes-header,
+.no-header {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size:9px;
+}
+.boolean-checkbox-yes,
+yes-header {
+grid-column: 1 / 2;
+}
+.boolean-checkbox-no,
+no-header {
+grid-column: 2 / 3;
+}
+.boolean-checkbox-filter-text {
+grid-column: 3 / 4;
+}
+/*.boolean-checkbox-filter-param {
+position: relative;
+}
+.boolean-checkbox-filter-value {
+position: relative;
+top: 100%;
+}*/
 
 @media screen and (max-width: 1400px) {
     .house {

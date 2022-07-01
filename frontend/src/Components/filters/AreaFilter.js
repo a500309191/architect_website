@@ -16,7 +16,7 @@ export const AreaFilter = ({
 
     return (
         <div className="area-filter">
-            <div className="filter-header">AREA FILTER:</div>
+            <div className="filter-header">AREA FILTER [m²]:</div>
             <MultiRangeSlider
                 min={minArea}
                 max={maxArea}
