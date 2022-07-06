@@ -10,7 +10,7 @@ router.register(r"house", HouseViewSet, basename="house")
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("", views.home, name="home"),
+    path("custom_serializer/", views.custom_serializer, name="home"),
     # path('api/houselist/', HouseViewSet.as_view({'get': 'list'})),
     # path('api/houselist/<int:pk>/', HouseViewSet.as_view({'get': 'list'})),
     # path('api/imagelist/', ImageViewSet.as_view({'get': 'list'})),

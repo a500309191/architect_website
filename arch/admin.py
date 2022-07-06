@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import House, Image, Drawing, Material, Style
+from . models import House, Image, Plan, Material, Style
 
 # admin.site.register(House)
 # admin.site.register(Image)
@@ -18,21 +18,20 @@ class ImageInline(admin.StackedInline):
     verbose_name = "House image"
     extra = 5
     max_num = 5
-    exclude = ["thumbnail", ]
+    exclude = ["image_thumbnail", ]
 
-class DrawingInline(admin.StackedInline):
-    model = Drawing
-    verbose_name = "House drawing"
+class PlanInline(admin.StackedInline):
+    model = Plan
+    verbose_name = "House plan"
     extra = 3
     max_num = 5
 
 @admin.register(House)
 class ImageAdmin(admin.ModelAdmin):
-    inlines = [ImageInline, DrawingInline]
+    inlines = [ImageInline, PlanInline]
     list_display = ("model_name",
                     "area",
                     "floors",
-                    "size",
                     "material",
                     "terrace",
                     "garage",
@@ -43,7 +42,6 @@ class ImageAdmin(admin.ModelAdmin):
             "fields": ("model_name",
                        "area",
                        "floors",
-                       "size",
                        "material",
                        "style",
                        "roof",
@@ -54,14 +52,12 @@ class ImageAdmin(admin.ModelAdmin):
         ("HOUSE CHECKBOX PARAMETERS / check the box if yes", {
             "fields": ("kitchen_living_room",
                        "tech_room",
-                       "laundry",
                        "terrace",
-                       "fireplace",
                        "garage")
         })
     )
 
-    list_filter = ("material", "floors", "size", "roof", )
+    list_filter = ("material", "floors", "roof", )
 
 # @admin.register(Image)
 # class ImageAdmin(admin.ModelAdmin):

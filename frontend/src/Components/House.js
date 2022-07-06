@@ -67,8 +67,8 @@ const HouseImages = ({data}) => {
     const [viewIndex, setViewIndex] = useState(0)
 
     const images = data.images
-    const drawings = data.drawings
-    const views = [...images, ...drawings]
+    const plans = data.plans
+    const views = [...images, ...plans]
 
     const prevImage = views => {setViewIndex(prev => prev == 0 ? views.length-1 : prev-1)}
     const nextImage = views => {setViewIndex(prev => prev == views.length-1 ? 0 : prev+1)}
@@ -121,31 +121,3 @@ const HouseImages = ({data}) => {
         </>
     )
 }
-
-//                    return (
-//                        <div
-//                            className={`${views.indexOf(view) === viewIndex
-//                                ? "house-views-slider-view-current"
-//                                : "house-views-slider-view"}`}
-//                            style={{
-//                                backgroundImage: `url(${address}${view})`
-//                            }}
-//                            onClick={()=> {
-//                                setViewIndex(index)
-//                            }}
-//
-//                        >
-//
-//                        </div>
-//                    )
-
-
-//                    return (
-//                        <img
-//                            className={`${views.indexOf(view) === viewIndex
-//                                ? "house-views-slider-view-current"
-//                                : "house-views-slider-view"}`}
-//                            src={address + view}
-//                            key={index}
-//                        />
-//                    )

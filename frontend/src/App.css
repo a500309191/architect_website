@@ -206,6 +206,15 @@ align-items: center;
 justify-content: center;
 }
 
+.house-block-no-image-info {
+position: absolute;
+font-size: 30px;
+color: white;
+pointer-events: none;
+opacity: 1;
+transition-duration: 0.5s;
+/*background-color: rgba(0, 0, 0, 0.4);*/
+}
 .house-block-sorting-info {
 position: absolute;
 font-size: 30px;
@@ -216,10 +225,12 @@ transition-duration: 0.5s;
 background-color: rgba(0, 0, 0, 0.4);
 }
 
+.house-block-container:hover .house-block-no-image-info,
 .house-block-container:hover .house-block-sorting-info {
 opacity: 0;
 }
 
+.house-block-without-image,
 .house-block {
 position: relative;
 display: flex;
@@ -234,14 +245,16 @@ opacity: 0.9;
 filter: grayscale(0.8);
 transition-duration: 0.5s;
 }
-
+.house-block-without-image {
+background-color: #ebedf4;
+}
+.house-block-without-image:hover,
 .house-block:hover {
 transform: scale(1);
 filter: grayscale(0);
 background-position: 32;
 opacity: 1;
 }
-
 
 .house-block-name {
 position: absolute;
@@ -269,17 +282,20 @@ padding: 0;
 margin-bottom: 2;
 }
 
-.house-block:hover .house-block-details {
+.house-block:hover .house-block-details,
+.house-block-without-image:hover .house-block-details {
 background-color: rgba(235, 237, 244, 0.9);
 padding-right: 3;
 opacity: 1;
 }
 
-.house-block:hover .house-block-details > div {
+.house-block:hover .house-block-details > div,
+.house-block-without-image:hover .house-block-details > div {
 opacity: 0.7;
 }
 
-.house-block:hover .house-block-name {
+.house-block:hover .house-block-name,
+.house-block-without-image:hover .house-block-name {
 font-size: auto;
 font-weight: bold;
 opacity: 0.7;

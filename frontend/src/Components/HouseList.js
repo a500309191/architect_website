@@ -49,8 +49,12 @@ export const HouseList = ({
                             <div className="house-block-container" key={index}>
                                 <Link
                                     to={{pathname: `/houses/${house.id}`}}
-                                    className="house-block"
-                                    style = {{ backgroundImage: `url(${address}${house.thumbnails[0]})` }}
+                                    //className="house-block"
+                                    className={`${house.image_thumbnails.length == 0
+                                        ? "house-block-without-image"
+                                        : "house-block"}`
+                                    }
+                                    style = {{ backgroundImage: `url(${address}${house.image_thumbnails[0]})` }}
                                 >
                                     <div className="house-block-name">{house.model_name}</div>
                                     <div className="house-block-details">
@@ -63,6 +67,7 @@ export const HouseList = ({
                                     </div>
                                 </Link>
                                 <div className="house-block-sorting-info">{sortingTypeText(house, sortingType)}</div>
+                                <div className="house-block-no-image-info">{house.image_thumbnails.length == 0 && sortingType == "random" ? "NO IMAGE" : ""}</div>
                             </div>
                         )
                     }

@@ -24,8 +24,6 @@ export const SortingBlock = ({
         }
     }
 
-    console.log(sortingType)
-
     const sortingTypeText = sortingType => {
         if (sortingType == "random") {
             return "RANDOM SORTING"

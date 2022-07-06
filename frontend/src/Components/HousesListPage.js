@@ -10,6 +10,7 @@ import { shuffleArray } from "../functions/shuffleArray";
 const address = 'http://127.0.0.1:8000/media/'
 
 export const HousesListPage = () => {
+
     return (
         <Fetch
             uri = 'http://127.0.0.1:8000/api/house/'
@@ -23,11 +24,14 @@ export const HousesListPage = () => {
 
 const HouseListPageView = ({data}) => {
 
-    //console.log(data)
+    const _data = useMemo(() => {
+        return data
+    }, [data])
 
     const shuffleData = useMemo(() => {
-        return shuffleArray(data)
-    }, [data])
+        return shuffleArray(_data)
+    }, [_data])
+
     const [sortingData, setSortingData] = useState(shuffleData)
     const [sortingType, setSortingType] = useState("random")
 
@@ -40,7 +44,6 @@ const HouseListPageView = ({data}) => {
         "floors",
         "material",
         "roof",
-        "size",
         "style",
         "bedroom",
         "bathroom",
@@ -51,15 +54,18 @@ const HouseListPageView = ({data}) => {
         getBooleanFilters(data), [data]
     )
 
+    console.log("RANDOM")
+
+
     return (
         <div className="houses-list-page">
             <SortingBlock
-                data={data}
+                data={_data}
                 sortingData={sortingData => setSortingData(sortingData)}
                 sortingTypeHandler={sortingType => setSortingType(sortingType)}
             />
             <FiltersCollector
-                data={data}
+                data={_data}
                 multipleCheckboxFilterList={multipleCheckboxFilterList}
                 booleanCheckboxFilterList={booleanCheckboxFilterList}
                 multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
@@ -79,3 +85,30 @@ const HouseListPageView = ({data}) => {
     )
 }
 
+//    return (
+//        <div className="houses-list-page">
+//            <SortingBlock
+//                data={data}
+//                sortingData={sortingData => setSortingData(sortingData)}
+//                sortingTypeHandler={sortingType => setSortingType(sortingType)}
+//            />
+//            <FiltersCollector
+//                data={data}
+//                multipleCheckboxFilterList={multipleCheckboxFilterList}
+//                booleanCheckboxFilterList={booleanCheckboxFilterList}
+//                multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
+//                booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
+//                areaFilterCollector={e => setAreaFilter(e)}
+//            />
+//            <HouseList
+//                data={sortingData}
+//                multipleCheckboxFilters={multipleCheckboxFilters}
+//                booleanCheckboxFilters={booleanCheckboxFilters}
+//                areaFilter={areaFilter}
+//                multipleCheckboxFilterList={multipleCheckboxFilterList}
+//                booleanCheckboxFilterList={booleanCheckboxFilterList}
+//                sortingType={sortingType}
+//            />
+//        </div>
+//    )
+//}

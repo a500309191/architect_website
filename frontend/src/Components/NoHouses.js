@@ -1,5 +1,5 @@
 export const NoHouses = () => {
     return (
-        <div className="no-houses">YOU HAVE NOT ADDED ANY HOUSES</div>
+        <div className="no-houses">THERE ARE NO ANY HOUSES</div>
     )
 }
