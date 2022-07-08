@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def isFloat(a):
 	if a.isdigit():
 		return False
@@ -34,7 +35,7 @@ def houseInfo(directory, foreignKeysValues):
 
 		d[key] = value
 	
-	if 'model_name' not in d: d.setdefault('model_name', 'test')
+	if 'model_name' not in d: d.setdefault('model_name', 'unnamed')
 	d.setdefault('time_create', datetime.now())
 	d.setdefault('time_update', datetime.now())
 	

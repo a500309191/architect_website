@@ -1,11 +1,10 @@
 import os
-from datetime import datetime
-from . getHouseImages import houseImages
-from . getHousePlans import housePlans
 from . getHouseInfo import houseInfo
-from arch.models import *
+from . createImages import createImages
+from . createPlans import createPlans
+from . houseNamesGenerator.randomNameGenerator import createRandomNames
+from arch.models import Material, Style, Roof, House
 
-#x = House(model_name='test', area=1000, floors=2, entrance=2, bedroom=4, bathroom=3, kitchen_living_room=True, tech_room=True, terrace=True, time_create=datetime.now(), time_update=datetime.now(), material_id=1, style_id=1, roof_id='flat')
 
 def getForeignKeysValues():
     Roofs = Roof.objects.all()
@@ -32,6 +31,9 @@ foreignKeysValues = {
 
 
 def getHousesDirs(directory):
+
+
+
 	foldersInDir = os.listdir(directory)
 	housesFolders = []
 	for folder in foldersInDir:
@@ -52,94 +54,36 @@ def getHousesDirs(directory):
 directory = 'C:\P\PROJECTS\ARCHITECT_WEBSITE\houses'
 housesDirs = getHousesDirs(directory)
 
-def getLastId():
-	houses = House.objects.all()
-	if houses == []:
-		last_id = 0
-	else:
-		last_id = len(houses)
 
-	return last_id
-lastId = getLastId()
+def createHouses(housesDirs=housesDirs, foreignKeysValues=foreignKeysValues):
 
-
-def createHouses(housesDirs, foreignKeysValues):
-	bulkInfos = [House(**houseInfo(houseDir, foreignKeysValues)) for houseDir in housesDirs]
-	House.objects.bulk_create(bulkInfos)
-
-# def createImages(housesDirs):
-# 	from django.core.files import File
-#
-# 	houses = House.objects.all()
-# 	lastId = houses[len(houses) - 1].id
-# 	house_id = lastId - len(housesDirs)
-#
-# 	bulkImages = []
-# 	for houseDir in housesDirs:
-# 		images = houseImages(houseDir)
-# 		house_id += 1
-# 		for image in images:
-# 			d = {}
-# 			imageDir = '{}\{}'.format(houseDir, image)
-# 			imageFile = File(open(imageDir, 'rb'))
-#
-# 			d.setdefault('image', imageFile)
-# 			d.setdefault('image_thumbnail', '')
-# 			d.setdefault('time_update', datetime.now())
-# 			d.setdefault('house_id', house_id)
-#
-# 			bulkImage = Image(**d)
-# 			bulkImage.attachment = imageFile
-# 			# imageFile.close()
-#
-# 			bulkImages.append(bulkImage)
-#
-# 	Image.objects.bulk_create(bulkImages)
-
-def createImages(housesDirs):
-	from django.core.files import File
-
-	houses = House.objects.all()
-	lastId = houses[len(houses)-1].id
-	house_id = lastId - len(housesDirs)
+	housesNumber = len(housesDirs)
+	exampleTextPath = 'arch/contentFiller/houseNamesGenerator/example.txt'
+	randomNames = createRandomNames(housesNumber, exampleTextPath)
+	index = 0
 
 	for houseDir in housesDirs:
-		images = houseImages(houseDir)
-		house_id += 1
-		for image in images:
-			d = {}
-			imageDir = '{}\{}'.format(houseDir, image)
-			imageFile = File(open(imageDir, 'rb'))
+		houseInfoDict = houseInfo(houseDir, foreignKeysValues)
+		houseInfoDict['model_name'] = randomNames[index]
+		index += 1
 
-			d.setdefault('image', imageFile)
-			d.setdefault('image_thumbnail', '')
-			d.setdefault('time_update', datetime.now())
-			d.setdefault('house_id', house_id)
+		house = House(**houseInfoDict)
+		house.save()
 
-			image = Image(**d)
-			image.attachment = imageFile
-			image.save()
-			imageFile.close()
+	#bulkcreate method but without random name for each house
+	# housesInfos = [House(**houseInfo(houseDir, foreignKeysValues)) for houseDir in housesDirs]
+	# House.objects.bulk_create(housesInfoqs)
 
-
-
-def createPlans(housesDirs):
 	houses = House.objects.all()
-	lastId = houses[len(houses)-1].id
-	house_id = lastId - len(housesDirs)
+	lastId = houses[len(houses) - 1].id
+	firstHouseId = lastId - len(housesDirs)
 
-	bulkPlans = []
-	for houseDir in housesDirs:
-		plans = housePlans(houseDir)
-		house_id += 1
-		for plan in plans:
-			d = {}
-			d.setdefault('plan', '{}\{}'.format(houseDir, plan))
-			d.setdefault('time_update', datetime.now())
-			d.setdefault('house_id', house_id)
-			bulkPlans.append(Plan(**d))
+	createImages(housesDirs, firstHouseId)
+	createPlans(housesDirs, firstHouseId)
 
-	Plan.objects.bulk_create(bulkPlans)
+
+# from arch.contentFiller.main import *
+
 
 
 

@@ -59,19 +59,21 @@ const HouseListPageView = ({data}) => {
 
     return (
         <div className="houses-list-page">
-            <SortingBlock
-                data={_data}
-                sortingData={sortingData => setSortingData(sortingData)}
-                sortingTypeHandler={sortingType => setSortingType(sortingType)}
-            />
-            <FiltersCollector
-                data={_data}
-                multipleCheckboxFilterList={multipleCheckboxFilterList}
-                booleanCheckboxFilterList={booleanCheckboxFilterList}
-                multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
-                booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
-                areaFilterCollector={e => setAreaFilter(e)}
-            />
+            <div className="side-bar">
+                <SortingBlock
+                    data={_data}
+                    sortingData={sortingData => setSortingData(sortingData)}
+                    sortingTypeHandler={sortingType => setSortingType(sortingType)}
+                />
+                <FiltersCollector
+                    data={_data}
+                    multipleCheckboxFilterList={multipleCheckboxFilterList}
+                    booleanCheckboxFilterList={booleanCheckboxFilterList}
+                    multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
+                    booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
+                    areaFilterCollector={e => setAreaFilter(e)}
+                />
+            </div>
             <HouseList
                 data={sortingData}
                 multipleCheckboxFilters={multipleCheckboxFilters}

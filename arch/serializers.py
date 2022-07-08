@@ -20,19 +20,19 @@ class HouseSerializer(serializers.ModelSerializer):
         model = House
         exclude = ["time_create", "time_update"]
 
-    # def to_representation(self, instance):
-    #     data = super().to_representation(instance)
-    #
-    #     roof = Roof.objects.get(id=data["roof"])
-    #     data["roof"] = roof.name.lower()
-    #
-    #     material = Material.objects.get(id=data["material"])
-    #     data["material"] = material.name.lower()
-    #
-    #     style = Style.objects.get(id=data["style"])
-    #     data["style"] = style.name.lower()
-    #
-    #     return data
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        roof = Roof.objects.get(id=data["roof"])
+        data["roof"] = roof.name.lower()
+
+        material = Material.objects.get(id=data["material"])
+        data["material"] = material.name.lower()
+
+        style = Style.objects.get(id=data["style"])
+        data["style"] = style.name.lower()
+
+        return data
 
 
 

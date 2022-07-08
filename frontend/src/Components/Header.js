@@ -6,7 +6,6 @@ export const Header = () => {
         <>
             <NavLink className="header-main" to="/">MAIN</NavLink>
             <NavLink className="header-houses" to="/houses">HOUSES</NavLink>
-            <NavLink className="header-about" to="/about">ABOUT</NavLink>
         </>
     )
 }

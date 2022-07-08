@@ -156,7 +156,7 @@ class Plan(models.Model):
     plan = models.ImageField(null=True,
                              blank=True,
                              upload_to=PathRename(field="plan",
-                                                  path="drawings",
+                                                  path="plans",
                                                   suffix="plan",
                                                   ext="original"))
     time_update = models.DateTimeField(auto_now=True)
