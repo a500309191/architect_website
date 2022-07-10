@@ -22,7 +22,12 @@ export const House = () => {
 }
 
 const HouseView = ({data}) => {
+
     console.log(data)
+
+/*    let x = document.querySelector(".header-houses")
+    x.textContent = "BACK TO HOUSES"*/
+
     return (
         <div className="house">
             <HouseDetails data={data} />

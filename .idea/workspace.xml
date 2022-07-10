@@ -3,13 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/contentFiller/getHouseInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/contentFiller/getHouseInfo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/contentFiller/getHousePlans.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/contentFiller/getHousePlans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/contentFiller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/contentFiller/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/content_filler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/createImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/createImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/createPlans.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/createPlans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/getHouseImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/getHouseImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/getHouseInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/getHouseInfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/getHousePlans.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/getHousePlans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/houseNamesGenerator/example.txt" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/houseNamesGenerator/example.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/houseNamesGenerator/getLetterFrequencyDict.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/houseNamesGenerator/getLetterFrequencyDict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/houseNamesGenerator/randomNameGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/houseNamesGenerator/randomNameGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/contentFiller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/contentFiller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/House.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/House.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

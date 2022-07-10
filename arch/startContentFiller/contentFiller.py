@@ -5,34 +5,34 @@ from . createPlans import createPlans
 from . houseNamesGenerator.randomNameGenerator import createRandomNames
 from arch.models import Material, Style, Roof, House
 
-
-def getForeignKeysValues():
-    Roofs = Roof.objects.all()
-    Styles = Style.objects.all()
-    Materials = Material.objects.all()
-
-    foreignKeyTables = [Roofs, Styles, Materials]
-    foreignKeysValues = {}
-
-    for table in foreignKeyTables:
-        for row in table:
-            foreignKeysValues.setdefault(str(row), int(row.id))
-
-    return foreignKeysValues
-
-foreignKeysValues = {
-	'stone': 1,
-	'wood': 2,
-	'pitched': 1,
-	'flat': 2,
-	'traditional': 1,
-	'contemporary': 2,
+firstTablesValues = {
+	'material': ['stone', 'wood'],
+	'style': ['traditional', 'contemporary'],
+	'roof': ['pitched', 'flat', 'combined'],
 }
+
+def fillFirstTables(tables):
+	def getModel(table):
+		model = ''
+		if table == 'material': model = Material
+		if table == 'style': model = Style
+		if table == 'roof': model = Roof
+		return model
+
+	values = {}
+	for table in tables:
+		names = tables[table]
+		for name in names:
+			createRow = getModel(table).objects.get_or_create(name=name)
+			newRow = createRow[0]
+			values.setdefault(name, newRow.id)
+
+	return values
+
+foreignKeysValues = fillFirstTables(firstTablesValues)
 
 
 def getHousesDirs(directory):
-
-
 
 	foldersInDir = os.listdir(directory)
 	housesFolders = []
@@ -51,14 +51,12 @@ def getHousesDirs(directory):
 		
 	return d
 
-directory = 'C:\P\PROJECTS\ARCHITECT_WEBSITE\houses'
-housesDirs = getHousesDirs(directory)
+def createHouses(directory, foreignKeysValues=foreignKeysValues):
 
-
-def createHouses(housesDirs=housesDirs, foreignKeysValues=foreignKeysValues):
+	housesDirs = getHousesDirs(directory)
 
 	housesNumber = len(housesDirs)
-	exampleTextPath = 'arch/contentFiller/houseNamesGenerator/example.txt'
+	exampleTextPath = 'arch/startContentFiller/houseNamesGenerator/example.txt'
 	randomNames = createRandomNames(housesNumber, exampleTextPath)
 	index = 0
 
@@ -82,7 +80,7 @@ def createHouses(housesDirs=housesDirs, foreignKeysValues=foreignKeysValues):
 	createPlans(housesDirs, firstHouseId)
 
 
-# from arch.contentFiller.main import *
+# from arch.startContentFiller.contentFiller import *
 
 
 

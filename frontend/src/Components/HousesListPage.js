@@ -86,31 +86,3 @@ const HouseListPageView = ({data}) => {
         </div>
     )
 }
-
-//    return (
-//        <div className="houses-list-page">
-//            <SortingBlock
-//                data={data}
-//                sortingData={sortingData => setSortingData(sortingData)}
-//                sortingTypeHandler={sortingType => setSortingType(sortingType)}
-//            />
-//            <FiltersCollector
-//                data={data}
-//                multipleCheckboxFilterList={multipleCheckboxFilterList}
-//                booleanCheckboxFilterList={booleanCheckboxFilterList}
-//                multipleCheckboxFiltersCollector={e => setMultipleCheckboxFilters(e)}
-//                booleanCheckboxFiltersCollector={e => setBooleanCheckboxFilters(e)}
-//                areaFilterCollector={e => setAreaFilter(e)}
-//            />
-//            <HouseList
-//                data={sortingData}
-//                multipleCheckboxFilters={multipleCheckboxFilters}
-//                booleanCheckboxFilters={booleanCheckboxFilters}
-//                areaFilter={areaFilter}
-//                multipleCheckboxFilterList={multipleCheckboxFilterList}
-//                booleanCheckboxFilterList={booleanCheckboxFilterList}
-//                sortingType={sortingType}
-//            />
-//        </div>
-//    )
-//}
