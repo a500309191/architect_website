@@ -60,6 +60,24 @@ class House(models.Model):
     def __str__(self):
         return self.model_name
 
+    # def __str__(self):
+    #     return str(
+    #         {
+    #             "model_name": self.model_name,
+    #             "area": self.area,
+    #             "floors": self.floors,
+    #             "entrance": self.entrance,
+    #             "bedroom": self.bedroom,
+    #             "bathroom": self.bathroom,
+    #             "kitchen_living_room": self.kitchen_living_room,
+    #             "tech_room": self.tech_room,
+    #             "terrace": self.terrace,
+    #             "garage": self.garage,
+    #             "material": self.material,
+    #             "style": self.style,
+    #             "roof": self.roof,
+    #         }
+    #     )
 
 class PathRename:
     def __init__(self, field, path, suffix, ext):

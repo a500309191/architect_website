@@ -48,8 +48,7 @@ export const HouseList = ({
                         return (
                             <div className="house-block-container" key={index}>
                                 <Link
-                                    to={{pathname: `/houses/${house.id}`}}
-                                    //className="house-block"
+                                    to={{pathname: `/houses/${house.model_name}`}}
                                     className={`${house.image_thumbnails.length == 0
                                         ? "house-block-without-image"
                                         : "house-block"}`

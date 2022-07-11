@@ -13,9 +13,11 @@ function App() {
             </div>
             <div className="content">
                 <Routes>
+
                     <Route path='/' element={<Main/>}/>
                     <Route path='/houses' element={<HousesListPage/>}/>
-                    <Route path='/houses/:id' element={<House />}/>
+                    <Route path='/houses/:model_name' element={<House />}/>
+
                 </Routes>
             </div>
         </div>

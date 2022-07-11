@@ -51,6 +51,7 @@ opacity: 0.45;
 background-color: #ebedf4;
 }
 
+.house-not-found, 
 .loading {
 display: flex;
 justify-content: center;

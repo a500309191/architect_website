@@ -13,7 +13,7 @@ export const HousesListPage = () => {
 
     return (
         <Fetch
-            uri = 'http://127.0.0.1:8000/api/house/'
+            uri = 'http://127.0.0.1:8000/api/houses/'
             renderSuccess = {({ data }) => {
                 if (data.length > 0) return <HouseListPageView data={data}/>
                 else return <NoHouses />
@@ -53,9 +53,6 @@ const HouseListPageView = ({data}) => {
     const booleanCheckboxFilterList = useMemo(() =>
         getBooleanFilters(data), [data]
     )
-
-    console.log("RANDOM")
-
 
     return (
         <div className="houses-list-page">

@@ -11,30 +11,35 @@ import { pluralText } from "../functions/pluralText";
 
 const address = 'http://127.0.0.1:8000/media/'
 
+
 export const House = () => {
-    const {id} = useParams();
+    const {model_name} = useParams();
     return (
         <Fetch
-            uri = {`http://127.0.0.1:8000/api/house/${id}/`}
+            uri = {`http://127.0.0.1:8000/api/houses/${model_name}/`}
             renderSuccess = {HouseView}
         />
     )
 }
 
 const HouseView = ({data}) => {
-
     console.log(data)
 
-/*    let x = document.querySelector(".header-houses")
-    x.textContent = "BACK TO HOUSES"*/
+    if (data.detail === "Not found.") {
+        return (
+            <HouseNotFound />
+        )
+    } else {
+        return (
+            <div className="house">
+                <HouseDetails data={data} />
+                <HouseImages data={data} />
+            </div>
+        )
+    }
 
-    return (
-        <div className="house">
-            <HouseDetails data={data} />
-            <HouseImages data={data} />
-        </div>
-    )
 }
+
 
 const HouseDetails = ({data}) => {
     return (
@@ -64,6 +69,7 @@ const HouseDetails = ({data}) => {
         </>
     )
 }
+
 
 const HouseImages = ({data}) => {
 
@@ -124,5 +130,15 @@ const HouseImages = ({data}) => {
             })}
         </div>
         </>
+    )
+}
+
+
+const HouseNotFound = () => {
+    const {model_name} = useParams();
+    return (
+        <div className="house-not-found">
+            THERE IS NO HOUSE {model_name}
+        </div>
     )
 }
