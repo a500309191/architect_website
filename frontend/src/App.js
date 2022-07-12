@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { HousesListPage } from './components/HousesListPage';
 import { House } from './components/House';
+import { PageNotFound } from './components/PageNotFound';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -13,11 +14,10 @@ function App() {
             </div>
             <div className="content">
                 <Routes>
-
                     <Route path='/' element={<Main/>}/>
                     <Route path='/houses' element={<HousesListPage/>}/>
                     <Route path='/houses/:model_name' element={<House />}/>
-
+                    <Route path='*' element={<PageNotFound />}/>
                 </Routes>
             </div>
         </div>

@@ -1,6 +1,7 @@
-import { useLocation, useParams,  Link } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { HousesListPage } from "./HousesListPage";
+import { HouseNotFound } from "./HouseNotFound";
 import { Fetch } from "./Fetch";
 import { useFetch } from "../hooks/useFetch";
 import { useKey } from "../hooks/useKey";
@@ -134,11 +135,3 @@ const HouseImages = ({data}) => {
 }
 
 
-const HouseNotFound = () => {
-    const {model_name} = useParams();
-    return (
-        <div className="house-not-found">
-            THERE IS NO HOUSE {model_name}
-        </div>
-    )
-}

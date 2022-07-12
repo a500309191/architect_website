@@ -41,63 +41,59 @@ grid-template-rows: 30px 60px 20px auto;
 overflow-y: scroll;
 }
 
-.no-houses {
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: bold;
-font-size: 40;
-opacity: 0.45;
-background-color: #ebedf4;
-}
 
+.no-houses,
+.page-not-found,
 .house-not-found, 
 .loading {
 display: flex;
 justify-content: center;
 align-items: center;
-/*font-weight: bold;*/
-height: 300px;
-color: white;
+height: 500px;
 opacity: 0.6;
 font-weight: bold;
 font-size: 40;
+color: white;
+}
+.no-house,
+.page-not-found,
+.house-not-found {
+background: linear-gradient(-70deg, #E16ADF, #BCBDC1, #BDE1B0, #BCBDC1, #E1C98D);
+background-position: right;
+background-size: 300% 300%;
+animation-name: no-window;
+animation-duration: 2.5s;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+animation-direction: alternate;
+}
+@keyframes no-window {
+from {background-position: 0% 100%;}
+to {background-position: 100% 0%;}
+}
+.loading {
 background: linear-gradient(70deg, #F2F2F2, #BCBDC1, #F2F2F2);
 background-position: right;
 background-size: 250% 250%;
 animation-name: loading-window;
 animation-duration: 2.5s;
 animation-iteration-count: infinite;
-/*animation-timing-function: linear;*/
 animation-timing-function: ease-in-out;
 animation-direction: alternate;
 }
-
 @keyframes loading-window {
 from {background-position: 0% 100%;}
 to {background-position: 100% 0%;}
 }
 
-/*@keyframes loading-window {
-0% {background: green}
-50% {background: red}
-100% {background: green}
-}*/
 
 .content {
 display: grid;
-/*align-content: center;*/
-/*grid-template-rows: auto;*/
-/*overflow-y: scroll;*/
 grid-row: 4 / 5;
 grid-column: 2 / 3;
 }
 
 .header {
-/*position: sticky;*/
-/*why with top:40px its rich position:fixed effect - idk */
-/*top: 40px;*/
-/*position: fixed;*/
 display: grid;
 grid-template-columns: 250px 1fr;
 align-content: center;
@@ -162,6 +158,7 @@ background-color: #ebedf4;
 background-color: #ebedf4;
 }
 
+.main-page,
 .houses-list-page {
 display: grid;
 gap: 6px;

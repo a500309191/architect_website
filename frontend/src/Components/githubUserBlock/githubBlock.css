@@ -1,0 +1,111 @@
+.github-block {
+grid-column: 1 / 2;
+display: flex;
+flex-direction: column;
+/*grid-template-rows: 40px 250px 1fr auto;*/
+gap: 12px
+}
+.github-block-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: black;
+font-weight: bold;
+font-size: 30;
+font-color: black;
+opacity: 0.45;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.user-photo {
+grid-row: 2 / 3;
+object-fit: fill;
+max-width: 100%;
+max-height: 100%;
+opacity: 0.95;
+transition-duration: 0.2s;
+}
+.user-details {
+grid-row: 3 / 4;
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+.user-details > div {
+background-color: #ebedf4;
+opacity: 0.7;
+font-size: 16;
+padding: 2;
+transition-duration: 0.2s;
+}
+.github-block-header:hover,
+.user-photo:hover,
+.user-details > div:hover {
+opacity: 1;
+}
+.github-repo-block {
+display: flex;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+gap: 3px;
+}
+.repo-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: black;
+/*font-weight: bold;*/
+font-size: 20;
+font-color: black;
+opacity: 0.7;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.repo-menu {
+grid-row: 4 / 5;
+display: flex;
+Justify-content: space-between;
+gap: 3px;
+position: relative;
+}
+.repo-name {
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background-color: #ebedf4;
+width: 146px;
+opacity: 0.7;
+transition-duration: 0.2s;
+}
+.prev-button,
+.next-button {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 50px;
+width: 50px;
+background-color: #ebedf4;
+font-weight: bold;
+font-size: 30;
+color: #8D8D8D;
+opacity: 0.7;
+transition-duration: 0.2s;
+}
+.prev-button:hover,
+.next-button:hover {
+opacity: 1;
+}
+.prev-button {
+left: 0;
+}
+.next-button {
+right: 0;
+}
