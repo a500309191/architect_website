@@ -10,11 +10,6 @@ export const Header = () => {
         return locationArray[locationArray.length - 2] == "houses" ? true : false
     }
 
-/*    useEffect(() => {
-        console.log(locationArray[locationArray.length - 2])
-    }, [location.pathname])*/
-
-
     return (
         <>
             <NavLink
@@ -32,4 +27,3 @@ export const Header = () => {
         </>
     )
 }
-                //className={`${currentUrl.split('/')[-1] ===

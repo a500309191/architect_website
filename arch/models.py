@@ -125,7 +125,7 @@ class Image(models.Model):
     house = models.ForeignKey("House",
                               on_delete=models.CASCADE,
                               help_text="Please attach images",
-                              verbose_name="House",
+                              verbose_name="HousePage",
                               null=True,
                               blank=False)
     image = models.ImageField(null=True,
@@ -168,7 +168,7 @@ class Plan(models.Model):
     house = models.ForeignKey("House",
                               on_delete=models.CASCADE,
                               help_text="Please attach drawings",
-                              verbose_name="House",
+                              verbose_name="HousePage",
                               null=True,
                               blank=False)
     plan = models.ImageField(null=True,

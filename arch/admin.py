@@ -1,7 +1,7 @@
 from django.contrib import admin
 from . models import House, Image, Plan, Material, Style
 
-# admin.site.register(House)
+# admin.site.register(HousePage)
 # admin.site.register(Image)
 #admin.site.register(Drawing)
 admin.site.register(Material)
@@ -15,14 +15,14 @@ admin.site.register(Style)
 # I have tried and have not success
 class ImageInline(admin.StackedInline):
     model = Image
-    verbose_name = "House image"
+    verbose_name = "HousePage image"
     extra = 5
     max_num = 5
     exclude = ["image_thumbnail", ]
 
 class PlanInline(admin.StackedInline):
     model = Plan
-    verbose_name = "House plan"
+    verbose_name = "HousePage plan"
     extra = 3
     max_num = 5
 

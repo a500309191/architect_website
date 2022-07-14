@@ -42,6 +42,209 @@ overflow-y: scroll;
 }
 
 
+.github-block {
+grid-column: 1 / 2;
+display: flex;
+flex-direction: column;
+/*grid-template-rows: 40px 250px 1fr auto;*/
+gap: 6px
+}
+.github-block-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: black;
+font-weight: bold;
+font-size: 30;
+opacity: 0.45;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.user-photo {
+grid-row: 2 / 3;
+object-fit: fill;
+max-width: 100%;
+max-height: 100%;
+opacity: 0.95;
+transition-duration: 0.2s;
+}
+.user-details {
+grid-row: 3 / 4;
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+.user-details * {
+background-color: #ebedf4;
+opacity: 0.7;
+font-size: 16;
+text-decoration: none;
+color: black;
+padding: 2;
+transition-duration: 0.2s;
+}
+.github-repo-block {
+display: flex;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+gap: 3px;
+}
+.repo-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: left;
+align-items: center;
+text-decoration: none;
+color: black;
+/*font-weight: bold;*/
+font-size: 16;
+font-color: black;
+opacity: 0.7;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.repo-menu {
+grid-row: 4 / 5;
+display: flex;
+Justify-content: space-between;
+gap: 3px;
+position: relative;
+}
+.repo-name {
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+text-decoration: none;
+color: black;
+background-color: #ebedf4;
+/*width: 146px;*/
+width: 100%;
+opacity: 0.7;
+transition-duration: 0.2s;
+}
+.prev-button,
+.next-button {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 50px;
+width: 50px;
+background-color: #ebedf4;
+font-weight: bold;
+font-size: 30;
+color: #8D8D8D;
+opacity: 0.7;
+transition-duration: 0.2s;
+}
+.prev-button {
+left: 0;
+}
+.next-button {
+right: 0;
+}
+.github-block-header:hover,
+.user-photo:hover,
+.user-details > div:hover,
+.user-details > a:hover,
+.repo-header:hover,
+.repo-name:hover,
+.prev-button:hover,
+.next-button:hover {
+opacity: 1;
+}
+
+.summary-block {
+grid-column: 2 / 3;
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.summary-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+text-decoration: none;
+color: black;
+font-weight: bold;
+font-size: 30;
+opacity: 0.45;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.summary-content {
+display: flex;
+flex-direction: column;
+gap: 6px;
+color: #2A2A2A;
+opacity: 0.7;
+}
+.summary-content > div {
+margin-bottom: 6px;
+}
+.summary-header {
+grid-row: 1 / 2;
+display: flex;
+text-align: center;
+justify-content: left;
+align-items: center;
+text-decoration: none;
+color: black;
+font-weight: bold;
+font-size: 30;
+font-color: black;
+background-color: #ebedf4;
+transition-duration: 0.2s;
+}
+.about-myself {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+.about-myself-header {
+transition-duration: 0.2s;
+}
+.about-myself-list {
+display: flex;
+flex-direction: column;
+gap: 4px;
+margin-left: 30px;
+}
+.about-myself-list > div {
+background-color: #ebedf4;
+font-weight: bold;
+font-size: 20;
+transition-duration: 0.2s;
+}
+.link-to {
+background-color: #ebedf4;
+font-weight: bold;
+font-size: 20;
+text-decoration: none;
+color: #8D8D8D;
+transition-duration: 0.2s;
+}
+strong {
+background-color: #D99797;
+font-weight: bold;
+font-size: 20;
+text-decoration: none;
+transition-duration: 0.2s;
+opacity: 2;
+color: #3E3E3E
+}
+strong:hover {
+background-color: #E48787;
+color: black
+}
+
 .no-houses,
 .page-not-found,
 .house-not-found, 
@@ -123,7 +326,6 @@ text-decoration: none;
 color: black;
 font-weight: bold;
 font-size: 40;
-font-color: black;
 opacity: 0.45;
 background-color: #ebedf4;
 transition-duration: 0.2s;
@@ -180,7 +382,7 @@ max-width: 100%;
 overflow-y: scroll;
 }
 
-.side-bar {
+.sorting-filters-block {
 /*position: sticky;*/
 /* top: 120px - because of app. { grid-template-rows: 30px 60px 20px; }  30+60+20=110 */
 /*top: 120px;*/
@@ -380,6 +582,7 @@ opacity: 0.7;
 display: grid;
 grid-template-columns: 256px 1fr;
 grid-template-rows: 1fr auto;
+overflow-y: scroll;
 }
 .house-details {
 display: grid;
@@ -517,10 +720,17 @@ transition-duration: 0.2s;
 }
 .house-views-slider-view-current {
 opacity: 1;
-border-bottom-style: solid;
+/*border-bottom-style: solid;
 border-width: 5px;
 border-color: #c93232;
-margin-bottom: -5px;
+margin-bottom: -5px;*/
+}
+.house-views-slider-view-underscore-current {
+width: 100%;
+margin-top: 2px;
+height: 5px;
+opacity: 0.75;
+background-color: #c93232;;
 }
 .house-views-slider-view:hover{
 opacity: 1;
@@ -697,6 +907,21 @@ top: 100%;
     .header-back-to-houses {
         grid-column: 1 / 4;
     }
+    .main-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    }
+    .github-block {
+    grid-row: 1 / 2;
+    }
+    .summary-block {
+    grid-row: 2 / 3;
+    }
+    .github-block,
+    .summary-block {
+    grid-column: 1 / 2;
+    }
     .filters-collector {
         display: none;
     }
@@ -710,7 +935,7 @@ top: 100%;
     grid-template-columns: 1fr;
     overflow-y: scroll;
     }
-    .side-bar,
+    .sorting-filters-block,
     .sorting-block {
     grid-column: 1 / 3;
     grid-row: 1 / 2;

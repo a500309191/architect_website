@@ -1,10 +1,12 @@
 import React from "react";
 import { GithubUserBlock } from "./githubUserBlock/GithubUserBlock"
+import { SummaryBlock } from "./SummaryBlock"
 
-export const Main = () => {
+export const MainPage = () => {
     return (
         <div className="main-page">
-           <GithubUserBlock login="a500309191" />
+            <GithubUserBlock login="a500309191" />
+            <SummaryBlock />
         </div>
     )
 }

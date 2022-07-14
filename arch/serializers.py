@@ -82,7 +82,7 @@ class HouseSerializer(serializers.ModelSerializer):
 #         return [str(plan.plan) for plan in Plan.objects.filter(house_id=house.id)]
 #
 #     class Meta:
-#         model = House
+#         model = HousePage
 #         exclude = ["time_create", "time_update"]
 #
 #     def to_representation(self, instance):

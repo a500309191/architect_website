@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='House',
+            name='HousePage',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('model_name', models.CharField(max_length=50, verbose_name='Model name')),
                 ('area', models.FloatField(default=0.0)),
                 ('floors', models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], default=1, verbose_name='Floors')),
-                ('size', models.IntegerField(choices=[(1, 'tiny'), (2, 'medium'), (3, 'large'), (4, 'extra large')], default=2, verbose_name='House size')),
+                ('size', models.IntegerField(choices=[(1, 'tiny'), (2, 'medium'), (3, 'large'), (4, 'extra large')], default=2, verbose_name='HousePage size')),
                 ('roof', models.IntegerField(choices=[(1, 'pitched'), (2, 'flat'), (3, 'combined')], null=True, verbose_name='Roof type')),
                 ('entrance', models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], default=1, verbose_name='Number of entrances')),
                 ('bedroom', models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'), (6, '6'), (7, '7'), (8, '8'), (9, '9'), (10, '10')], default=1, verbose_name='Number of bedrooms')),
@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('image', models.ImageField(blank=True, null=True, upload_to=arch.models.PathRename('image', 'images', 'image', 'original'))),
                 ('thumbnail', models.ImageField(blank=True, null=True, upload_to=arch.models.PathRename('thumbnail', 'images/thumbnails', 'thumb', 'jpg'))),
                 ('time_update', models.DateTimeField(auto_now=True)),
-                ('house', models.ForeignKey(help_text='Please attach images', null=True, on_delete=django.db.models.deletion.CASCADE, to='arch.house', verbose_name='House')),
+                ('house', models.ForeignKey(help_text='Please attach images', null=True, on_delete=django.db.models.deletion.CASCADE, to='arch.house', verbose_name='HousePage')),
             ],
         ),
         migrations.AddField(
@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('plan', models.ImageField(blank=True, null=True, upload_to=arch.models.PathRename('plan', 'drawings', 'plan', 'original'))),
                 ('time_update', models.DateTimeField(auto_now=True)),
-                ('house', models.ForeignKey(help_text='Please attach drawings', null=True, on_delete=django.db.models.deletion.CASCADE, to='arch.house', verbose_name='House')),
+                ('house', models.ForeignKey(help_text='Please attach drawings', null=True, on_delete=django.db.models.deletion.CASCADE, to='arch.house', verbose_name='HousePage')),
             ],
         ),
     ]

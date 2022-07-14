@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { getHousesAreas } from "../../functions/getHousesAreas";
-import MultiRangeSlider from "./templates/MultiRangeSlider/MultiRangeSlider";
+import { getHousesAreas } from "../functions/getHousesAreas";
+import MultiRangeSlider from "./MultiRangeSlider/MultiRangeSlider";
 
 export const AreaFilter = ({
         data,

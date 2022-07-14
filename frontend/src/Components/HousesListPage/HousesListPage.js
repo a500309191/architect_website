@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useMemo } from "react";
-import { Fetch } from "./Fetch";
-import { FiltersCollector } from "./FiltersCollector";
+import { Fetch } from "./../Fetch";
+import { FiltersBlock } from "./Sorting-FiltersBlock/FiltersBlock";
+import { SortingBlock } from "./Sorting-FiltersBlock/SortingBlock";
 import { HouseList } from "./HouseList";
-import { SortingBlock } from "./SortingBlock";
 import { NoHouses } from "./NoHouses";
-import { getBooleanFilters } from "./filters/templates/functions/getBooleanFilters";
-import { shuffleArray } from "../functions/shuffleArray";
+import { getBooleanFilters } from "./Sorting-FiltersBlock/filters/functions/getBooleanFilters";
+import { shuffleArray } from "./functions/shuffleArray";
 
 const address = 'http://127.0.0.1:8000/media/'
 
@@ -56,13 +56,13 @@ const HouseListPageView = ({data}) => {
 
     return (
         <div className="houses-list-page">
-            <div className="side-bar">
+            <div className="sorting-filters-block">
                 <SortingBlock
                     data={_data}
                     sortingData={sortingData => setSortingData(sortingData)}
                     sortingTypeHandler={sortingType => setSortingType(sortingType)}
                 />
-                <FiltersCollector
+                <FiltersBlock
                     data={_data}
                     multipleCheckboxFilterList={multipleCheckboxFilterList}
                     booleanCheckboxFilterList={booleanCheckboxFilterList}

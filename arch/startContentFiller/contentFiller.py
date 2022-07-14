@@ -69,8 +69,8 @@ def createHouses(directory, foreignKeysValues=foreignKeysValues):
 		house.save()
 
 	#bulkcreate method but without random name for each house
-	# housesInfos = [House(**houseInfo(houseDir, foreignKeysValues)) for houseDir in housesDirs]
-	# House.objects.bulk_create(housesInfoqs)
+	# housesInfos = [HousePage(**houseInfo(houseDir, foreignKeysValues)) for houseDir in housesDirs]
+	# HousePage.objects.bulk_create(housesInfoqs)
 
 	houses = House.objects.all()
 	lastId = houses[len(houses) - 1].id

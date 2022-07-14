@@ -1,8 +1,8 @@
 import './App.css';
 import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { HousesListPage } from './components/HousesListPage';
-import { House } from './components/House';
+import { MainPage } from './components/MainPage/MainPage';
+import { HousesListPage } from './components/HousesListPage/HousesListPage';
+import { HousePage } from './components/HousesListPage/HousePage/HousePage';
 import { PageNotFound } from './components/PageNotFound';
 import { Routes, Route } from "react-router-dom";
 
@@ -14,9 +14,9 @@ function App() {
             </div>
             <div className="content">
                 <Routes>
-                    <Route path='/' element={<Main/>}/>
+                    <Route path='/' element={<MainPage/>}/>
                     <Route path='/houses' element={<HousesListPage/>}/>
-                    <Route path='/houses/:model_name' element={<House />}/>
+                    <Route path='/houses/:model_name' element={<HousePage />}/>
                     <Route path='*' element={<PageNotFound />}/>
                 </Routes>
             </div>

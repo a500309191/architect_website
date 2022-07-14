@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { checkboxFilter } from "./filters/functions/checkboxFilter";
-import { pluralText } from "../functions/pluralText";
-import { booleanToText } from "../functions/booleanToText";
+import { checkboxFilter } from "./Sorting-FiltersBlock/filters/functions/checkboxFilter";
+import { pluralText } from "./functions/pluralText";
+import { booleanToText } from "./functions/booleanToText";
 
 const address = 'http://127.0.0.1:8000/media/'
 

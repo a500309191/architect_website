@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { MultipleCheckboxFilter } from "./filters/templates/MultipleCheckboxFilter";
-import { BooleanCheckboxFilter } from "./filters/templates/BooleanCheckboxFilter";
-import { AreaFilter } from "./filters/AreaFilter";
+import { MultipleCheckboxFilter } from "./filters/MultipleCheckboxFilter";
+import { BooleanCheckboxFilter } from "./filters/BooleanCheckboxFilter";
+import { AreaFilter } from "./filters/AreaFilter/AreaFilter";
 
 
-export const FiltersCollector = ({
+export const FiltersBlock = ({
         data,
         multipleCheckboxFiltersCollector,
         booleanCheckboxFiltersCollector,
