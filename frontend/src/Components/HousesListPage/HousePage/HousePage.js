@@ -26,7 +26,7 @@ const HouseView = ({data}) => {
         )
     } else {
         return (
-            <div className="house">
+            <div className="house-page">
                 <HouseDetailsBlock data={data} />
                 <HouseViewsBlock data={data} />
             </div>

@@ -38,7 +38,7 @@ display: grid;
 grid-template-columns: 15% 1fr 15%;
 /*grid-template-columns: minmax(256px, 1fr) 1fr minmax(1%, 15%);*/
 grid-template-rows: 30px 60px 20px auto;
-overflow-y: scroll;
+/*overflow-y: scroll;*/
 }
 
 
@@ -185,6 +185,7 @@ flex-direction: column;
 gap: 6px;
 color: #2A2A2A;
 opacity: 0.7;
+overflow-y: scroll;
 }
 .summary-content > div {
 margin-bottom: 6px;
@@ -578,7 +579,7 @@ opacity: 0.7;
 }
 
 
-.house {
+.house-page {
 display: grid;
 grid-template-columns: 256px 1fr;
 grid-template-rows: 1fr auto;
@@ -832,7 +833,7 @@ top: 100%;
 }*/
 
 @media screen and (max-width: 1400px) {
-    .house {
+    .house-page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
