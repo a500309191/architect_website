@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arch/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HousePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HousePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/signals.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

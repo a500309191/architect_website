@@ -124,6 +124,9 @@ class Image(models.Model):
                                                        ext="jpg"))
     time_update = models.DateTimeField(auto_now=True)
 
+    def pure_save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 

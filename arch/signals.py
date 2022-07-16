@@ -1,4 +1,4 @@
-from django.db.models.signals import pre_delete, post_save, pre_save
+from django.db.models.signals import pre_delete, pre_save, post_save
 from django.dispatch.dispatcher import receiver
 from . models import Image, Plan, House
 from django.conf import settings
@@ -14,55 +14,78 @@ def image_delete(instance, **kwargs):
 def plan_delete(instance, **kwargs):
     instance.plan.delete(False)
 
-@receiver(post_save, sender=House)
-def house_change(instance, created, **kwargs):
-    if created:
+@receiver(pre_save, sender=House)
+def get_prev_house_name(instance, **kwargs):
+    global house_was_renamed
+    house_was_renamed = False
+    try:
+        prev_instance = House.objects.get(id=instance.id)
+        prev_name = prev_instance.model_name
+        current_name = instance.model_name
+        if prev_name != current_name:
+            house_was_renamed = True
+    except:
         pass
-    else:
-        import os
-        house_images = Image.objects.filter(house_id=instance.id)
 
+
+@receiver(post_save, sender=House)
+def get_prev_house_name(instance, **kwargs):
+    if house_was_renamed:
         media = settings.MEDIA_ROOT + '\\'
         new_house_name = instance.model_name
-
-        images_folders = 'houses\\{}\\images\\thumbnails'.format(new_house_name)
-        plans_folders = 'houses\\{}\\plans'.format(new_house_name)
+        images_folders = media + f'houses\\{new_house_name}\\images\\thumbnails'
+        plans_folder = media + f'houses\\{new_house_name}\\plans'
 
         try:
-            os.makedirs(media + images_folders)
-            os.makedirs(media + plans_folders)
+            os.makedirs(images_folders)
+            os.makedirs(plans_folder)
         except:
             pass
 
+        house_images = Image.objects.filter(house_id=instance.id)
         for image in house_images:
-            image_initial_path = image.image.path
-            thumb_initial_path = image.image_thumbnail.path
+            field_handler(instance, image, 'image', 'image', new_house_name, media)
+            field_handler(instance, image, 'image_thumbnail', 'thumb', new_house_name, media)
+            image.pure_save()
 
-            file_dir = os.path.dirname(image_initial_path)
+        house_plans = Plan.objects.filter(house_id=instance.id)
+        for plan in house_plans:
+            field_handler(instance, plan, 'plan', 'plan', new_house_name, media)
+            plan.save()
 
-            image_ext = image_initial_path.split('.')[-1]
-            index = image_initial_path.split('.')[0][-1]
+    media = settings.MEDIA_ROOT
 
-            file_dir_deconstructed = file_dir.split('\\')
-            file_dir_deconstructed[-2] = instance.model_name
-            new_image_dir = '\\'.join(part for part in file_dir_deconstructed)
+    please_stop = False
+    while not please_stop:
+        walk_list = [step[0] for step in os.walk(media)]
+        please_stop = True
+        for dir in walk_list:
+            print(dir)
+            if os.listdir(dir) == []:
+                os.rmdir(dir)
+                please_stop = False
 
-            file_dir_deconstructed.append('thumbnails')
-            new_thumb_dir = '\\'.join(part for part in file_dir_deconstructed)
+def field_handler(main_inst, inst, field, suffix, new_house_name, media):
+    initial_path = getattr(inst, field).path
 
-            new_image_name = '{}_{}_{}.{}'.format(new_house_name, 'image', index, image_ext)
-            new_thumb_name = '{}_{}_{}.{}'.format(new_house_name, 'thumb', index, image_ext)
+    file_dir = os.path.dirname(initial_path)
+    ext = initial_path.split('.')[-1]
+    index = initial_path.split('.')[0][-1]
 
-            new_image_path = '{}\{}'.format(new_image_dir, new_image_name)
-            new_thumb_path = '{}\{}'.format(new_thumb_dir, new_thumb_name)
+    file_dir_deconstructed = file_dir.split('\\')
+    #change house folder name
+    if field == 'image_thumbnail':
+        file_dir_deconstructed[-3] = main_inst.model_name
+    else:
+        file_dir_deconstructed[-2] = main_inst.model_name
 
+    new_dir = '\\'.join(part for part in file_dir_deconstructed)
+    new_name = '{}_{}_{}.{}'.format(new_house_name, suffix, index, ext)
+    new_path = '{}\{}'.format(new_dir, new_name)
 
-            os.replace(image_initial_path, new_image_path)
-            os.replace(thumb_initial_path, new_thumb_path)
+    os.replace(initial_path, new_path)
 
-
-            # new_image_record = new_image_path.replace(media, '')
-            # image.image = new_image_record
-
+    new_record = new_path.replace(media, '')
+    setattr(inst, field, new_record)
 
 
