@@ -14,8 +14,8 @@ def createImages(housesDirs, firstHouseId):
 			imageDir = '{}\{}'.format(houseDir, image)
 			imageFile = File(open(imageDir, 'rb'))
 
-			d.setdefault('image', imageFile)
-			d.setdefault('image_thumbnail', '')
+			d.setdefault('original', imageFile)
+			d.setdefault('thumbnail', '')
 			d.setdefault('time_update', datetime.now())
 			d.setdefault('house_id', id)
 

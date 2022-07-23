@@ -1,20 +1,15 @@
 from django.urls import path, include
 from rest_framework import routers
 from . import views
+# from .views import HouseViewSet, ImageViewSet
 from .views import HouseViewSet
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r"houses", HouseViewSet, basename="house")
-# router.register(r'image', ImageViewSet, basename='image')
-# print(router.urls)
+# router.register(r"images", ImageViewSet, basename="image")
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    # path("custom_serializer/", views.custom_serializer, name="home"),
-    # path('api/houselist/', HouseViewSet.as_view({'get': 'list'})),
-    # path('api/houselist/<int:pk>/', HouseViewSet.as_view({'get': 'list'})),
-    # path('api/imagelist/', ImageViewSet.as_view({'get': 'list'})),
-    # path('api/imagelist/<int:pk>/', ImageViewSet.as_view({'get': 'list'})),
 ]
 
 

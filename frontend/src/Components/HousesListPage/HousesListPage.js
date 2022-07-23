@@ -7,7 +7,6 @@ import { NoHouses } from "./NoHouses";
 import { getBooleanFilters } from "./Sorting-FiltersBlock/filters/functions/getBooleanFilters";
 import { shuffleArray } from "./functions/shuffleArray";
 
-const address = 'http://127.0.0.1:8000/media/'
 
 export const HousesListPage = () => {
 

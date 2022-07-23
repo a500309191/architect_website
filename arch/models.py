@@ -106,19 +106,20 @@ class PathRename:
 class Image(models.Model):
     house = models.ForeignKey("House",
                               on_delete=models.CASCADE,
+                              related_name="images",
                               help_text="Please attach images",
                               verbose_name="HousePage",
                               null=True,
                               blank=False)
-    image = models.ImageField(null=True,
+    original = models.ImageField(null=True,
                               blank=True,
-                              upload_to=PathRename(field="image",
+                              upload_to=PathRename(field="original",
                                                    path="images",
                                                    suffix="image",
                                                    ext="original"))
-    image_thumbnail = models.ImageField(null=True,
+    thumbnail = models.ImageField(null=True,
                                   blank=True,
-                                  upload_to=PathRename(field="image_thumbnail",
+                                  upload_to=PathRename(field="thumbnail",
                                                        path="images/thumbnails",
                                                        suffix="thumb",
                                                        ext="jpg"))
@@ -133,11 +134,11 @@ class Image(models.Model):
         output_size = (300, 300)
         output_thumb = BytesIO()
 
-        img = PILImage.open(self.image.path)
+        img = PILImage.open(self.original.path)
         img.thumbnail(output_size)
         img.save(output_thumb, format="JPEG", quality=90)
 
-        self.image_thumbnail = InMemoryUploadedFile(output_thumb,
+        self.thumbnail = InMemoryUploadedFile(output_thumb,
                                               "ImageField",
                                               "thumbnail",
                                               None,
@@ -146,12 +147,13 @@ class Image(models.Model):
         super().save()
 
     def __str__(self):
-        return '%s' % self.image
+        return '%s' % self.original
 
 
 class Plan(models.Model):
     house = models.ForeignKey("House",
                               on_delete=models.CASCADE,
+                              related_name="plans",
                               help_text="Please attach drawings",
                               verbose_name="HousePage",
                               null=True,

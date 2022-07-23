@@ -3,8 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0002_remove_house_size.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0003_roof_alter_house_roof.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0004_remove_house_fireplace_remove_house_laundry_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0005_rename_drawing_plan_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arch/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/startContentFiller/createImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/createImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HouseViewsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HouseViewsBlock.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +76,11 @@
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\arch" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\arch\serializer" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\HousePage" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\House" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\Sorting-FiltersBlock\filters\functions" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\Sorting-FiltersBlock\filters\AreaFilter" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\Sorting-FiltersBlock\filters" />
     </key>
   </component>
   <component name="RunManager">

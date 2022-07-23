@@ -4,8 +4,6 @@ import { checkboxFilter } from "./Sorting-FiltersBlock/filters/functions/checkbo
 import { pluralText } from "./functions/pluralText";
 import { booleanToText } from "./functions/booleanToText";
 
-const address = 'http://127.0.0.1:8000/media/'
-
 export const HouseList = ({
         data,
         areaFilter,
@@ -49,11 +47,11 @@ export const HouseList = ({
                             <div className="house-block-container" key={index}>
                                 <Link
                                     to={{pathname: `/houses/${house.model_name}`}}
-                                    className={`${house.image_thumbnails.length == 0
+                                    className={`${house.images.length == 0
                                         ? "house-block-without-image"
                                         : "house-block"}`
                                     }
-                                    style = {{ backgroundImage: `url(${address}${house.image_thumbnails[0]})` }}
+                                    style = {{ backgroundImage: `url(${house.images[0]["thumbnail"]})` }}
                                 >
                                     <div className="house-block-name">{house.model_name}</div>
                                     <div className="house-block-details">
@@ -66,7 +64,7 @@ export const HouseList = ({
                                     </div>
                                 </Link>
                                 <div className="house-block-sorting-info">{sortingTypeText(house, sortingType)}</div>
-                                <div className="house-block-no-image-info">{house.image_thumbnails.length == 0 && sortingType == "random" ? "NO IMAGE" : ""}</div>
+                                <div className="house-block-no-image-info">{house.images.length == 0 && sortingType == "random" ? "NO IMAGE" : ""}</div>
                             </div>
                         )
                     }

@@ -18,7 +18,7 @@ class ImageInline(admin.StackedInline):
     verbose_name = "HousePage image"
     extra = 5
     max_num = 5
-    exclude = ["image_thumbnail", ]
+    exclude = ["thumbnail", ]
 
 class PlanInline(admin.StackedInline):
     model = Plan

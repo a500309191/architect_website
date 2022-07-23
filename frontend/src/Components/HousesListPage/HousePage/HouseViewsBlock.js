@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useKey } from "../../hooks/useKey";
 import { useMouse } from "../../hooks/useMouse";
 
-const address = 'http://127.0.0.1:8000/media/'
 
 export const HouseViewsBlock = ({data}) => {
 
@@ -10,7 +9,9 @@ export const HouseViewsBlock = ({data}) => {
 
     const [viewIndex, setViewIndex] = useState(0)
 
-    const images = data.images
+
+    const getImages = data => data.images.map((image, index) => image["original"])
+    const images = getImages(data)
     const plans = data.plans
     const views = [...images, ...plans]
 
@@ -36,7 +37,7 @@ export const HouseViewsBlock = ({data}) => {
             {views.map((view, index) => {
                 return (
                     <img
-                        src={address + view}
+                        src={view}
                         alt={`${data.model_name}_view`}
                         key={index}
                         className={`${index === viewIndex
@@ -49,13 +50,12 @@ export const HouseViewsBlock = ({data}) => {
         <div className="house-views-slider">
             {views.map((view, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <img
                             className={`${index === viewIndex
                                 ? "house-views-slider-view-current"
                                 : "house-views-slider-view"}`}
-                            src={address + view}
-                            key={index}
+                            src={view}
                             onClick={()=> {
                                 setViewIndex(index)
                             }}
