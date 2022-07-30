@@ -18,9 +18,9 @@ export const HouseList = ({
     const multipleCheckbox = multipleCheckboxFilters ? JSON.parse(multipleCheckboxFilters) : {}
     const booleanCheckbox = booleanCheckboxFilters ? JSON.parse(booleanCheckboxFilters) : {}
 
-//    console.log(area)
-//    console.log(multipleCheckbox)
-//    console.log(booleanCheckbox)
+    console.log(area)
+    console.log(multipleCheckbox)
+    console.log(booleanCheckbox)
 
     const sortingTypeText = (house, sortingType) => {
         if (sortingType == "random") {
@@ -30,19 +30,30 @@ export const HouseList = ({
         }
     }
 
+    const filteredDataFunc = data => {
+        let filteredHouses = []
+        data.map((house, index) => {
+            let multipleCheckboxFilter = checkboxFilter(house, multipleCheckbox, multipleCheckboxFilterList)
+            let booleanCheckboxFilter = checkboxFilter(house, booleanCheckbox, booleanCheckboxFilterList)
+            if (
+                multipleCheckboxFilter &&
+                booleanCheckboxFilter &&
+                house.area >= area.minArea
+                && house.area <= area.maxArea
+            ) {
+                filteredHouses.push(house)
+            }})
+        return filteredHouses
+    }
+
+    const filteredHouses = useMemo(() => (
+        filteredDataFunc(data)
+    ), [area, multipleCheckbox, booleanCheckbox])
+
     return (
+        <>
             <div className="houses-list">
-                {data.map((house, index) => {
-
-                    let multipleCheckboxFilter = checkboxFilter(house, multipleCheckbox, multipleCheckboxFilterList)
-                    let booleanCheckboxFilter = checkboxFilter(house, booleanCheckbox, booleanCheckboxFilterList)
-
-                    if (
-                        multipleCheckboxFilter &&
-                        booleanCheckboxFilter &&
-                        house.area >= area.minArea &&
-                        house.area <= area.maxArea
-                    ) {
+                {filteredHouses.map((house, index) => {
                         return (
                             <div className="house-block-container" key={index}>
                                 <Link
@@ -51,7 +62,10 @@ export const HouseList = ({
                                         ? "house-block-without-image"
                                         : "house-block"}`
                                     }
-                                    style = {{ backgroundImage: `url(${house.images[0]["thumbnail"]})` }}
+                                    style = {house.images.length == 0
+                                        ? { }
+                                        : { backgroundImage: `url(${house.images[0]["thumbnail"]})` }
+                                    }
                                 >
                                     <div className="house-block-name">{house.model_name}</div>
                                     <div className="house-block-details">
@@ -68,7 +82,9 @@ export const HouseList = ({
                             </div>
                         )
                     }
-                })}
+                )}
             </div>
+            <div className="houses-number">{filteredHouses.length} / HIDDEN: {data.length - filteredHouses.length}</div>
+        </>
     )
 }

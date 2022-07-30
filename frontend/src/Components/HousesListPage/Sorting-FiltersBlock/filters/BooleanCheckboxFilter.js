@@ -19,15 +19,11 @@ export const BooleanCheckboxFilter = ({
             case "kitchen_living_room":
                 return "is kitchen connected with living room?"
             case "tech_room":
-                return "has a technical room?"
-            case "laundry":
-                return "has a landry?"
+                return "house has a technical room?"
             case "terrace":
-                return "has a terrace?"
-            case "fireplace":
-                return "has a fireplace?"
+                return "house has a terrace?"
             case "garage":
-                return "has a garage?"
+                return "house has a garage?"
             default:
                 return param
         }

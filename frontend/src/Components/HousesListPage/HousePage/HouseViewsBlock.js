@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useKey } from "../../hooks/useKey";
 import { useMouse } from "../../hooks/useMouse";
 
-
 export const HouseViewsBlock = ({data}) => {
 
     console.log("HouseViews")
@@ -28,47 +27,53 @@ export const HouseViewsBlock = ({data}) => {
             : `IMAGES ${viewIndex+1}/${images.length}`
     }
 
-    return (
-        <>
-        <div className='house-views'>
-            <div className="prev-view" onClick={() => prevImage(views)}></div>
-            <div className="next-view" onClick={() => nextImage(views)}></div>
-            <div className="house-view-counter">{viewCounter(images)}</div>
-            {views.map((view, index) => {
-                return (
-                    <img
-                        src={view}
-                        alt={`${data.model_name}_view`}
-                        key={index}
-                        className={`${index === viewIndex
-                            ? "house-view-current"
-                            : "house-view"}`}
-                    />
-                )
-            })}
-        </div>
-        <div className="house-views-slider">
-            {views.map((view, index) => {
-                return (
-                    <div key={index}>
+    if (data.images.length == 0) {
+        return (
+            <div className="house-has-no-views">HOUSE HAS NO VIEWS</div>
+        )
+    } else {
+        return (
+            <>
+            <div className='house-views'>
+                <div className="prev-view" onClick={() => prevImage(views)}></div>
+                <div className="next-view" onClick={() => nextImage(views)}></div>
+                <div className="house-view-counter">{viewCounter(images)}</div>
+                {views.map((view, index) => {
+                    return (
                         <img
-                            className={`${index === viewIndex
-                                ? "house-views-slider-view-current"
-                                : "house-views-slider-view"}`}
                             src={view}
-                            onClick={()=> {
-                                setViewIndex(index)
-                            }}
+                            alt={`${data.model_name}_view`}
+                            key={index}
+                            className={`${index === viewIndex
+                                ? "house-view-current"
+                                : "house-view"}`}
                         />
-                        <div
-                        className={`${index === viewIndex
-                                ? "house-views-slider-view-underscore-current"
-                                : "house-views-slider-view-underscore"}`}
-                        ></div>
-                    </div>
-                )
-            })}
-        </div>
-        </>
-    )
+                    )
+                })}
+            </div>
+            <div className="house-views-slider">
+                {views.map((view, index) => {
+                    return (
+                        <div className="house-views-slide" key={index}>
+                            <img
+                                className={`${index === viewIndex
+                                    ? "house-views-slide-view-current"
+                                    : "house-views-slide-view"}`}
+                                src={view}
+                                onClick={()=> {
+                                    setViewIndex(index)
+                                }}
+                            />
+                            <div
+                            className={`${index === viewIndex
+                                    ? "house-views-slide-view-underscore-current"
+                                    : "house-views-slide-view-underscore"}`}
+                            ></div>
+                        </div>
+                    )
+                })}
+            </div>
+            </>
+        )
+    }
 }

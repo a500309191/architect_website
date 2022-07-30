@@ -80,6 +80,7 @@ def createHouses(directory, foreignKeysValues=foreignKeysValues):
 	createPlans(housesDirs, firstHouseId)
 
 
+# to django shell
 # from arch.startContentFiller.contentFiller import *
 
 

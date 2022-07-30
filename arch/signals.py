@@ -8,8 +8,8 @@ import os
 
 @receiver(pre_delete, sender=Image)
 def image_delete(instance, **kwargs):
-    instance.image.delete(False)
-    instance.image_thumbnail.delete(False)
+    instance.original.delete(False)
+    instance.thumbnail.delete(False)
     remove_empty_folders()
 
 @receiver(pre_delete, sender=Plan)

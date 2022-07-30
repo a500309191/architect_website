@@ -29,7 +29,6 @@ class HouseSerializer(serializers.ModelSerializer):
     class Meta:
         model = House
         exclude = ["time_create", "time_update"]
-        # depth = 1
 
 
 

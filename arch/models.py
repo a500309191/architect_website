@@ -19,40 +19,22 @@ class House(models.Model):
                 choiceTuple += (i,)
         return choiceTuple
 
-    model_name = models.CharField(max_length=50,
-                             verbose_name="Model name")
+    model_name = models.CharField(max_length=50, unique=True, verbose_name="Model name")
     area = models.FloatField(default=0.00)
-    floors = models.IntegerField(choices=makeChoice(5),
-                                 verbose_name="Floors",
-                                 default=1)
-    material = models.ForeignKey('Material',
-                                 on_delete=models.CASCADE,
-                                 verbose_name="Material type",
-                                 null=True)
-    style = models.ForeignKey('Style',
-                              on_delete=models.CASCADE,
-                              verbose_name="Architectural style",
-                              null=True)
-    roof = models.ForeignKey('Roof',
-                             on_delete=models.CASCADE,
-                             verbose_name="Roof type",
-                             null=True)
-    entrance = models.IntegerField(choices=makeChoice(5),
-                                   verbose_name="Number of entrances",
-                                   default=1)
-    bedroom = models.IntegerField(choices=makeChoice(10),
-                                  verbose_name="Number of bedrooms",
-                                  default=1)
-    bathroom = models.IntegerField(choices=makeChoice(10),
-                                  verbose_name="Number of bathrooms",
-                                  default=1)
+    floors = models.IntegerField(choices=makeChoice(5), verbose_name="Floors", default=1)
+    material = models.ForeignKey('Material', on_delete=models.CASCADE, verbose_name="Material type", null=True)
+    style = models.ForeignKey('Style', on_delete=models.CASCADE, verbose_name="Architectural style", null=True)
+    roof = models.ForeignKey('Roof', on_delete=models.CASCADE, verbose_name="Roof type", null=True)
+    entrance = models.IntegerField(choices=makeChoice(5), verbose_name="Number of entrances", default=1)
+    bedroom = models.IntegerField(choices=makeChoice(10), verbose_name="Number of bedrooms", default=1)
+    bathroom = models.IntegerField(choices=makeChoice(10), verbose_name="Number of bathrooms", default=1)
 
     #checkbox fields
-    quest = "Does house have a..."
+    question = "Does house have a "
     kitchen_living_room = models.BooleanField(default=True, verbose_name="Kitchen connected to living room",)
-    tech_room = models.BooleanField(default=True, verbose_name=f"{quest} technical room",)
-    terrace = models.BooleanField(default=False, verbose_name=f"{quest} terrace",)
-    garage = models.BooleanField(default=False, verbose_name=f"{quest} garage",)
+    tech_room = models.BooleanField(default=True, verbose_name=f"{question} technical room",)
+    terrace = models.BooleanField(default=False, verbose_name=f"{question} terrace",)
+    garage = models.BooleanField(default=False, verbose_name=f"{question} garage",)
 
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
@@ -104,25 +86,9 @@ class PathRename:
 
 
 class Image(models.Model):
-    house = models.ForeignKey("House",
-                              on_delete=models.CASCADE,
-                              related_name="images",
-                              help_text="Please attach images",
-                              verbose_name="HousePage",
-                              null=True,
-                              blank=False)
-    original = models.ImageField(null=True,
-                              blank=True,
-                              upload_to=PathRename(field="original",
-                                                   path="images",
-                                                   suffix="image",
-                                                   ext="original"))
-    thumbnail = models.ImageField(null=True,
-                                  blank=True,
-                                  upload_to=PathRename(field="thumbnail",
-                                                       path="images/thumbnails",
-                                                       suffix="thumb",
-                                                       ext="jpg"))
+    house = models.ForeignKey("House", on_delete=models.CASCADE, related_name="images", help_text="Please attach images", verbose_name="HousePage", null=True, blank=False)
+    original = models.ImageField(null=True, blank=True, upload_to=PathRename(field="original", path="images", suffix="image", ext="original"))
+    thumbnail = models.ImageField(null=True, blank=True, upload_to=PathRename(field="thumbnail", path="images/thumbnails", suffix="thumb", ext="jpg"))
     time_update = models.DateTimeField(auto_now=True)
 
     def pure_save(self, *args, **kwargs):
@@ -138,12 +104,7 @@ class Image(models.Model):
         img.thumbnail(output_size)
         img.save(output_thumb, format="JPEG", quality=90)
 
-        self.thumbnail = InMemoryUploadedFile(output_thumb,
-                                              "ImageField",
-                                              "thumbnail",
-                                              None,
-                                              sys.getsizeof(output_thumb),
-                                              None)
+        self.thumbnail = InMemoryUploadedFile(output_thumb, "ImageField", "thumbnail", None, sys.getsizeof(output_thumb), None)
         super().save()
 
     def __str__(self):
@@ -151,19 +112,8 @@ class Image(models.Model):
 
 
 class Plan(models.Model):
-    house = models.ForeignKey("House",
-                              on_delete=models.CASCADE,
-                              related_name="plans",
-                              help_text="Please attach drawings",
-                              verbose_name="HousePage",
-                              null=True,
-                              blank=False)
-    plan = models.ImageField(null=True,
-                             blank=True,
-                             upload_to=PathRename(field="plan",
-                                                  path="plans",
-                                                  suffix="plan",
-                                                  ext="original"))
+    house = models.ForeignKey("House", on_delete=models.CASCADE, related_name="plans", help_text="Please attach drawings", verbose_name="HousePage", null=True, blank=False)
+    plan = models.ImageField(null=True, blank=True, upload_to=PathRename(field="plan", path="plans", suffix="plan", ext="original"))
     time_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -171,23 +121,17 @@ class Plan(models.Model):
 
 
 class Material(models.Model):
-    name = models.CharField(max_length=30,
-                            help_text="Input material type",
-                            verbose_name="Material type")
+    name = models.CharField(max_length=30, help_text="Input material type", verbose_name="Material type")
     def __str__(self):
         return self.name
 
 
 class Style(models.Model):
-    name = models.CharField(max_length=30,
-                            help_text="Input architectural style",
-                            verbose_name="Architectural style")
+    name = models.CharField(max_length=30, help_text="Input architectural style", verbose_name="Architectural style")
     def __str__(self):
         return self.name
 
 class Roof(models.Model):
-    name = models.CharField(max_length=30,
-                            help_text="Input roof type",
-                            verbose_name="Roof type")
+    name = models.CharField(max_length=30, help_text="Input roof type", verbose_name="Roof type")
     def __str__(self):
         return self.name
