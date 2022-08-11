@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/dev.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
