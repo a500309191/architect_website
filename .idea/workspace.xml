@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/react_build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/react_build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/react_build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/react_build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/react_build/static/css/main.1a02fa7d.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/react_build/static/css/main.99fba61e.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/react_build/static/css/main.1a02fa7d.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/react_build/static/css/main.99fba61e.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static.rar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
