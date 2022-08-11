@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useMemo } from "react";
+import React, {useState, useMemo } from "react";
 import { Fetch } from "./../Fetch";
 import { FiltersBlock } from "./Sorting-FiltersBlock/FiltersBlock";
 import { SortingBlock } from "./Sorting-FiltersBlock/SortingBlock";
-import { HouseList } from "./HouseList";
+import { HousesList } from "./HousesList";
 import { NoHouses } from "./NoHouses";
 import { getBooleanFilters } from "./Sorting-FiltersBlock/filters/functions/getBooleanFilters";
 import { shuffleArray } from "./functions/shuffleArray";
@@ -12,16 +12,16 @@ export const HousesListPage = () => {
 
     return (
         <Fetch
-            uri = 'http://127.0.0.1:8000/api/houses/'
+            uri = '/arch/api/houses/'
             renderSuccess = {({ data }) => {
-                if (data.length > 0) return <HouseListPageView data={data}/>
+                if (data.length > 0) return <HousesListPageView data={data}/>
                 else return <NoHouses />
             }}
         />
     )
 }
 
-const HouseListPageView = ({data}) => {
+const HousesListPageView = ({data}) => {
 
     const _data = useMemo(() => {
         return data
@@ -70,7 +70,7 @@ const HouseListPageView = ({data}) => {
                     areaFilterCollector={e => setAreaFilter(e)}
                 />
             </div>
-            <HouseList
+            <HousesList
                 data={sortingData}
                 multipleCheckboxFilters={multipleCheckboxFilters}
                 booleanCheckboxFilters={booleanCheckboxFilters}

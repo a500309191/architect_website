@@ -14,6 +14,8 @@ from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv, find_dotenv
 import os
+import cloudinary_storage
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -28,13 +30,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'debug_toolbar',
+    'cloudinary_storage',
+    'cloudinary',
+    # 'debug_toolbar',
     'arch',
     'django_extensions',
     'rest_framework',
     'corsheaders',
-
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
+        'DIRS': [ BASE_DIR / 'frontend/react_build' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,16 +88,6 @@ load_dotenv(find_dotenv())
 
 # DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600, ssl_require=False)}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'architect_website_db',
-        'USER': 'root',
-        'PASSWORD': '00005000',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -137,7 +129,9 @@ MEDIA_URL = 'media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR /'staticfiles'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+    BASE_DIR / 'frontend/react_build/static/'
+]
 
 
 # Default primary key field type
@@ -146,16 +140,18 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #DJDT
-INTERNAL_IPS = [
-    '127.0.0.1',
-    '127.0.0.1:8000',
-]
+# INTERNAL_IPS = [
+#     '127.0.0.1',
+#     '127.0.0.1:8000',
+# ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = (
 #        'localhost:3000',
 # )
 
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # this is the main reason for not showing up the toolbar
 import mimetypes

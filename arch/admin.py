@@ -1,11 +1,12 @@
 from django.contrib import admin
-from . models import House, Image, Plan, Material, Style
+from . models import House, Image, Plan, Material, Style, Roof
 
 # admin.site.register(HousePage)
 # admin.site.register(Image)
 #admin.site.register(Drawing)
 admin.site.register(Material)
 admin.site.register(Style)
+admin.site.register(Roof)
 
 
 

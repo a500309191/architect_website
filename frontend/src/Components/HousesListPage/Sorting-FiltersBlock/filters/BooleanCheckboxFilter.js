@@ -52,7 +52,7 @@ export const BooleanCheckboxFilter = ({
                                     }
                                     if (!input1.checked) {
                                         filters[param]
-                                        = filters[param].filter(item => item != true)
+                                        = filters[param].filter(item => item !== true)
                                     }
                                     return { ...filters }
                                 }
@@ -71,7 +71,7 @@ export const BooleanCheckboxFilter = ({
                                     }
                                     if (!input2.checked) {
                                         filters[param]
-                                        = filters[param].filter(item => item != false)
+                                        = filters[param].filter(item => item !== false)
                                     }
                                     return { ...filters }
                                 }

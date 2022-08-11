@@ -3,6 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/startContentFiller/contentFiller.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/startContentFiller/contentFiller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HouseList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HousePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HousePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HouseViewsBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousePage/HouseViewsBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousesListPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/HousesListPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/FiltersBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/FiltersBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/SortingBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/SortingBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/AreaFilter/AreaFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/AreaFilter/AreaFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/BooleanCheckboxFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/BooleanCheckboxFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/MultipleCheckboxFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/Sorting-FiltersBlock/filters/MultipleCheckboxFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/functions/sortArray.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/HousesListPage/functions/sortArray.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MainPage/githubUserBlock/UserRepositories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/MainPage/githubUserBlock/UserRepositories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/hooks/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/hooks/useFetch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/hooks/useKey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/hooks/useKey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/hooks/useMouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/hooks/useMouse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

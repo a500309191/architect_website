@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { getFilterParams } from "./functions/getFilterParams";
 
 export const MultipleCheckboxFilter = ({
@@ -34,17 +34,17 @@ export const MultipleCheckboxFilter = ({
                             onClick={() => {
                                 let check
 
-                                if (filterDict[filterType].length == 0) {
+                                if (filterDict[filterType].length === 0) {
                                     setMemoFilterList([...memoFilterList, filterType])
                                     check = true
                                 }
-                                if (filterDict[filterType] == filterParamsList) {
-                                    setMemoFilterList(memoFilterList.filter(item => item != filterType))
+                                if (filterDict[filterType] === filterParamsList) {
+                                    setMemoFilterList(memoFilterList.filter(item => item !== filterType))
                                     check = false
                                 }
 
                                 if (check) {
-                                    setMemoFilterList(memoFilterList.filter(item => item != filterType))
+                                    setMemoFilterList(memoFilterList.filter(item => item !== filterType))
                                     setFilterDict(filterDict => {
                                         filterDict[filterType] = filterParamsList
                                         return { ...filterDict }
@@ -88,7 +88,7 @@ export const MultipleCheckboxFilter = ({
                                                 }
                                                 if (!input.checked) {
                                                     filterDict[filterType]
-                                                    = filterDict[filterType].filter(item => item != param)
+                                                    = filterDict[filterType].filter(item => item !== param)
                                                 }
 
                                                 return { ...filterDict }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { getHousesAreas } from "../functions/getHousesAreas";
 import MultiRangeSlider from "./MultiRangeSlider/MultiRangeSlider";
 

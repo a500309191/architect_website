@@ -25,13 +25,13 @@ export const SortingBlock = ({
     }
 
     const sortingTypeText = sortingType => {
-        if (sortingType == "random") {
+        if (sortingType === "random") {
             return "RANDOM SORTING"
-        } else if (sortingType == "area") {
+        } else if (sortingType === "area") {
             return "AREA SORTING:"
-        } else if (sortingType == "bedroom") {
+        } else if (sortingType === "bedroom") {
             return "BEDROOM SORTING:"
-        } else if (sortingType == "bathroom") {
+        } else if (sortingType === "bathroom") {
             return "BATHROOM SORTING:"
         }
     }
@@ -94,8 +94,8 @@ export const SortingBlock = ({
             </div>
             <div className="sorting-info">
                 {sortingTypeText(sortingType)}
-                {sortingType != "random"
-                    ? `${sortingList.length != 0 ? " MAX TO MIN" : " MIN TO MAX"}`
+                {sortingType !== "random"
+                    ? `${sortingList.length !== 0 ? " MAX TO MIN" : " MIN TO MAX"}`
                     : ""
                 }
             </div>

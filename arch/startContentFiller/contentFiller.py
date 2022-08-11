@@ -82,6 +82,7 @@ def createHouses(directory, foreignKeysValues=foreignKeysValues):
 
 # to django shell
 # from arch.startContentFiller.contentFiller import *
+# createHouses(dir)
 
 
 

@@ -14,8 +14,8 @@ export const HouseViewsBlock = ({data}) => {
     const plans = data.plans
     const views = [...images, ...plans]
 
-    const prevImage = views => {setViewIndex(prev => prev == 0 ? views.length-1 : prev-1)}
-    const nextImage = views => {setViewIndex(prev => prev == views.length-1 ? 0 : prev+1)}
+    const prevImage = views => {setViewIndex(prev => prev === 0 ? views.length-1 : prev-1)}
+    const nextImage = views => {setViewIndex(prev => prev === views.length-1 ? 0 : prev+1)}
 
     useKey("ArrowLeft", () => prevImage(views))
     useKey("ArrowRight", () => nextImage(views))
@@ -27,7 +27,7 @@ export const HouseViewsBlock = ({data}) => {
             : `IMAGES ${viewIndex+1}/${images.length}`
     }
 
-    if (data.images.length == 0) {
+    if (data.images.length === 0) {
         return (
             <div className="house-has-no-views">HOUSE HAS NO VIEWS</div>
         )

@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
 import { MultipleCheckboxFilter } from "./filters/MultipleCheckboxFilter";
 import { BooleanCheckboxFilter } from "./filters/BooleanCheckboxFilter";
 import { AreaFilter } from "./filters/AreaFilter/AreaFilter";

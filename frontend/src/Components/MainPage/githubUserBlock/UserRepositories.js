@@ -15,8 +15,8 @@ export const UserRepositories = ({ login }) => {
 const RepoMenu = ({repos}) => {
 
     const [index, setIndex] = useState(0)
-    const prevRepo = repos => {setIndex(prev => prev == 0 ? repos.length-1 : prev-1)}
-    const nextRepo = repos => {setIndex(prev => prev == repos.length-1 ? 0 : prev+1)}
+    const prevRepo = repos => {setIndex(prev => prev === 0 ? repos.length-1 : prev-1)}
+    const nextRepo = repos => {setIndex(prev => prev === repos.length-1 ? 0 : prev+1)}
 
     console.log(repos)
 

@@ -250,7 +250,7 @@ color: black
 .house-has-no-views,
 .no-houses,
 .page-not-found,
-.house-not-found, 
+.house-not-found,
 .loading {
 display: flex;
 justify-content: center;
@@ -659,7 +659,7 @@ position: relative;
 }
 .house-view {
 position: absolute;
-opacity: 0;
+display: none;
 }
 .house-view,
 .house-view-current {
@@ -671,7 +671,7 @@ transition-duration: 0.5s;
 position: absolute;
 left: 0;
 height: 100%;
-width: 50%;
+width: 25%;
 opacity: 0;
 background-color: #ebedf4;
 z-index: 2;
@@ -681,7 +681,7 @@ transition-duration: 0.2s;
 position: absolute;
 right: 0;
 height: 100%;
-width: 50%;
+width: 25%;
 /*opacity: 0.3;*/
 opacity: 0;
 background-color: #ebedf4;
