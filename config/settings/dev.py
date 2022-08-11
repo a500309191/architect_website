@@ -4,7 +4,7 @@ from decouple import config
 SECRET_KEY = 'abc'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
-from decouple import config
+
 
 # DATABASES = {
 #     'default': {
