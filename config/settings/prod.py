@@ -70,6 +70,6 @@ LOGGING = {
 }
 
 # Heroku_Settings
-# django_on_heroku.settings(locals(), staticfiles=False)
-# del DATABASES['default']['OPTIONS']['sslmode']
+django_on_heroku.settings(locals(), staticfiles=False)
+del DATABASES['default']['OPTIONS']['sslmode']
 
