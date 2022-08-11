@@ -86,7 +86,7 @@ load_dotenv(find_dotenv())
 #     }
 # }
 
-# DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600, ssl_require=False)}
+DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600, ssl_require=False)}
 
 
 # Password validation
@@ -150,6 +150,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 #        'localhost:3000',
 # )
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('CLOUD_API_KEY'),
+    'API_SECRET': config('CLOUD_API_SECRET')
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
