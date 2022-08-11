@@ -652,10 +652,17 @@ opacity: 0.6;
 
 .house-views {
 display: flex;
+justify-content: center;
+align-items: center;
 grid-template-rows: auto;
 align-items: baseline;
 grid-column: 2 / 3;
 position: relative;
+transition-duration: 0.3s;
+background-color: rgba(235, 237, 244, 0.5);
+}
+.house-views:hover {
+background-color: rgba(235, 237, 244, 0.8);
 }
 .house-view {
 position: absolute;
@@ -663,8 +670,10 @@ display: none;
 }
 .house-view,
 .house-view-current {
-width: 100%;
+position: relative;
+max-width: 100%;
 height: auto;
+max-height: 70vh;
 transition-duration: 0.5s;
 }
 .prev-view {
@@ -893,6 +902,10 @@ top: 100%;
     }
     .house-view-counter {
     font-size: 12;
+    }
+    .house-view,
+    .house-view-current {
+    max-height: 55vh;
     }
 }
 
