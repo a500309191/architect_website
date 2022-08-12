@@ -1,6 +1,11 @@
 ::-webkit-scrollbar {
-  display: none;
+display: none;
 }
+* {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
 
 [type=checkbox] {
 -webkit-appearance: none;
@@ -42,15 +47,79 @@ grid-template-rows: 30px 60px 20px auto;
 }
 
 
-.github-block {
-grid-column: 1 / 2;
+
+.house-has-no-views,
+.no-houses,
+.page-not-found,
+.house-not-found,
+.loading {
 display: flex;
-flex-direction: column;
-/*grid-template-rows: 40px 250px 1fr auto;*/
-gap: 6px
+justify-content: center;
+align-items: center;
+height: 500px;
+opacity: 0.6;
+font-weight: bold;
+font-size: 40;
+color: white;
 }
-.github-block-header {
-grid-row: 1 / 2;
+.house-has-no-views,
+.no-houses,
+.page-not-found,
+.house-not-found {
+background: linear-gradient(-70deg, #E16ADF, #BCBDC1, #BDE1B0, #BCBDC1, #E1C98D);
+background-position: right;
+background-size: 300% 300%;
+animation-name: no-window;
+animation-duration: 2.5s;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+animation-direction: alternate;
+}
+@keyframes no-window {
+from {background-position: 0% 100%;}
+to {background-position: 100% 0%;}
+}
+.loading {
+background: linear-gradient(70deg, #F2F2F2, #BCBDC1, #F2F2F2);
+background-position: right;
+background-size: 250% 250%;
+animation-name: loading-window;
+animation-duration: 2.5s;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+animation-direction: alternate;
+}
+@keyframes loading-window {
+from {background-position: 0% 100%;}
+to {background-position: 100% 0%;}
+}
+
+
+.content {
+display: grid;
+grid-row: 4 / 5;
+grid-column: 2 / 3;
+}
+
+.header {
+display: grid;
+grid-template-columns: 250px 1fr;
+align-content: center;
+gap: 6px;
+grid-row-start: 2;
+grid-column: 2 / 3;
+}
+.header-about {
+grid-column: 1 / 2;
+}
+.header-houses,
+.header-back-to-houses {
+grid-column: 2 / 3;
+}
+
+.header-about,
+.header-houses,
+.header-back-to-houses {
 display: flex;
 text-align: center;
 justify-content: center;
@@ -58,10 +127,51 @@ align-items: center;
 text-decoration: none;
 color: black;
 font-weight: bold;
-font-size: 30;
+font-size: 40;
 opacity: 0.45;
 background-color: #ebedf4;
 transition-duration: 0.2s;
+}
+.header-back-to-houses {
+animation-name: header-back-button;
+animation-duration: 0.8s;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+animation-direction: alternate;
+}
+@keyframes header-back-button {
+from {background-color: #ebedf4;}
+to {background-color: #BABCC1;}
+}
+.header-about:hover,
+.header-houses:hover {
+opacity: 0.8;
+}
+
+.active {
+background-color: #caccd4;
+opacity: 0.6;
+}
+
+.about-page,
+.houses-list-page {
+display: grid;
+gap: 6px;
+grid-template-columns: 250px 1fr;
+grid-template-rows: 81.5vh;
+/*grid-template-rows: 50%;*/
+}
+
+.info-content {
+grid-row: 2 / 3;
+grid-column: 1 / 2;
+}
+.github-block {
+grid-column: 1 / 2;
+display: flex;
+flex-direction: column;
+/*grid-template-rows: 40px 250px 1fr auto;*/
+gap: 6px
 }
 .user-photo {
 grid-row: 2 / 3;
@@ -148,7 +258,6 @@ left: 0;
 .next-button {
 right: 0;
 }
-.github-block-header:hover,
 .user-photo:hover,
 .user-details > div:hover,
 .user-details > a:hover,
@@ -158,15 +267,20 @@ right: 0;
 .next-button:hover {
 opacity: 1;
 }
-
-.summary-block {
-grid-column: 2 / 3;
-display: flex;
-flex-direction: column;
+.info-block {
+display: grid;
+grid-template-rows: auto 1fr;
+grid-template-columns: 1fr;
 gap: 6px;
 }
-.summary-header {
-grid-row: 1 / 2;
+.info-block-headers {
+display: flex;
+justify-content: space-around;
+gap: 6px;
+}
+.github-block-header,
+.info-block-header,
+.info-block-header-active {
 display: flex;
 text-align: center;
 justify-content: center;
@@ -176,10 +290,19 @@ color: black;
 font-weight: bold;
 font-size: 30;
 opacity: 0.45;
+width: 100%;
 background-color: #ebedf4;
 transition-duration: 0.2s;
 }
-.summary-content {
+.info-block-header-active {
+background-color: #caccd4;
+opacity: 0.6;
+}
+.github-block-header:hover,
+.info-block-header:hover {
+opacity: 0.8;
+}
+.info-block {
 display: flex;
 flex-direction: column;
 gap: 6px;
@@ -187,51 +310,41 @@ color: #2A2A2A;
 opacity: 0.7;
 overflow-y: scroll;
 }
+.website-info-content > div>
 .summary-content > div {
-margin-bottom: 6px;
+margin-bottom: 8px;
 }
-.summary-header {
-grid-row: 1 / 2;
-display: flex;
-text-align: center;
-justify-content: left;
-align-items: center;
-text-decoration: none;
-color: black;
-font-weight: bold;
-font-size: 30;
-font-color: black;
-background-color: #ebedf4;
-transition-duration: 0.2s;
-}
-.about-myself {
+.content-info {
 display: flex;
 flex-direction: column;
 gap: 6px;
 }
-.about-myself-header {
+.content-info-header {
 transition-duration: 0.2s;
 }
-.about-myself-list {
+.content-info-list {
 display: flex;
 flex-direction: column;
 gap: 4px;
+margin-top: 10px;
+margin-bottom: 4px;
 margin-left: 30px;
 }
-.about-myself-list > div {
+.content-info-list > div {
 background-color: #ebedf4;
+margin-bottom: 6px;
 font-weight: bold;
 font-size: 20;
 transition-duration: 0.2s;
 }
-.link-to {
+.red-link-to {
 background-color: #ebedf4;
 font-weight: bold;
 font-size: 20;
 text-decoration: none;
 color: #8D8D8D;
 transition-duration: 0.2s;
-text-decoration: underline;
+margin-bottom: 6px;
 }
 strong {
 background-color: #D99797;
@@ -246,121 +359,14 @@ strong:hover {
 background-color: #E48787;
 color: black
 }
-
-.house-has-no-views,
-.no-houses,
-.page-not-found,
-.house-not-found,
-.loading {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 500px;
-opacity: 0.6;
-font-weight: bold;
-font-size: 40;
-color: white;
-}
-.house-has-no-views,
-.no-houses,
-.page-not-found,
-.house-not-found {
-background: linear-gradient(-70deg, #E16ADF, #BCBDC1, #BDE1B0, #BCBDC1, #E1C98D);
-background-position: right;
-background-size: 300% 300%;
-animation-name: no-window;
-animation-duration: 2.5s;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;
-animation-direction: alternate;
-}
-@keyframes no-window {
-from {background-position: 0% 100%;}
-to {background-position: 100% 0%;}
-}
-.loading {
-background: linear-gradient(70deg, #F2F2F2, #BCBDC1, #F2F2F2);
-background-position: right;
-background-size: 250% 250%;
-animation-name: loading-window;
-animation-duration: 2.5s;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;
-animation-direction: alternate;
-}
-@keyframes loading-window {
-from {background-position: 0% 100%;}
-to {background-position: 100% 0%;}
-}
-
-
-.content {
-display: grid;
-grid-row: 4 / 5;
-grid-column: 2 / 3;
-}
-
-.header {
-display: grid;
-grid-template-columns: 250px 1fr;
-align-content: center;
-gap: 6px;
-grid-row-start: 2;
-grid-column: 2 / 3;
-}
-.header-main {
-grid-column: 1 / 2;
-}
-.header-houses,
-.header-back-to-houses {
-grid-column: 2 / 3;
-}
-
-.header-main,
-.header-houses,
-.header-back-to-houses {
-display: flex;
-text-align: center;
-justify-content: center;
-align-items: center;
-text-decoration: none;
-color: black;
-font-weight: bold;
-font-size: 40;
-opacity: 0.45;
+main {
 background-color: #ebedf4;
+margin-bottom: 3px;
+font-weight: bold;
+font-size: 20;
 transition-duration: 0.2s;
 }
-.header-back-to-houses {
-animation-name: header-back-button;
-animation-duration: 0.8s;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;
-animation-direction: alternate;
-}
-@keyframes header-back-button {
-from {background-color: #ebedf4;}
-to {background-color: #BABCC1;}
-}
-.header-main:hover,
-.header-houses:hover {
-opacity: 0.8;
-}
-.header-house  active,
-.header-main  active {
-background-color: #caccd4;
-opacity: 0.6;
-animation-name: stop;
-}
 
-.main-page,
-.houses-list-page {
-display: grid;
-gap: 6px;
-grid-template-columns: 250px 1fr;
-grid-template-rows: 81.5vh;
-/*grid-template-rows: 50%;*/
-}
 
 .houses-number {
 right: 0;
@@ -623,14 +629,17 @@ grid-row: 2 / 3;
 .house-common-info,
 .house-composition-1,
 .house-composition-2 {
-margin: 8;
+}
+.house-composition-1 > li,
+.house-composition-2 > li {
+margin-bottom: 4px;
 }
 .house-composition-1 {
 grid-column: 1 / 2;
 grid-row: 4 / 5;
 position: absolute;
 bottom: 0;
-margin-bottom: -8;
+margin-bottom: -15px;
 }
 .house-composition-2 {
 grid-column: 1 / 2;
@@ -892,6 +901,9 @@ top: 100%;
     .house-composition-2 {
     grid-row: 2 / 3;
     }
+    .house-common-info {
+    margin-top: 12px;
+    }
     .house-composition-1 {
     grid-column: 2 / 3;
     position: initial;
@@ -910,7 +922,7 @@ top: 100%;
 }
 
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 820px) {
     .app {
         grid-template-rows: 20px auto 20px auto;
         grid-template-columns: minmax(10px, 15%) 1fr minmax(10px, 15%);
@@ -921,14 +933,14 @@ top: 100%;
         grid-template-columns: minmax(256px, 1fr);
         grid-template-rows: 1fr 1fr;
     }
-    .header-main {
+    .header-about {
         grid-row-start: 1;
     }
     .header-houses,
     .header-back-to-houses {
         grid-row-start: 2;
     }
-    .header-main,
+    .header-about,
     .header-houses,
     .header-back-to-houses {
         grid-column: 1 / 4;
@@ -936,7 +948,7 @@ top: 100%;
     .houses-number {
     display: none;
     }
-    .main-page {
+    .about-page {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     gap: 12px;
@@ -944,11 +956,11 @@ top: 100%;
     .github-block {
     grid-row: 1 / 2;
     }
-    .summary-block {
+    .info-block {
     grid-row: 2 / 3;
     }
     .github-block,
-    .summary-block {
+    .info-block {
     grid-column: 1 / 2;
     }
     .filters-collector {
@@ -991,6 +1003,9 @@ top: 100%;
 }
 
 @media screen and (max-width: 550px) {
+    .info-block-headers {
+    flex-direction: column;
+    }
     .sorting-block {
     grid-column: 1 / 2;
     grid-row: 1 / 2;

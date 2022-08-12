@@ -1,6 +1,6 @@
 import './App.css';
 import { Header } from './components/Header';
-import { MainPage } from './components/MainPage/MainPage';
+import { AboutPage } from './components/AboutPage/AboutPage';
 import { HousesListPage } from './components/HousesListPage/HousesListPage';
 import { HousePage } from './components/HousesListPage/HousePage/HousePage';
 import { PageNotFound } from './components/PageNotFound';
@@ -14,7 +14,7 @@ function App() {
             </div>
             <div className="content">
                 <Routes>
-                    <Route path='/' element={<MainPage/>}/>
+                    <Route path='/' element={<AboutPage/>}/>
                     <Route path='/houses' element={<HousesListPage/>}/>
                     <Route path='/houses/:model_name' element={<HousePage />}/>
                     <Route path='*' element={<PageNotFound />}/>

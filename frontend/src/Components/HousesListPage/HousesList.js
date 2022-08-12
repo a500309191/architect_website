@@ -18,9 +18,9 @@ export const HousesList = ({
     const multipleCheckbox = multipleCheckboxFilters ? JSON.parse(multipleCheckboxFilters) : {}
     const booleanCheckbox = booleanCheckboxFilters ? JSON.parse(booleanCheckboxFilters) : {}
 
-    console.log(area)
-    console.log(multipleCheckbox)
-    console.log(booleanCheckbox)
+    console.log("area-filter: ", area)
+    console.log("multipleCheckbox-filter: ", multipleCheckbox)
+    console.log("booleanCheckbox-filter: ", booleanCheckbox)
 
     const sortingTypeText = (house, sortingType) => {
         if (sortingType === "random") {

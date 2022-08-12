@@ -12,10 +12,10 @@ export const Header = () => {
     return (
         <>
             <NavLink
-                className="header-main"
+                className="header-about"
                 to="/"
             >
-                MAIN
+                ABOUT
             </NavLink>
             <NavLink
                 className={`${checkIsHousePage() ? "header-back-to-houses" : "header-houses"}`}

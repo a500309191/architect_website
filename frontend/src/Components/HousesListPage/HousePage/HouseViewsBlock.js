@@ -4,11 +4,7 @@ import { useMouse } from "../../hooks/useMouse";
 
 export const HouseViewsBlock = ({data}) => {
 
-    console.log("HouseViews")
-
     const [viewIndex, setViewIndex] = useState(0)
-
-
     const getImages = data => data.images.map((image, index) => image["original"])
     const images = getImages(data)
     const plans = data.plans

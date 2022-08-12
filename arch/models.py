@@ -159,7 +159,7 @@ class Image(models.Model):
         super().save()
 
     def __str__(self):
-        return str(self.pk)
+        return f"{self.pk}_{self.original}"
 
 
 class Plan(models.Model):
@@ -168,7 +168,7 @@ class Plan(models.Model):
     time_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '%s' % self.plan
+        return f"{self.pk}_{self.plan}"
 
 
 class Material(models.Model):

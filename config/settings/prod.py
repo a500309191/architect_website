@@ -12,6 +12,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
+
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # LOGGING = {

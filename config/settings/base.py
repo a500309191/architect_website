@@ -165,3 +165,11 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # DEBUG_TOOLBAR_CONFIG = {
 #     "INTERCEPT_REDIRECTS": False,
 # }
+
+# REST_FRAMEWORK = {
+#     "DEFAULT_RENDERER_CLASSES": (
+#         "rest_framework.renderers.JSONRenderer",
+#     )
+# }
+
+

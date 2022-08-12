@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c99335db-b986-421a-b69f-dc5e8faa303f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/AboutPage/AboutPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/AboutPage/GithubUserBlock/GithubUserBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/AboutPage/GithubUserBlock/UserRepositories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Components/AboutPage/InfoBlock/Summary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arch/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/arch/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings/prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MainPage/MainPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MainPage/SummaryBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MainPage/githubUserBlock/GithubUserBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Components/MainPage/githubUserBlock/UserRepositories.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +75,11 @@
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MainPage" />
+      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\MainPage\aboutBlock" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\config" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\arch" />
       <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\arch\serializer" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\HousePage" />
-      <recent name="C:\P\PROJECTS\ARCHITECT_WEBSITE\frontend\src\components\HousesListPage\House" />
     </key>
   </component>
   <component name="RunManager">
